@@ -1,3 +1,5 @@
+use lifeline;
+
 -- Inserimento categorie
 INSERT INTO CATEGORY (name) VALUES
 ('Love'),
