@@ -2,7 +2,7 @@
 
 SELECT COUNT(*) = 0 FROM user WHERE user.email = "?"; --check unicità email
 SELECT COUNT(*) = 0 FROM user WHERE user.username = "?"; --check unicità username
-INSERT INTO USER (username, password, name, email, birthDate, profilePic) VALUES 
+INSERT INTO user (username, password, name, email, birthDate, profilePic) VALUES 
 ('?', '?', '?', '?', '?', '?');
 
 -- query di login
@@ -11,7 +11,7 @@ SELECT COUNT(*) = 1 FROM user WHERE user.username = "?" AND user.password = "?";
 
 -- query di creazione post
 
-INSERT INTO POST (datetime, title, description, location, image, category, username) VALUES
+INSERT INTO post (datetime, title, description, location, image, category, username) VALUES
 ('?', '?', '?', '?', '?', '?', '?');
 
 -- query di caricamento homepage
@@ -43,7 +43,7 @@ SELECT * FROM comment WHERE comment.postId = ?;
 
 -- query di aggiunta commento
 
-INSERT INTO COMMENT (postId, username, text, datetime) VALUES
+INSERT INTO comment (postId, username, text, datetime) VALUES
 (?, '?', '?', '?');
 
 INSERT INTO NOTIFICATION (datetime, text, username) VALUES
@@ -51,10 +51,10 @@ INSERT INTO NOTIFICATION (datetime, text, username) VALUES
 
 -- query di aggiunta like
 
-INSERT INTO STAR (postId, username) VALUES
+INSERT INTO star (postId, username) VALUES
 (?, '?');
 
-INSERT INTO NOTIFICATION (datetime, text, username) VALUES
+INSERT INTO notification (datetime, text, username) VALUES
 ('?', '?', '?');
 
 -- query di visualizzazione persone da taggare (tutti gli amici di una persona)
@@ -69,13 +69,12 @@ SELECT * FROM notification WHERE notification.username = "?";
 
 UPDATE notification
 SET notification.read = TRUE
-WHERE notification.read = FALSE and notification.username = "?"; --imposta tutte le notifiche a lette quando viene caricata la pagina delle notifiche.
+WHERE notification.username = "?"; --imposta tutte le notifiche a lette quando viene caricata la pagina delle notifiche.
 
 --invio richiesta d'amicizia
 
-INSERT INTO FRIENDSHIP (receiver, sender) VALUES
-('user1', 'user2'),
-('user1', 'user3');
+INSERT INTO friendship (receiver, sender) VALUES
+('user1', 'user2');
 
-INSERT INTO NOTIFICATION (datetime, text, username) VALUES
+INSERT INTO notification (datetime, text, username) VALUES
 ('?', '?', '?');
