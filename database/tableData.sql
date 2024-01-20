@@ -75,3 +75,8 @@ INSERT INTO NOTIFICATION (datetime, text, read_status, username) VALUES
 ('2024-01-04 11:00:00', 'user2 commented on your post.', 'N', 'user3'),
 ('2024-01-05 19:15:00', 'user3 commented on your post.', 'N', 'user2'),
 ('2024-01-07 10:30:00', 'user1 commented on your post.', 'N', 'user3');
+
+-- Amicizie
+INSERT INTO FRIENDSHIP (accepted, receiver, sender) VALUES
+(TRUE, 'user1', 'user2'),
+(TRUE, 'user1', 'user3');
