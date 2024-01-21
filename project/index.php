@@ -1,9 +1,4 @@
 <?php
-require_once("bootstrap.php");
-
-$templateParams["title"] = "Lifeline";
-$templateParams["active"] = "login-form.php";
-
-require("template/base.php");
-
+header("Location: home.php"); //Indirizzamento della pagina di default alla home
+exit();
 ?>

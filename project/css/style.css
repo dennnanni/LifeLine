@@ -6,4 +6,41 @@
     --grey: #919191;
     --titleFont: "Meow Script";
     --textFont: "Poppins";
-  }
+}
+
+.hidden {
+    display: none;
+}
+
+.navbar-ll {
+    background-color: var(--blue);
+}
+
+.footer-ll {
+    background-color: var(--white);
+}
+
+.navbar-brand {
+    font-family: var(--titleFont);
+    font-size: 40px;
+}
+
+.desktop {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
+@media only screen and (max-device-width: 480px) {
+    .navbar-ll {
+        background-color: var(--yellow);
+    }
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+}

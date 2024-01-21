@@ -15,7 +15,7 @@ class DatabaseHelper {
      * Return true if username is already in the database, false otherwise
      */
     public function checkUsername($username) {
-        $stmt = $this->db->prepare("SELECT COUNT(*) = 0 FROM user WHERE user.username = ?");
+        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.username = ?");
         $stmt->bind_param('s', $username);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -49,18 +49,15 @@ class DatabaseHelper {
     }
 
     /**
-     * Return true if email and password are correct, false otherwise
+     * Return the user if values are correct
      */
     public function login($email, $password) {
-        if (checkEmail($email) == false) {
-            return false; //email not found
-        }
         $stmt = $this->db->prepare("SELECT * FROM user WHERE user.username = ? AND user.password = ?");
         $stmt->bind_param('ss', $email, $password);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return mysqli_num_rows($result) == 1;
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function createPost() {
