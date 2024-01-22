@@ -17,7 +17,7 @@ INSERT INTO USER (username, password, name, email, birthDate, profilePic) VALUES
 ('user3', '3', 'User Three', 'user3@example.com', '1988-08-10', 'profile3.jpg');
 
 -- Inserimento post
-INSERT INTO POST (datetime, title, description, location, image, starsCount, commentsCount, category, username) VALUES
+INSERT INTO POST (datetime, title, description, location, image, starsCount, commentsCount, category, author) VALUES
 ('2024-01-01 12:00:00', 'Post 1', 'Description 1', 'Location 1', 'image1.jpg', 5, 3, 'Love', 'user1'),
 ('2024-01-02 14:30:00', 'Post 2', 'Description 2', 'Location 2', 'image2.jpg', 8, 2, 'Travel', 'user2'),
 ('2024-01-03 16:45:00', 'Post 3', 'Description 3', 'Location 3', 'image3.jpg', 12, 4, 'Fun', 'user3'),
