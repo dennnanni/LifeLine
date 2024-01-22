@@ -84,7 +84,7 @@ class DatabaseHelper {
      * Get a user information.
      */
     public function getUser($username) {
-        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.username = ?");
+        $stmt = $this->db->prepare("SELECT * FROM friendship WHERE user.username = ?");
         $stmt->bind_param('s', $username);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -92,8 +92,11 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    /**
+     * Return true if the users are friends, false otherwise
+     */
     public function areFriends($username1, $username2) {
-        
+       
     }
 
     /**
@@ -132,8 +135,15 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function createComment() {
-        
+    public function createComment($username, $postId, $text) {
+        $postCreator = getPost($postId)["username"];
+
+        $stmt = $this->db->prepare("INSERT INTO COMMENT (postId, username, text) VALUES (?, ?, ?)");
+        $stmt->bind_param('iss', $postId, $username, $text);
+        $stmt->execute();
+
+        createNotification(2, $username, $postCreator, $postId);
+        return $stmt->affected_rows > 0;
     }
 
     /**
@@ -141,12 +151,25 @@ class DatabaseHelper {
      * Return true if success, false otherwise
      */
     public function createStar($username, $postId) {
+        $postCreator = getPost($postId)["username"];
+
         $stmt = $this->db->prepare("INSERT INTO star (postId, username) VALUES (?, ?)");
         $stmt->bind_param('is', $postId, $username);
         $stmt->execute();
 
-        // createNotification($receiverUsername, "$senderUsername sent you a friend request.");
+        createNotification(1, $username, $postCreator, $postId);
         return $stmt->affected_rows > 0;
+    }
+
+    /**
+     * Remove a star from a post
+     */
+    public function removeStar($username, $postId) {
+        $stmt = $this->db->prepare("DELETE FROM star WHERE star.postId = ? AND star.username = ?");
+        $stmt->bind_param('is', $postId, $username);
+        $stmt->execute();
+
+        return null;
     }
 
     /**
@@ -167,7 +190,7 @@ class DatabaseHelper {
      * Return the notifications
      */
     public function getNotifications($username) {
-        $stmt = $this->db->prepare("SELECT * FROM notification WHERE notification.username = ?");
+        $stmt = $this->db->prepare("SELECT * FROM notification WHERE notification.receiver = ?");
         $stmt->bind_param('s', $username);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -180,7 +203,7 @@ class DatabaseHelper {
      * Returns nothing
      */
     public function readAllNotifications($username) {
-        $stmt = $this->db->prepare("UPDATE notification SET notification.read = 1 WHERE notification.username = ?");
+        $stmt = $this->db->prepare("UPDATE notification SET notification.read = 1 WHERE notification.receiver = ?");
         $stmt->bind_param('s', $username);
         $stmt->execute();
     }
@@ -194,7 +217,7 @@ class DatabaseHelper {
         $stmt->bind_param('ss', $sender, $receiver);
         $stmt->execute();
 
-        createNotification($receiverUsername, "$senderUsername sent you a friend request.");
+        createNotification(3, $senderUsername, $receiverUsername, null);
         return $stmt->affected_rows > 0;
     }
 
@@ -204,11 +227,17 @@ class DatabaseHelper {
      * Send a new notification to a user.
      * Return true if success, false otherwise
      */
-    private function createNotification($username, $text) {
-        $stmt = $this->db->prepare("INSERT INTO NOTIFICATION (datetime, text, username) VALUES (?, ?, ?)");
-        $stmt->bind_param('sss', date('Y-m-d H:i:s'), $text, $username);
+    private function createNotification($type, $sender, $receiver, $postId) {
+        if(is_null($postId)) {
+            $stmt = $this->db->prepare("INSERT INTO NOTIFICATION (type, sender, receiver) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param('siss', $type, $sender, $receiver);
+        }
+        else {
+            $stmt = $this->db->prepare("INSERT INTO NOTIFICATION (type, sender, receiver, postId) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param('sissi', $type, $sender, $receiver, $postId);
+        }
+        
         $stmt->execute();
-
         return $stmt->affected_rows > 0;
     }
 }
