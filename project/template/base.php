@@ -14,10 +14,8 @@
     </head>
     
     <body class="d-flex flex-column min-vh-100">
-        <?php require("header.php"); ?>
         <main>
             <?php require($templateParams["active"]); ?>
         </main>
-        <?php require("footer.php"); ?>
     </body>
 </html>
