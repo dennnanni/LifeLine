@@ -75,8 +75,13 @@ class DatabaseHelper {
         return true;//TODO: modifica
     }
 
-    public function loadHomePage() {
-        
+    public function loadHomePage($username) {
+        $stmt = $this->db->prepare("SELECT * FROM post WHERE post.author IN (SELECT friendship.sender FROM friendship WHERE friendship.receiver = ? AND friendship.accepted = TRUE UNION SELECT friendship.receiver FROM friendship WHERE friendship.sender = ? AND friendship.accepted = TRUE) ORDER BY datetime DESC");
+        $stmt->bind_param('ss', $username, $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     /**
@@ -188,7 +193,7 @@ class DatabaseHelper {
      * Return the friends
      */
     public function getFriends($username) {
-        $stmt = $this->db->prepare("SELECT friendship.sender as friend FROM friendship WHERE friendship.receiver = ? UNION SELECT friendship.receiver FROM friendship WHERE friendship.sender = ?");
+        $stmt = $this->db->prepare("SELECT friendship.sender as friend FROM friendship WHERE friendship.receiver = ? AND friendship.accepted = TRUE UNION SELECT friendship.receiver FROM friendship WHERE friendship.sender = ? AND friendship.accepted = TRUE");
         $stmt->bind_param('ss', $username, $username);
         $stmt->execute();
         $result = $stmt->get_result();
