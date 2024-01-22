@@ -59,22 +59,22 @@ INSERT INTO TAG (postId, username) VALUES
 
 -- Inserimento notifiche
 -- Notifiche per stelle (star)
-INSERT INTO NOTIFICATION (datetime, text, username) VALUES
-('2024-01-01 12:20:00', 'user2 liked your post.', 'user1'),
-('2024-01-01 12:35:00', 'user3 liked your post.', 'user1'),
-('2024-01-03 17:15:00', 'user1 liked your post.', 'user3'),
-('2024-01-04 10:45:00', 'user2 liked your post.', 'user3'),
-('2024-01-05 19:00:00', 'user3 liked your post.', 'user2'),
-('2024-01-07 10:15:00', 'user1 liked your post.', 'user3');
+INSERT INTO NOTIFICATION (datetime, type, sender, receiver) VALUES
+('2024-01-01 12:40:00', 1, 'user2', 'user1'),
+('2024-01-01 12:50:00', 1, 'user3', 'user1'),
+('2024-01-03 17:30:00', 1, 'user1', 'user3'),
+('2024-01-04 11:00:00', 1, 'user2', 'user3'),
+('2024-01-05 19:15:00', 1, 'user3', 'user2'),
+('2024-01-07 10:30:00', 1, 'user1', 'user3');
 
 -- Notifiche per commenti
-INSERT INTO NOTIFICATION (datetime, text, username) VALUES
-('2024-01-01 12:40:00', 'user2 commented on your post.', 'user1'),
-('2024-01-01 12:50:00', 'user3 commented on your post.', 'user1'),
-('2024-01-03 17:30:00', 'user1 commented on your post.', 'user3'),
-('2024-01-04 11:00:00', 'user2 commented on your post.', 'user3'),
-('2024-01-05 19:15:00', 'user3 commented on your post.', 'user2'),
-('2024-01-07 10:30:00', 'user1 commented on your post.', 'user3');
+INSERT INTO NOTIFICATION (datetime, type, sender, receiver) VALUES
+('2024-01-01 12:40:00', 2, 'user2', 'user1'),
+('2024-01-01 12:50:00', 2, 'user3', 'user1'),
+('2024-01-03 17:30:00', 2, 'user1', 'user3'),
+('2024-01-04 11:00:00', 2, 'user2', 'user3'),
+('2024-01-05 19:15:00', 2, 'user3', 'user2'),
+('2024-01-07 10:30:00', 2, 'user1', 'user3');
 
 -- Amicizie
 INSERT INTO FRIENDSHIP (accepted, receiver, sender) VALUES
