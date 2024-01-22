@@ -10,26 +10,39 @@
 
 </header>
 <main class="mt-5">
+    <div class="row justify-content-center mb-4">
+        <div class="col-xl-5 col-11">
+            <div class="row">
+                <ul class="nav nav-pills">
+                    <li class="nav-item text-center col-3 col-xl-5">
+                        <input type="button" value="Sign in" id="signin">
+                    </li>
+                    <li class="nav-item text-center col-3 col-xl-5">
+                        <input type="button" value="Sign up" id="signup">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    <input type="button" value="Sign in" id="signin">
-    <input type="button" value="Sign up" id="signup">
-
-    <form action="#" method="POST" id="signinForm">
-        <?php if(isset($templateParams["errorelogin"])): ?>
-        <p><?php echo $templateParams["errorelogin"]; ?></p>
-        <?php endif; ?>
-        <ul class="list-unstyled p-3">
-            <li>
-                <input class="w-100 mb-1 rounded-3 border-1 border-secondary border-solid border" type="text" id="email-login" name="email-login" placeholder="Email"/>
-            </li>
-            <li>
-                <input class="w-100 mb-1 rounded-3 border-1 border-secondary border-solid border" type="password" id="password-login" name="password-login" placeholder="Password"/>
-            </li>
-            <li>
-                <input class="w-100 rounded-3 border-0 bg-secondary" type="submit" name="submit" value="Submit" />
-            </li>
-        </ul>
-    </form>
+    <div class="row justify-content-center">
+        <form class="col-xl-5 col-12" action="#" method="POST" id="signinForm">
+            <?php if(isset($templateParams["errorelogin"])): ?>
+            <p><?php echo $templateParams["errorelogin"]; ?></p>
+            <?php endif; ?>
+            <ul class="list-unstyled p-3">
+                <li>
+                    <input class="w-100 mb-1 rounded-3 border-1 border-secondary border-solid border" type="text" id="email-login" name="email-login" placeholder="Email"/>
+                </li>
+                <li>
+                    <input class="w-100 mb-1 rounded-3 border-1 border-secondary border-solid border" type="password" id="password-login" name="password-login" placeholder="Password"/>
+                </li>
+                <li>
+                    <input class="w-100 rounded-3 border-0 bg-secondary" type="submit" name="submit" value="Submit" />
+                </li>
+            </ul>
+        </form>
+    </div>
 
     <form action="#" method="POST" id="signupForm" hidden>
         <?php if(isset($templateParams["errorelogin"])): ?>
