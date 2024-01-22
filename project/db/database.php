@@ -60,8 +60,19 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function createPost() {
-        
+    public function createPost($username, $title, $description, $location, $category, $image, $taggedUsernameList) {
+        $stmt = $this->db->prepare("INSERT INTO post (title, description, location, image, category, author) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('ssssss', $title, $description, $location, $category, $image, $username);
+        $stmt->execute();
+        $resultPost = $stmt->get_result();
+
+        $postId = $result["postId"];
+        foreach ($taggedUsernameList as $taggedUsername) {
+            $stmt = $this->db->prepare("INSERT INTO tag (postId, username) VALUES (?, ?)");
+            $stmt->bind_param('is', $postId, $taggedUsername);
+            $stmt->execute();
+        }
+        return true;//TODO: modifica
     }
 
     public function loadHomePage($username) {
@@ -77,7 +88,7 @@ class DatabaseHelper {
      * Get all the post of a user.
      */
     public function getUserPosts($username) {
-        $stmt = $this->db->prepare("SELECT * FROM post WHERE post.username = ?");
+        $stmt = $this->db->prepare("SELECT * FROM post WHERE post.author = ?");
         $stmt->bind_param('s', $username);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -141,13 +152,13 @@ class DatabaseHelper {
     }
 
     public function createComment($username, $postId, $text) {
-        $postCreator = getPost($postId)["username"];
+        $postAuthor = getPost($postId)["author"];
 
         $stmt = $this->db->prepare("INSERT INTO COMMENT (postId, username, text) VALUES (?, ?, ?)");
         $stmt->bind_param('iss', $postId, $username, $text);
         $stmt->execute();
 
-        createNotification(2, $username, $postCreator, $postId);
+        createNotification(2, $username, $postAuthor, $postId);
         return $stmt->affected_rows > 0;
     }
 
@@ -156,13 +167,13 @@ class DatabaseHelper {
      * Return true if success, false otherwise
      */
     public function createStar($username, $postId) {
-        $postCreator = getPost($postId)["username"];
+        $postAuthor = getPost($postId)["author"];
 
         $stmt = $this->db->prepare("INSERT INTO star (postId, username) VALUES (?, ?)");
         $stmt->bind_param('is', $postId, $username);
         $stmt->execute();
 
-        createNotification(1, $username, $postCreator, $postId);
+        createNotification(1, $username, $postAuthor, $postId);
         return $stmt->affected_rows > 0;
     }
 
@@ -182,7 +193,7 @@ class DatabaseHelper {
      * Return the friends
      */
     public function getFriends($username) {
-        $stmt = $this->db->prepare("SELECT friendship.sender FROM friendship WHERE friendship.receiver = ? AND friendship.accepted = TRUE UNION SELECT friendship.receiver FROM friendship WHERE friendship.sender = ? AND friendship.accepted = TRUE");
+        $stmt = $this->db->prepare("SELECT friendship.sender as friend FROM friendship WHERE friendship.receiver = ? AND friendship.accepted = TRUE UNION SELECT friendship.receiver FROM friendship WHERE friendship.sender = ? AND friendship.accepted = TRUE");
         $stmt->bind_param('ss', $username, $username);
         $stmt->execute();
         $result = $stmt->get_result();

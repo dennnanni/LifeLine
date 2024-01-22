@@ -5,7 +5,7 @@
     }
     
     if(!isset($_SESSION["username"])) {
-        header("Location: enter.php");
+        header("Location: authentication.php");
         exit();
     }
 ?>
