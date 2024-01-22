@@ -8,11 +8,13 @@
     --textFont: "Poppins";
 }
 
+
+/* 
 .hidden {
     display: none;
 }
 
-.navbar-ll {
+.form {
     background-color: var(--blue);
 }
 
@@ -31,16 +33,24 @@
 
 .mobile {
     display: none;
-}
+} */
 
 @media only screen and (max-device-width: 480px) {
-    .navbar-ll {
-        background-color: var(--yellow);
+    body {
+        background-image: url("../images/mobile-wallpaper.jpeg");
+        background-size: 100% 100%;
     }
-    .desktop {
-        display: none;
+
+    h1 {
+        font-family: var(--titleFont);
+        color: var(--blue);
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
+
+        text-align: center;
+        font-size: 70px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
     }
-    .mobile {
-        display: block;
-    }
+    
 }
