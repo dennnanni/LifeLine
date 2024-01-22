@@ -188,7 +188,7 @@ class DatabaseHelper {
      * Return the friends
      */
     public function getFriends($username) {
-        $stmt = $this->db->prepare("SELECT friendship.sender FROM friendship WHERE friendship.receiver = ? UNION SELECT friendship.receiver FROM friendship WHERE friendship.sender = ?");
+        $stmt = $this->db->prepare("SELECT friendship.sender as friend FROM friendship WHERE friendship.receiver = ? UNION SELECT friendship.receiver FROM friendship WHERE friendship.sender = ?");
         $stmt->bind_param('ss', $username, $username);
         $stmt->execute();
         $result = $stmt->get_result();
