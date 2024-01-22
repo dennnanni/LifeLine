@@ -18,7 +18,7 @@ if(isUserLoggedIn()){
 
 $templateParams["title"] = "Login";
 $templateParams["active"] = "enter-form.php";
-$templateParams["js"] = ['enter.js'];
+$templateParams["js"] = "enter.js";
 
 require("template/base.php");
 ?>

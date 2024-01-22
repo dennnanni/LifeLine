@@ -1,7 +1,7 @@
 <input type="button" value="Sign in" id="signin">
 <input type="button" value="Sign up" id="signup">
 
-<form action="#" method="POST" id="signinForm" class="hidden">
+<form action="#" method="POST" id="signinForm">
     <h2>Login</h2>
     <?php if(isset($templateParams["errorelogin"])): ?>
     <p><?php echo $templateParams["errorelogin"]; ?></p>
@@ -19,7 +19,7 @@
     </ul>
 </form>
 
-<form action="#" method="POST" id="signupForm">
+<form action="#" method="POST" id="signupForm" class="hidden">
     <h2>Register</h2>
     <?php if(isset($templateParams["errorelogin"])): ?>
     <p><?php echo $templateParams["errorelogin"]; ?></p>
