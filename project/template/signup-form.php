@@ -1,21 +1,15 @@
-<div class="toast-container position-absolute top-0 start-50 translate-middle-x">
-    <?php
-    if(isset($templateParams["registrationError"])):
-        foreach($templateParams["registrationError"] as $error):
-    ?>
-        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <strong class="me-auto">Lifeline</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body"><?php echo $error; ?></div>
+<?php if(isset($templateParams["registrationError"])): ?>
+    <div class="toast-container position-absolute top-0 start-50 translate-middle-x">
+    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto text-secondary">Lifeline</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" onclick="closeToast(this)"></button>
         </div>
-    <?php
-        endforeach;
-    endif;
-    ?>
+        <div class="toast-body"><?php echo $templateParams["registrationError"]; ?></div>
+    </div>
 </div>
-<header class="mt-4">
+<?php endif; ?>
+<header class="mt-5">
     <div class="container mt-5">
         <div class="row">
             <div class="col-12 text-center">
@@ -61,9 +55,6 @@
                     <input class="w-100 rounded-3 border-0 bg-secondary btn-lg text-dark" type="submit" name="submit" id="submit" value="Submit" />
                 </li>
             </ul>
-            <!-- <?php if(isset($templateParams["registrationError"])): ?>
-                <p class="text-danger"><?php echo $templateParams["registrationError"]; ?></p>
-            <?php endif; ?> -->
         </form>
     </div>
 </main>
