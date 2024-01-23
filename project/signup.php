@@ -1,22 +1,22 @@
 <?php
 require_once("bootstrap.php");
 
-if(isset($_POST["email-registration"]) && isset($_POST["password-registration"])){
+if(isset($_POST["email"]) && isset($_POST["password"])){
     
     if(!$dbh->checkEmail($_POST["email"])) {
-        $templateParams["authenticationError"] = "Errore! Esiste già un account con questa mail!";
+        $templateParams["registrationError"] = "Errore! Esiste già un account con questa mail!";
     }
 
     if(!$dbh->checkUsername($_POST["username"])) {
-        $templateParams["authenticationError"] = "Errore! Esiste già un account con questo username!";
+        $templateParams["registrationError"] = "Errore! Esiste già un account con questo username!";
     }
 
-    $login_result = $dbh->createAccount($_POST["username"], $_POST["fullname"], $_POST["email"], $_POST["password"]);
-    if(!$login_result){
+    $registration_result = $dbh->createAccount($_POST["username"], $_POST["fullname"], $_POST["email"], $_POST["password"]);
+    if(!$registration_result){
         $templateParams["registrationError"] = "Errore! Non è stato possibile creare l'account!"; //Login fallito
     }
     else{
-        registerUserSession($login_result[0]);
+        registerUserSession($_POST["username"], $_POST["fullname"]);
     }
 }
 

@@ -7,7 +7,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         $templateParams["loginError"] = "Errore! Username o password errati!"; //Login fallito
     }
     else{
-        registerLoggedUser($login_result[0]);
+        registerLoggedUser($login_result[0]["username"], $login_result[0]["name"]);
     }
 }
 
