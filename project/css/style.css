@@ -14,11 +14,11 @@
 }
 
 @media only screen and (max-device-width: 480px) {
-    body {
+    /* body {
         background-image: url("../images/mobile-wallpaper.jpeg");
         background-repeat: no-repeat;
         background-size: 100% 100%;
-    }
+    } */
     h1 {
         font-family: var(--titleFont);
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
@@ -30,5 +30,12 @@
     }
     input::placeholder {
         color: var(--dark);
+    }
+    nav h1 {
+        font-size: 40px;
+        text-shadow: none;
+    }
+    nav {
+        height: 10%;
     }
 }
