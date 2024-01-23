@@ -18,7 +18,6 @@ CREATE TABLE IF NOT EXISTS USER (
     password VARCHAR(128) NOT NULL,
     name VARCHAR(64) NOT NULL,
     email VARCHAR(64) NOT NULL,
-    birthDate DATETIME NOT NULL,
     profilePic VARCHAR(255) DEFAULT "default.jpg",
     friendsCount INT NOT NULL DEFAULT 0,
     PRIMARY KEY (username),

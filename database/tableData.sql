@@ -11,10 +11,10 @@ INSERT INTO CATEGORY (name) VALUES
 ('Music');
 
 -- Inserimento utenti
-INSERT INTO USER (username, password, name, email, birthDate, profilePic) VALUES
-('user1', '1', 'User One', 'user1@example.com', '1990-01-01', 'profile1.jpg'),
-('user2', '2', 'User Two', 'user2@example.com', '1995-02-15', 'profile2.jpg'),
-('user3', '3', 'User Three', 'user3@example.com', '1988-08-10', 'profile3.jpg');
+INSERT INTO USER (username, password, name, email, profilePic) VALUES
+('user1', '1', 'User One', 'user1@example.com', 'profile1.jpg'),
+('user2', '2', 'User Two', 'user2@example.com', 'profile2.jpg'),
+('user3', '3', 'User Three', 'user3@example.com', 'profile3.jpg');
 
 -- Inserimento post
 INSERT INTO POST (datetime, title, description, location, image, starsCount, commentsCount, category, author) VALUES
