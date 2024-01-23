@@ -19,7 +19,7 @@ function isUserLoggedIn(){
 /**
  * Log the user data in the session parameters.
  */
-function registerLoggedUser($user){
+function registerUserSession($user){
     $_SESSION["username"] = $user["username"];
     $_SESSION["name"] = $user["name"];
 }

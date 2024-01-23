@@ -52,7 +52,7 @@ class DatabaseHelper {
      * Return the user if values are correct
      */
     public function login($email, $password) {
-        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.username = ? AND user.password = ?");
+        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.email = ? AND user.password = ?");
         $stmt->bind_param('ss', $email, $password);
         $stmt->execute();
         $result = $stmt->get_result();
