@@ -27,7 +27,7 @@ class DatabaseHelper {
      * Return true if email is already in the database, false otherwise
      */
     public function checkEmail($email) {
-        $stmt = $this->db->prepare("SELECT COUNT(*) = 0 FROM user WHERE user.email = ?");
+        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.email = ?");
         $stmt->bind_param('s', $email);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -38,13 +38,13 @@ class DatabaseHelper {
     /**
      * Return false if email or username already taken, false otherwise
      */
-    public function createAccount($username, $name, $birthdate, $email, $password) {
-        if (checkUsername($username) || checkEmail($email)) {
+    public function createAccount($username, $name, $email, $password) {
+        if ($this->checkUsername($username) || $this->checkEmail($email)) {
             return false;
         }
 
-        $stmt = $this->db->prepare("INSERT INTO USER (username, password, name, email, birthDate) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param('ssssss', $username, $password, $name, $email, $birthdate);
+        $stmt = $this->db->prepare("INSERT INTO USER (username, password, name, email) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param('ssss', $username, $password, $name, $email);
         return $stmt->execute();
     }
 

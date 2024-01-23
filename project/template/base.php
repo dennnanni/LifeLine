@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
         <link href='https://fonts.googleapis.com/css?family=Meow Script' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
         <?php if(isset($templateParams["js"])): ?>
             <script type="text/javascript" src="js/<?php echo $templateParams["js"]?>"></script>
