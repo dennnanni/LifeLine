@@ -7,6 +7,7 @@ $templateParams["active"] = "home.php";
 
 //Header settings
 $templateParams["headerLeftIcon"] = "notifications"; // null | notifications | back
+$templateParams["backPage"] = null; // null | file.php  -> the page to address when back is pressed
 $templateParams["headerRightIcon"] = "search"; // null | search | settings
 
 //Footer setting

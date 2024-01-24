@@ -7,9 +7,15 @@
             <i class="fas fa-bell text-light"></i>
           </a>
         <?php elseif ($templateParams["headerLeftIcon"] == "back"): ?>
-          <a class="" href="todo.php">
-            <i class="fas fa-chevron-left text-light"></i>
-          </a>
+          <?php if(isset($templateParams["backPage"])): ?>
+            <a class="" href="<?php echo $templateParams["backPage"]?>">
+              <i class="fas fa-chevron-left text-light"></i>
+            </a>
+          <?php else: ?>
+            <a class="" href="">
+              <i class="fas fa-chevron-left text-light"></i>
+            </a>
+          <?php endif; ?>
         <?php endif; ?>
       <?php endif; ?>
     </div>
