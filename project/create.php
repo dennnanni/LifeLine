@@ -31,11 +31,11 @@ $templateParams["active"] = "create-form.php";
 $templateParams["js"] = "create.js";
 
 //Header settings
-$templateParams["headerLeftIcon"] = null; // notifications | back
-$templateParams["headerRightIcon"] = null; // search | settings
+$templateParams["headerLeftIcon"] = null; // null | notifications | back
+$templateParams["headerRightIcon"] = null; // null | search | settings
 
 //Footer setting
-$templateParams["footerActive"] = "create"; //home | create | diary
+$templateParams["footerActive"] = "create"; // home | create | diary
 
 $templateParams["categories"] = $dbh->getAllCategories();
 $templateParams["tag-number"] = 0;
