@@ -13,5 +13,7 @@ $templateParams["headerRightIcon"] = null; // null | search | settings
 //Footer setting
 $templateParams["footerActive"] = "home"; // home | create | diary
 
+$templateParams["friends"] = $dbh->getFriends($_SESSION["username"]);
+
 require("template/base.php");
 ?>
