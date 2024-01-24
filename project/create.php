@@ -28,8 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $templateParams["title"] = "Create";
 $templateParams["active"] = "create-form.php";
-$templateParams["footerActive"] = "create"; //home, create or diary
 $templateParams["js"] = "create.js";
+
+//Header settings
+$templateParams["headerLeftIcon"] = null; // notifications | back
+$templateParams["headerRightIcon"] = null; // search | settings
+
+//Footer setting
+$templateParams["footerActive"] = "create"; //home | create | diary
 
 $templateParams["categories"] = $dbh->getAllCategories();
 $templateParams["tag-number"] = 0;

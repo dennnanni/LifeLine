@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+        <script src="https://kit.fontawesome.com/711c6e0480.js" crossorigin="anonymous"></script>
         <link href='https://fonts.googleapis.com/css?family=Meow Script' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
