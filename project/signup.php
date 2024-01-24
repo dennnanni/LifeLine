@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else {
         $registration_result = $dbh->createAccount($username, $fullname, $email, $password);
         if(!$registration_result){
-            $templateParams["registrationError"] = "Error while creating the accoutn!";
+            $templateParams["registrationError"] = "Error while creating the account!";
         }
         else{
             registerUserSession($username, $fullname);

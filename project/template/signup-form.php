@@ -1,13 +1,13 @@
 <?php if(isset($templateParams["registrationError"])): ?>
     <div class="toast-container position-absolute top-0 start-50 translate-middle-x">
-    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-            <strong class="me-auto text-secondary">Lifeline</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" onclick="closeToast(this)"></button>
+        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto text-secondary">Lifeline</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" onclick="closeToast(this)"></button>
+            </div>
+            <div class="toast-body"><?php echo $templateParams["registrationError"]; ?></div>
         </div>
-        <div class="toast-body"><?php echo $templateParams["registrationError"]; ?></div>
     </div>
-</div>
 <?php endif; ?>
 <header class="mt-5">
     <div class="container mt-5">

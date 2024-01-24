@@ -6,11 +6,19 @@
     --tertiary: #919191;
     --tertiary-light: #D9D9D9;
     --titleFont: "Meow Script";
-    --textFont: "Poppins";
+    --textFont: "Poppins", sans-serif;
 }
 
 * {
     font-family: var(--textFont);
+}
+
+body {
+    background-color: var(--light);
+}
+
+h1 {
+    font-family: var(--titleFont);
 }
 
 @media only screen and (max-device-width: 480px) {
@@ -20,7 +28,6 @@
         background-size: 100% 100%;
     } */
     h1 {
-        font-family: var(--titleFont);
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
         text-align: center;
         font-size: 70px;
@@ -28,7 +35,8 @@
         font-weight: 400;
         line-height: normal;
     }
-    input::placeholder {
+    input::placeholder,
+    textarea::placeholder {
         color: var(--dark);
     }
     nav h1 {
@@ -37,5 +45,9 @@
     }
     nav {
         height: 10%;
+    }
+    img {
+        max-height: 100%;
+        max-width: 100%;
     }
 }

@@ -60,13 +60,18 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function createPost($username, $title, $description, $location, $category, $image, $taggedUsernameList) {
-        $stmt = $this->db->prepare("INSERT INTO post (title, description, location, image, category, author) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param('ssssss', $title, $description, $location, $category, $image, $username);
+    public function createPost($username, $title, $description, $location, $category, $taggedUsernameList, $image) {
+        if(is_null($image)) {
+            $stmt = $this->db->prepare("INSERT INTO post (title, description, location, category, author) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param('ssssss', $title, $description, $location, $category, $username);
+        }
+        else {
+            $stmt = $this->db->prepare("INSERT INTO post (title, description, location, image, category, author) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param('ssssss', $title, $description, $location, $image, $category, $username);
+        }
         $stmt->execute();
-        $resultPost = $stmt->get_result();
+        $postId = $stmt->insert_id;
 
-        $postId = $result["postId"];
         foreach ($taggedUsernameList as $taggedUsername) {
             $stmt = $this->db->prepare("INSERT INTO tag (postId, username) VALUES (?, ?)");
             $stmt->bind_param('is', $postId, $taggedUsername);
@@ -235,6 +240,17 @@ class DatabaseHelper {
 
         createNotification(3, $senderUsername, $receiverUsername, null);
         return $stmt->affected_rows > 0;
+    }
+
+    /**
+     * Get all the categories name.
+     */
+    public function getAllCategories() {
+        $stmt = $this->db->prepare("SELECT category.name FROM category");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     /*Private functions */
