@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $templateParams["title"] = "Create";
 $templateParams["active"] = "create-form.php";
+$templateParams["footerActive"] = "create"; //home, create or diary
 $templateParams["js"] = "create.js";
 
 $templateParams["categories"] = $dbh->getAllCategories();

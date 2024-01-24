@@ -55,3 +55,5 @@
             </ul>
         </form>
     </div>
+
+<?php require("footer.php"); ?>
