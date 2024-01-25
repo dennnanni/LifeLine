@@ -5,20 +5,16 @@
     <div class="flex-grow-1 text-nowrap w-100 pt-3">
         <div class="input-group ms-n40">
             <div class="form-outline">
-                <input type="search" id="form1" class="form-control rounded-0 rounded-start" placeholder="Search" />
-                <label class="form-label" for="form1" hidden>Search</label>
+                <input type="search" id="searchBar" class="form-control rounded-0 rounded-start" placeholder="Search" />
+                <label class="form-label" for="searchBar" hidden>Search</label>
             </div>
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" id="searchButton">
                 <i class="fas fa-search"></i>
             </button>
         </div>
-        <?php foreach($templateParams["friends"] as $friend): ?>
-            <section class="w-100 ms-n40 ms-md-n3 mt-2">
-                <img name="search-propic" src="<?php echo 'upload/'.$friend["profilePic"] ?>"/>
-                <span class="d-inline-block"><?php echo $friend["username"]?></span>
-                <span class="d-inline-block"><?php echo $friend["name"]?></span>
-            </section>
-        <?php endforeach?>
+        <div id="searchResult">
+        </div>
+        
     </div>
 </div>
 <?php require("footer.php"); ?>

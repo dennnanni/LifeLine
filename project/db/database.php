@@ -207,6 +207,19 @@ class DatabaseHelper {
     }
 
     /**
+     * Get all the usernames matching a text
+     */
+    public function searchUsers($username) {
+        $username = "%$username%";
+        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.username LIKE ? ORDER BY username");
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
      * Get all the user notifications
      * Return the notifications
      */
