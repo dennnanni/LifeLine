@@ -21,6 +21,15 @@ h1 {
     font-family: var(--titleFont);
 }
 
+div[name="lifeline"] {
+    width: 16px;
+    height: 100%;
+    background: linear-gradient(180deg, #FFCA0C 0%, rgba(255, 202, 12, 0.50) 44.6%, rgba(0, 143, 194, 0.53) 60.6%, #008FC2 100%);
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
 @media only screen and (max-device-width: 480px) {
     /* body {
         background-image: url("../images/mobile-wallpaper.jpeg");
@@ -50,4 +59,5 @@ h1 {
         max-height: 100%;
         max-width: 100%;
     }
+
 }
