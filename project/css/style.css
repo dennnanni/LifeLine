@@ -23,11 +23,13 @@ h1 {
 
 div[name="lifeline"] {
     width: 16px;
-    height: 100%;
     background: linear-gradient(180deg, #FFCA0C 0%, rgba(255, 202, 12, 0.50) 44.6%, rgba(0, 143, 194, 0.53) 60.6%, #008FC2 100%);
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
+}
+
+img[name="search-propic"] {
+    width: 50px;
+    height: 50px;
+    border-radius: 26px;
 }
 
 @media only screen and (max-device-width: 480px) {
@@ -55,7 +57,8 @@ div[name="lifeline"] {
     nav {
         height: 10%;
     }
-    img {
+
+    img:not([name="search-propic"]){
         max-height: 100%;
         max-width: 100%;
     }

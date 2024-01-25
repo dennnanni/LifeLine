@@ -1,4 +1,4 @@
-<nav class="navbar bg-primary p-0">
+<nav class="navbar bg-primary w-100">
   <div class="container-fluid">
     <div class="col-1 d-flex justify-content-center align-items-center">
       <?php if(isset($templateParams["headerLeftIcon"])): ?>
