@@ -36,11 +36,6 @@ $templateParams["title"] = "Create";
 $templateParams["active"] = "create-form.php";
 $templateParams["js"] = "create.js";
 
-//Header settings
-$templateParams["headerLeftIcon"] = null; // null | notifications | back | logout
-$templateParams["backPage"] = null; // null | file.php  -> the page to address when back is pressed
-$templateParams["headerRightIcon"] = null; // null | search | settings
-
 //Footer setting
 $templateParams["footerActive"] = "create"; // home | create | diary
 

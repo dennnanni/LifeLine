@@ -233,6 +233,18 @@ class DatabaseHelper {
     }
 
     /**
+     * Get the number of new notifications for a user
+     */
+    public function getNewNotificationNumber($username) {
+        $stmt = $this->db->prepare("SELECT * FROM notification WHERE notification.readState = 0 AND notification.receiver = ?");
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return mysqli_num_rows($result);
+    }
+
+    /**
      * Read all user notifications
      * Returns nothing
      */

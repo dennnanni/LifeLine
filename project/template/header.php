@@ -4,7 +4,11 @@
       <?php if(isset($templateParams["headerLeftIcon"])): ?>
         <?php if ($templateParams["headerLeftIcon"] == "notifications"): ?>
           <a class="" href="notifications.php">
-            <i class="fas fa-bell text-light"></i>
+            <?php if(isset($templateParams["notificationsNumber"]) && $templateParams["notificationsNumber"] > 0): ?>
+              <i class="fas fa-bell text-secondary"></i>
+            <?php else: ?>
+              <i class="fas fa-bell text-light"></i>
+            <?php endif;?>
           </a>
         <?php elseif ($templateParams["headerLeftIcon"] == "logout"): ?>
           <a class="" href="logout.php">

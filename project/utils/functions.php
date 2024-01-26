@@ -1,19 +1,20 @@
 <?php
 
+
 function composeMessage($type, $sender, $post) {
     $message = "";
     switch($type) {
         case 1:
-            $message = "@".$sender." starred you memory \"".$post["title"]."\"";
+            $message = "<strong>@".$sender."</strong> starred you memory \"".$post["title"]."\"";
             break;
         case 2:
-            $message = "@".$sender." commented on your memory \"".$post["title"]."\"";
+            $message = "<strong>@".$sender."</strong> commented on your memory \"".$post["title"]."\"";
             break;
         case 3:
-            $message = "@".$sender." sent you a friend request";
+            $message = "<strong>@".$sender."</strong> sent you a friend request";
             break;
         case 4:
-            $message = "@".$sender." tagged you in a memory \"".$post["title"]."\"";
+            $message = "<strong>@".$sender."</strong> tagged you in a memory \"".$post["title"]."\"";
             break;
     }
     return $message;
