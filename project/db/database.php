@@ -119,7 +119,12 @@ class DatabaseHelper {
      * Return true if the users are friends, false otherwise
      */
     public function areFriends($username1, $username2) {
-       
+        $stmt = $this->db->prepare("SELECT * FROM friendship WHERE friendship.accepted = 1 AND ((friendship.sender = ? AND friendship.receiver = ?) OR (friendship.sender = ? AND friendship.receiver = ?))");
+        $stmt->bind_param('ssss', $username1, $username2, $username2, $username1);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return mysqli_num_rows($result) >= 1;
     }
 
     /**

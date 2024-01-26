@@ -1,8 +1,5 @@
 <?php require("header.php"); ?>
-<?php echo $templateParams["post"]["title"]?>
+<p>post: <?php echo implode(" ", $templateParams["post"])?></p>
+<p>author: <?php echo implode(" ", $templateParams["author"])?></p>
 
-
-<?php echo $templateParams["post"]["id"]?>
-
-<?php echo $templateParams["author"]["username"]?>
 <?php require("footer.php"); ?>
