@@ -38,9 +38,9 @@
           <a class="" href="search.php">
             <i class="fa-solid fa-magnifying-glass text-light"></i>
           </a>
-        <?php elseif ($templateParams["headerRightIcon"] == "settings"): ?>
-          <a class="" href="todo.php">
-            <i class="fa-solid fa-gear text-light"></i>
+        <?php elseif ($templateParams["headerRightIcon"] == "photo"): ?>
+          <a class="" href="photo.php">
+            <i class="fa-regular fa-id-badge text-light"></i>
           </a>
         <?php endif; ?>
       <?php endif; ?>

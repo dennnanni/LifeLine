@@ -8,7 +8,7 @@ $templateParams["active"] = "home.php";
 
 //Header settings
 $templateParams["headerLeftIcon"] = "notifications"; // null | notifications | back | logout
-$templateParams["headerRightIcon"] = "search"; // null | search | settings
+$templateParams["headerRightIcon"] = "search"; // null | search | photo
 $templateParams["notificationsNumber"] = $dbh->getNewNotificationNumber($_SESSION["username"]); // null | integer
 
 //Footer setting

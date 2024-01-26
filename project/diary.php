@@ -8,7 +8,7 @@ $templateParams["active"] = "diary.php";
 
 //Header settings
 $templateParams["headerLeftIcon"] = "logout"; // null | notifications | back | logout
-$templateParams["headerRightIcon"] = "settings"; // null | search | settings
+$templateParams["headerRightIcon"] = "photo"; // null | search | photo
 
 //Footer setting
 $templateParams["footerActive"] = "diary"; // home | create | diary
