@@ -107,12 +107,12 @@ class DatabaseHelper {
      * Get a user information.
      */
     public function getUser($username) {
-        $stmt = $this->db->prepare("SELECT * FROM friendship WHERE user.username = ?");
+        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.username = ?");
         $stmt->bind_param('s', $username);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
 
     /**
@@ -131,7 +131,7 @@ class DatabaseHelper {
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
 
     /**
