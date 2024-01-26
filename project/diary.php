@@ -8,7 +8,6 @@ $templateParams["active"] = "diary.php";
 
 //Header settings
 $templateParams["headerLeftIcon"] = "logout"; // null | notifications | back | logout
-$templateParams["backPage"] = null; // null | file.php  -> the page to address when back is pressed
 $templateParams["headerRightIcon"] = "settings"; // null | search | settings
 
 //Footer setting

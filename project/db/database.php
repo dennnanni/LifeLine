@@ -125,7 +125,7 @@ class DatabaseHelper {
      */
     public function getPost($postId) {
         $stmt = $this->db->prepare("SELECT * FROM post WHERE post.id = ?");
-        $stmt->bind_param('i', $postId);
+        $stmt->bind_param('s', $postId);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -233,11 +233,23 @@ class DatabaseHelper {
     }
 
     /**
+     * Get the number of new notifications for a user
+     */
+    public function getNewNotificationNumber($username) {
+        $stmt = $this->db->prepare("SELECT * FROM notification WHERE notification.readState = 0 AND notification.receiver = ?");
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return mysqli_num_rows($result);
+    }
+
+    /**
      * Read all user notifications
      * Returns nothing
      */
     public function readAllNotifications($username) {
-        $stmt = $this->db->prepare("UPDATE notification SET notification.read = 1 WHERE notification.receiver = ?");
+        $stmt = $this->db->prepare("UPDATE notification SET notification.readState = 1 WHERE notification.receiver = ?");
         $stmt->bind_param('s', $username);
         $stmt->execute();
     }

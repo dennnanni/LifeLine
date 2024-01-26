@@ -1,3 +1,14 @@
+<?php if(isset($templateParams["loginError"])): ?>
+    <div class="toast-container position-absolute top-0 start-50 translate-middle-x">
+        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto text-secondary">Lifeline</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" onclick="closeToast(this)"></button>
+            </div>
+            <div class="toast-body"><?php echo $templateParams["loginError"]; ?></div>
+        </div>
+    </div>
+<?php endif; ?>
 <header class="mt-4">
     <div class="container mt-5">
         <div class="row">
@@ -37,9 +48,6 @@
                     <input class="w-100 rounded-3 border-0 bg-secondary btn-lg text-dark" type="submit" name="submit" id="submit" value="Submit" />
                 </li>
             </ul>
-            <?php if(isset($templateParams["loginError"])): ?>
-                <p><?php echo $templateParams["loginError"]; ?></p>
-            <?php endif; ?>
         </form>
     </div>
 </main>

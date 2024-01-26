@@ -1,7 +1,7 @@
 <?php require("header.php"); ?>
 <div class="d-flex">
     <div class="ms-5 ms-md-6 pt-3 vh-100 overflow-visible" name="lifeline">
-        <div class="ms-n1 bg-secondary rounded-4 d-flex justify-content-center" name="icon-big">
+        <div class="ms-n1 bg-secondary rounded-3 d-flex justify-content-center" name="icon-big">
             <i class="fa-solid fa-tags h5 mt-1"></i>
         </div>
     </div>

@@ -1,28 +1,6 @@
 <?php
 require_once("bootstrap.php");
 
-// if(isset($_POST["email"]) && isset($_POST["password"])){
-    
-//     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-//     $emailErr = "Invalid email format";
-//     }
-//     if($dbh->checkUsername($_POST["username"])) {
-//         $templateParams["registrationError"] = "Error! Username already in use!";
-//     }
-
-//     if($dbh->checkEmail($_POST["email"])) {
-//         $templateParams["registrationError"] = "Error! Email already in use!";
-//     }
-
-//     $registration_result = $dbh->createAccount($_POST["username"], $_POST["fullname"], $_POST["email"], $_POST["password"]);
-//     // if(!$registration_result){
-//     //     $templateParams["registrationError"] = "Error while creating the accoutn!";
-//     // }
-//     // else{
-//     //     registerUserSession($_POST["username"], $_POST["fullname"]);
-//     // }
-// }
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = validate($_POST["username"]);
     $fullname = validate($_POST["fullname"]);
@@ -66,7 +44,7 @@ if(isUserLoggedIn()){
 $_SESSION["current"] = "signup";
 $templateParams["title"] = "Registration";
 $templateParams["active"] = "signup-form.php";
-$templateParams["js"] = "signup.js";
+$templateParams["js"] = "authentication.js";
 
 require("template/base.php");
 ?>

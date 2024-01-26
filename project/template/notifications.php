@@ -5,8 +5,8 @@
     <div class="flex-grow-1 text-nowrap w-100 pt-3">
         <?php foreach($templateParams["notifications"] as $notification):?>
             <section class="w-100 ms-n40 ms-md-n3 mt-2">
-                <img name="search-propic" src="upload/<?php echo $friend["profilePic"]?>"/>
-                <span class="d-inline-block text-dark"><?php echo $friend["username"]?></span>
+                <!-- <img name="search-propic" src="upload/<?php echo $notification["profilePic"]?>"/> -->
+                <span class="d-inline-block text-dark"><?php echo $notification["text"]?></span>
             </section>
         <?php endforeach;?>
     </div>

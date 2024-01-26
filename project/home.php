@@ -8,8 +8,8 @@ $templateParams["active"] = "home.php";
 
 //Header settings
 $templateParams["headerLeftIcon"] = "notifications"; // null | notifications | back | logout
-$templateParams["backPage"] = null; // null | file.php  -> the page to address when back is pressed
 $templateParams["headerRightIcon"] = "search"; // null | search | settings
+$templateParams["notificationsNumber"] = $dbh->getNewNotificationNumber($_SESSION["username"]); // null | integer
 
 //Footer setting
 $templateParams["footerActive"] = "home"; // home | create | diary
