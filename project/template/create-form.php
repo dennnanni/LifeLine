@@ -10,7 +10,7 @@
         </div>
     </div>
 <?php endif; ?>
-<div class="row justify-content-center">
+<div class="row ms-0 w-100 d-flex justify-content-center">
         <form class="col-xl-5 col-md-6 col-10" method="POST" enctype="multipart/form-data">
             <ul class="list-unstyled">
                 <li>
@@ -46,8 +46,8 @@
                         <?php endforeach; ?>
                     </select>
                 </li>
-                <li>
-                    <div class="justify-content-end">
+                <li class="d-flex justify-content-end">
+                    <div>
                         <label for="tag"><?php echo $templateParams["tag-number"];?> Tag</label>
                         <a href="tag.php" class="w-75 mb-2 rounded-3 border-0 bg-secondary text-dark text-center p-1 text-decoration-none">Tag friends</a>
                     </div>
