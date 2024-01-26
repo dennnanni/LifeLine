@@ -1,9 +1,6 @@
 window.onload = function load() {
-    let toast = document.querySelector(".toast");
     let imageElement = document.querySelector("#post-image");
     let inputFile = document.querySelector('#immaginePost');
-    let titleArea = document.querySelector('#title');
-    let descriptionArea = document.querySelector('#description');
 
     imageElement.addEventListener('click', function() {
         inputFile.click();
@@ -23,21 +20,41 @@ window.onload = function load() {
         }
     });
 
-    titleArea.addEventListener('input', function() {
-        titleArea.style.height = "auto";
-        titleArea.style.height = titleArea.scrollHeight + "px";
-    });
-    
-    descriptionArea.addEventListener('input', function() {
-        descriptionArea.style.height = "auto";
-        descriptionArea.style.height = descriptionArea.scrollHeight + "px";
-    });
+    let toast = document.querySelector(".toast");
 
     if (toast) {
         toast.addEventListener('click', function() {
             toast.classList.remove('show');
         });
     }
+
+    let titleArea = document.querySelector('#title');
+    let descriptionArea = document.querySelector('#description');
+    let locationInput = document.querySelector('#location');
+    let categorySelect = document.querySelector('#category');
+
+    titleArea.addEventListener('input', function() {
+        titleArea.style.height = "auto";
+        titleArea.style.height = titleArea.scrollHeight + "px";
+        
+        saveField("title", titleArea.value);
+    });
+    
+    descriptionArea.addEventListener('input', function() {
+        descriptionArea.style.height = "auto";
+        descriptionArea.style.height = descriptionArea.scrollHeight + "px";
+        
+        saveField("description", descriptionArea.value);
+    });
+
+    locationInput.addEventListener('input', function() {
+        saveField("location", locationInput.value);
+    });
+
+    categorySelect.addEventListener('change', function() {
+        saveField("category", categorySelect.value);
+        console.log(categorySelect.value);
+    });
 }
 
 function saveField(field, value) {

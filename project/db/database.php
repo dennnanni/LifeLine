@@ -63,7 +63,7 @@ class DatabaseHelper {
     public function createPost($username, $title, $description, $location, $category, $taggedUsernameList, $image = null) {
         if(is_null($image)) {
             $stmt = $this->db->prepare("INSERT INTO post (title, description, location, category, author) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param('ssssss', $title, $description, $location, $category, $username);
+            $stmt->bind_param('sssss', $title, $description, $location, $category, $username);
         }
         else {
             $stmt = $this->db->prepare("INSERT INTO post (title, description, location, image, category, author) VALUES (?, ?, ?, ?, ?, ?)");
@@ -76,6 +76,8 @@ class DatabaseHelper {
             $stmt = $this->db->prepare("INSERT INTO tag (postId, username) VALUES (?, ?)");
             $stmt->bind_param('is', $postId, $taggedUsername);
             $stmt->execute();
+
+            $this->createNotification(4, $username, $taggedUsername, $postId);
         }
         return true;//TODO: modifica
     }
@@ -163,7 +165,7 @@ class DatabaseHelper {
         $stmt->bind_param('iss', $postId, $username, $text);
         $stmt->execute();
 
-        createNotification(2, $username, $postAuthor, $postId);
+        $this->createNotification(2, $username, $postAuthor, $postId);
         return $stmt->affected_rows > 0;
     }
 
@@ -178,7 +180,7 @@ class DatabaseHelper {
         $stmt->bind_param('is', $postId, $username);
         $stmt->execute();
 
-        createNotification(1, $username, $postAuthor, $postId);
+        $this->createNotification(1, $username, $postAuthor, $postId);
         return $stmt->affected_rows > 0;
     }
 
@@ -263,7 +265,7 @@ class DatabaseHelper {
         $stmt->bind_param('ss', $sender, $receiver);
         $stmt->execute();
 
-        createNotification(3, $senderUsername, $receiverUsername, null);
+        $this->createNotification(3, $senderUsername, $receiverUsername);
         return $stmt->affected_rows > 0;
     }
 
@@ -284,14 +286,14 @@ class DatabaseHelper {
      * Send a new notification to a user.
      * Return true if success, false otherwise
      */
-    private function createNotification($type, $sender, $receiver, $postId) {
-        if(is_null($postId)) {
-            $stmt = $this->db->prepare("INSERT INTO NOTIFICATION (type, sender, receiver) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param('siss', $type, $sender, $receiver);
+    private function createNotification($type, $sender, $receiver, $postId = null) {
+        if($type == 3) {
+            $stmt = $this->db->prepare("INSERT INTO NOTIFICATION (type, sender, receiver) VALUES (?, ?, ?)");
+            $stmt->bind_param('iss', $type, $sender, $receiver);
         }
         else {
-            $stmt = $this->db->prepare("INSERT INTO NOTIFICATION (type, sender, receiver, postId) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param('sissi', $type, $sender, $receiver, $postId);
+            $stmt = $this->db->prepare("INSERT INTO NOTIFICATION (type, sender, receiver, postId) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param('issi', $type, $sender, $receiver, $postId);
         }
         
         $stmt->execute();
