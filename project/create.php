@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-if($_SESSION["current"] == "tag") {
-    //Clear the post data
+if($_SESSION["current"] != "tag") {
+    //Clear the post data if the user exited from the creation process
     $_SESSION["taggedUsers"] = array();
 }
 
