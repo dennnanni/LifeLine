@@ -22,27 +22,23 @@
                         </div>
                     </div>
                 </li>
-                <!-- <li>
-                   <label for="title" hidden>Title</label>
-                   <input required class="w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" type="text" id="title" name="title" placeholder="Title" maxlength="64"/>
-                </li> -->
                 <li>
                    <label for="title" hidden>Title</label>
-                   <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="title" name="title" placeholder="Title" maxlength="25"></textarea>
+                   <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="title" name="title" placeholder="Title" maxlength="25"><?php echo $_SESSION["title"]?></textarea>
                 </li>
                 <li>
                    <label for="description" hidden>Description</label>
-                   <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="description" name="description" placeholder="Description" maxlength="180"></textarea>
+                   <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="description" name="description" placeholder="Description" maxlength="180"><?php echo $_SESSION["description"]?></textarea>
                 </li>
                 <li>
                    <label for="location" hidden>Location</label>
-                   <input class="w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" type="text" id="location" name="location" placeholder="Location"/>
+                   <input class="w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" type="text" id="location" name="location" placeholder="Location" value="<?php echo $_SESSION["location"]?>"/>
                 </li>
                 <li>
                     <select class="form-select w-100 mb-2 border border-1 border-tertiary-light border-solid btn-lg bg-light text-dark" id="category" name="category">
-                        <option value="0" selected>Category</option>
+                        <option value="0" <?php if($_SESSION["category"] == ""): { echo "selected";} endif;?>>Category</option>
                         <?php foreach($templateParams["categories"] as $category): ?>
-                            <option value="<?php echo $category["name"]; ?>"><?php echo $category["name"]; ?></option>
+                            <option value="<?php echo $category["name"]; ?>" <?php if($_SESSION["category"] == $category["name"]): { echo "selected";} endif;?>><?php echo $category["name"]; ?></option>
                         <?php endforeach; ?>
                     </select>
                 </li>

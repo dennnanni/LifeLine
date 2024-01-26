@@ -35,6 +35,11 @@ function registerUserSession($username, $name){
     $_SESSION["name"] = $name;
     $_SESSION["taggedUsers"] = array();
     $_SESSION["current"] = "";
+    
+    $_SESSION["title"] = "";
+    $_SESSION["description"] = "";
+    $_SESSION["location"] = "";
+    $_SESSION["category"] = "";
 }
 
 function validate($data) {
