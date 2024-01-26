@@ -2,7 +2,8 @@ window.onload = function load() {
     let toast = document.querySelector(".toast");
     let imageElement = document.querySelector("#post-image");
     let inputFile = document.querySelector('#immaginePost');
-    let textArea = document.querySelector('#description');
+    let titleArea = document.querySelector('#title');
+    let descriptionArea = document.querySelector('#description');
 
     imageElement.addEventListener('click', function() {
         inputFile.click();
@@ -22,9 +23,14 @@ window.onload = function load() {
         }
     });
 
-    textArea.addEventListener('input', function() {
-        textArea.style.height = "auto";
-        textArea.style.height = textArea.scrollHeight + "px";
+    titleArea.addEventListener('input', function() {
+        titleArea.style.height = "auto";
+        titleArea.style.height = titleArea.scrollHeight + "px";
+    });
+    
+    descriptionArea.addEventListener('input', function() {
+        descriptionArea.style.height = "auto";
+        descriptionArea.style.height = descriptionArea.scrollHeight + "px";
     });
 
     if (toast) {
@@ -32,4 +38,12 @@ window.onload = function load() {
             toast.classList.remove('show');
         });
     }
+}
+
+function saveField(field, value) {
+    request = $.ajax({
+        url: "ajax/create.php",
+        type: "POST",
+        data: { "field": field, "value": value }
+    });
 }

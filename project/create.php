@@ -18,10 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else {
         if (!empty($nomeFile)) {
             list($result, $nuovoNomeFile) = uploadImage(UPLOAD_DIR, $_FILES["immaginePost"]);
-            $registration_result = $dbh->createPost($_SESSION["username"], $title, $description, $location, $category, array(), $nuovoNomeFile);
+            $registration_result = $dbh->createPost($_SESSION["username"], $title, $description, $location, $category, $_SESSION["taggedUsers"], $nuovoNomeFile);
         }
         else {
-            $registration_result = $dbh->createPost($_SESSION["username"], $title, $description, $location, $category, array(), null);
+            $registration_result = $dbh->createPost($_SESSION["username"], $title, $description, $location, $category, $_SESSION["taggedUsers"]);
         }
     }
 }

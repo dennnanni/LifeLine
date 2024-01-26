@@ -22,13 +22,17 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <!-- <li>
                    <label for="title" hidden>Title</label>
                    <input required class="w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" type="text" id="title" name="title" placeholder="Title" maxlength="64"/>
+                </li> -->
+                <li>
+                   <label for="title" hidden>Title</label>
+                   <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="title" name="title" placeholder="Title" maxlength="25"></textarea>
                 </li>
                 <li>
                    <label for="description" hidden>Description</label>
-                   <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="description" name="description" placeholder="Description" maxlength="255"></textarea>
+                   <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="description" name="description" placeholder="Description" maxlength="180"></textarea>
                 </li>
                 <li>
                    <label for="location" hidden>Location</label>

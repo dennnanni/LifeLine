@@ -60,7 +60,7 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function createPost($username, $title, $description, $location, $category, $taggedUsernameList, $image) {
+    public function createPost($username, $title, $description, $location, $category, $taggedUsernameList, $image = null) {
         if(is_null($image)) {
             $stmt = $this->db->prepare("INSERT INTO post (title, description, location, category, author) VALUES (?, ?, ?, ?, ?)");
             $stmt->bind_param('ssssss', $title, $description, $location, $category, $username);
