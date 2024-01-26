@@ -125,7 +125,7 @@ class DatabaseHelper {
      */
     public function getPost($postId) {
         $stmt = $this->db->prepare("SELECT * FROM post WHERE post.id = ?");
-        $stmt->bind_param('i', $postId);
+        $stmt->bind_param('s', $postId);
         $stmt->execute();
         $result = $stmt->get_result();
 

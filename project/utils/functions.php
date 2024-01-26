@@ -1,24 +1,22 @@
 <?php
 
-class Notifica {
-    public $tipo;
-    public $testo;
-    public $link;
-
-    public function __construct($tipo, $testo, $prezzo) {
-        $this->testo = $testo;
-        $this->tipo = $tipo;
-        $this->link = $link;
+function composeMessage($type, $sender, $post) {
+    $message = "";
+    switch($type) {
+        case 1:
+            $message = "@".$sender." starred you memory \"".$post["title"]."\"";
+            break;
+        case 2:
+            $message = "@".$sender." commented on your memory \"".$post["title"]."\"";
+            break;
+        case 3:
+            $message = "@".$sender." sent you a friend request";
+            break;
+        case 4:
+            $message = "@".$sender." tagged you in a memory \"".$post["title"]."\"";
+            break;
     }
-}
-
-function createNotifications($notifications) {
-    $listaNotifiche = array();
-
-    foreach($notifications as $notification) {
-        $listaNotifiche[] = new Notifica($notification["type"], $notification["testo"], $notification["link"]);
-    }
-    return $listaNotifiche;
+    return $message;
 }
 
 /**
