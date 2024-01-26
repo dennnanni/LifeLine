@@ -8,13 +8,13 @@ window.onload = function load() {
                 checks[i].classList.add("text-secondary");
                 checks[i].classList.remove("text-tertiary");
 
-                let username = checks[i].previousElementSibling.textContent;
+                let username = checks[i].closest('div').previousElementSibling.querySelector('span').textContent;
                 sendAction(username, "ADD");
             } else {
                 checks[i].classList.remove("text-secondary");
                 checks[i].classList.add("text-tertiary");
 
-                let username = checks[i].previousElementSibling.textContent;
+                let username = checks[i].closest('div').previousElementSibling.querySelector('span').textContent;
                 sendAction(username, "REMOVE");
             }
         });
