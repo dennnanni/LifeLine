@@ -12,71 +12,94 @@ INSERT INTO CATEGORY (name) VALUES
 
 -- Inserimento utenti
 INSERT INTO USER (username, password, name, email, profilePic) VALUES
-('user1', '1', 'User One', 'user1@example.com', 'profile1.jpg'),
-('user2', '2', 'User Two', 'user2@example.com', 'profile2.jpg'),
-('user3', '3', 'User Three', 'user3@example.com', 'profile3.jpg');
+('user1', '1', 'User One', 'user1@example.com', 'default.jpg'),
+('user2', '2', 'User Two', 'user2@example.com', 'user2.jpg'),
+('user3', '3', 'User Three', 'user3@example.com', 'default.jpg'),
+('user4', '4', 'User Four', 'user4@example.com', 'user4.jpg'),
+('user5', '5', 'User Five', 'user5@example.com', 'user5.jpg');
 
 -- Inserimento post
 INSERT INTO POST (datetime, title, description, location, image, starsCount, commentsCount, category, author) VALUES
-('2024-01-01 12:00:00', 'Post 1', 'Description 1', 'Location 1', 'image1.jpg', 5, 3, 'Love', 'user1'),
-('2024-01-02 14:30:00', 'Post 2', 'Description 2', 'Location 2', 'image2.jpg', 8, 2, 'Travel', 'user2'),
-('2024-01-03 16:45:00', 'Post 3', 'Description 3', 'Location 3', 'image3.jpg', 12, 4, 'Fun', 'user3'),
-('2024-01-04 10:15:00', 'Post 4', 'Description 4', 'Location 4', 'image4.jpg', 3, 1, 'Food', 'user1'),
-('2024-01-05 18:20:00', 'Post 5', 'Description 5', 'Location 5', 'image5.jpg', 6, 5, 'Fashion', 'user2'),
-('2024-01-06 22:00:00', 'Post 6', 'Description 6', 'Location 6', 'image6.jpg', 10, 2, 'Art', 'user3'),
-('2024-01-07 09:30:00', 'Post 7', 'Description 7', 'Location 7', 'image7.jpg', 7, 3, 'Music', 'user1'),
-('2024-01-08 15:45:00', 'Post 8', 'Description 8', 'Location 8', 'image8.jpg', 4, 2, 'Love', 'user2');
+('2024-01-01 12:00:00', 'Post 11', 'Description 11', 'Milano', '1.jpg', 3, 2, 'Fashion', 'user1'),
+('2024-01-02 12:00:00', 'Post 22', 'Description 22', 'Padova', '2.jpg', 1, 0, 'Travel', 'user2'),
+('2024-01-03 12:00:00', 'Post 41', 'Description 41', 'Castiglione di Ravenna', '3.jpg', 1, 0, 'Music', 'user4');
+
+INSERT INTO POST (datetime, title, description, image, starsCount, commentsCount, category, author) VALUES
+('2024-01-05 22:00:00', 'Post 21', 'Description 21', '4.jpg', 0, 0, 'Fun', 'user2'),
+('2024-01-05 12:00:00', 'Post 31', 'Description 31', '5.jpg', 2, 2, 'Food', 'user3'),
+('2024-01-06 12:00:00', 'Post 32', 'Description 32', '6.jpg', 1, 0, 'Fashion', 'user3'),
+('2024-01-08 10:00:00', 'Post 42', 'Description 42', '7.jpg', 0, 0, 'Art', 'user4'),
+('2024-01-08 12:00:00', 'Post 51', 'Description 51', '8.jpg', 1, 0, 'Food', 'user5');
+
+INSERT INTO POST (datetime, title, description, starsCount, commentsCount, category, author) VALUES
+('2024-01-09 12:00:00', 'Post 12', 'Description 12', 2, 0, 'Love', 'user1'),
+('2024-01-10 12:00:00', 'Post 52', 'Description 52', 0, 0, 'Fun', 'user6');
 
 -- Inserimento stelle (star)
 INSERT INTO STAR (postId, username) VALUES
 (1, 'user2'),
 (1, 'user3'),
-(3, 'user1'),
-(3, 'user2'),
-(4, 'user3'),
+(1, 'user4'),
+(2, 'user1'),
+(3, 'user3'),
 (5, 'user1'),
-(6, 'user2'),
-(7, 'user3');
+(5, 'user4'),
+(6, 'user4'),
+(8, 'user1'),
+(9, 'user4'),
+(9, 'user5');
 
 -- Inserimento commenti
 INSERT INTO COMMENT (postId, username, text, datetime) VALUES
-(1, 'user2', 'Great post!', '2024-01-01 12:15:00'),
-(1, 'user3', 'Nice one!', '2024-01-01 12:30:00'),
-(3, 'user1', 'Amazing!', '2024-01-03 17:00:00'),
-(4, 'user2', 'Delicious!', '2024-01-04 10:30:00'),
-(5, 'user3', 'Love the outfit!', '2024-01-05 18:45:00'),
-(7, 'user1', 'Awesome music!', '2024-01-07 10:00:00'),
-(8, 'user2', 'Beautiful photo!', '2024-01-08 16:00:00');
+(1, 'user2', 'Great post!', '2024-01-02 12:15:00'),
+(1, 'user5', 'Nice one!', '2024-01-03 12:30:00'),
+(5, 'user1', 'Amazing!', '2024-01-07 17:00:00'),
+(5, 'user4', 'Delicious!', '2024-01-08 10:30:00');
 
 -- Inserimento tag
 INSERT INTO TAG (postId, username) VALUES
-(2, 'user1'),
-(2, 'user3'),
-(4, 'user1'),
-(5, 'user2'),
-(6, 'user3'),
-(8, 'user1');
+(1, 'user2'),
+(1, 'user4'),
+(5, 'user1');
 
--- Inserimento notifiche
--- Notifiche per stelle (star)
-INSERT INTO NOTIFICATION (datetime, type, sender, receiver) VALUES
-('2024-01-01 12:40:00', 1, 'user2', 'user1'),
-('2024-01-01 12:50:00', 1, 'user3', 'user1'),
-('2024-01-03 17:30:00', 1, 'user1', 'user3'),
-('2024-01-04 11:00:00', 1, 'user2', 'user3'),
-('2024-01-05 19:15:00', 1, 'user3', 'user2'),
-('2024-01-07 10:30:00', 1, 'user1', 'user3');
+-- Inserimento notifiche star, commenti e tag
+INSERT INTO NOTIFICATION (datetime, type, sender, receiver, postId) VALUES
+('2024-01-02 12:40:00', 1, 'user2', 'user1', 1),
+('2024-01-02 12:50:00', 1, 'user3', 'user1', 1),
+('2024-01-02 17:30:00', 1, 'user4', 'user1', 1),
+('2024-01-10 11:00:00', 1, 'user4', 'user1', 9),
+('2024-01-10 19:15:00', 1, 'user5', 'user1', 9),
+('2024-01-03 10:30:00', 1, 'user1', 'user2', 2),
+('2024-01-06 12:40:00', 1, 'user1', 'user3', 5),
+('2024-01-06 12:50:00', 1, 'user4', 'user3', 5),
+('2024-01-07 17:30:00', 1, 'user4', 'user3', 6),
+('2024-01-03 11:00:00', 1, 'user3', 'user4', 3),
+('2024-01-08 19:15:00', 1, 'user1', 'user5', 8),
 
--- Notifiche per commenti
+('2024-01-02 12:15:00', 2, 'user2', 'user1', 1),
+('2024-01-03 12:30:00', 2, 'user5', 'user1', 1),
+('2024-01-07 17:00:00', 2, 'user1', 'user3', 5),
+('2024-01-08 10:30:00', 2, 'user4', 'user3', 5),
+
+('2024-01-01 12:00:00', 4, 'user1', 'user2', 1),
+('2024-01-01 12:00:00', 4, 'user1', 'user4', 1),
+('2024-01-05 12:00:00', 4, 'user3', 'user1', 5);
+
 INSERT INTO NOTIFICATION (datetime, type, sender, receiver) VALUES
-('2024-01-01 12:40:00', 2, 'user2', 'user1'),
-('2024-01-01 12:50:00', 2, 'user3', 'user1'),
-('2024-01-03 17:30:00', 2, 'user1', 'user3'),
-('2024-01-04 11:00:00', 2, 'user2', 'user3'),
-('2024-01-05 19:15:00', 2, 'user3', 'user2'),
-('2024-01-07 10:30:00', 2, 'user1', 'user3');
+('2023-01-01 12:40:00', 3, 'user1', 'user2'),
+('2023-01-01 12:50:00', 3, 'user1', 'user3'),
+('2023-01-03 17:30:00', 3, 'user1', 'user4'),
+('2023-01-04 11:00:00', 3, 'user1', 'user5'),
+('2023-01-05 19:15:00', 3, 'user2', 'user3'),
+('2023-01-07 10:30:00', 3, 'user3', 'user4'),
+('2023-01-01 12:40:00', 3, 'user4', 'user5');
 
 -- Amicizie
 INSERT INTO FRIENDSHIP (accepted, receiver, sender) VALUES
 (TRUE, 'user1', 'user2'),
-(TRUE, 'user1', 'user3');
+(TRUE, 'user1', 'user3'),
+(TRUE, 'user1', 'user4'),
+(TRUE, 'user1', 'user5'),
+(TRUE, 'user2', 'user3'),
+(TRUE, 'user3', 'user4'),
+(FALSE, 'user4', 'user5');
