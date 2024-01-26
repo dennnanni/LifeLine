@@ -249,7 +249,7 @@ class DatabaseHelper {
      * Returns nothing
      */
     public function readAllNotifications($username) {
-        $stmt = $this->db->prepare("UPDATE notification SET notification.read = 1 WHERE notification.receiver = ?");
+        $stmt = $this->db->prepare("UPDATE notification SET notification.readState = 1 WHERE notification.receiver = ?");
         $stmt->bind_param('s', $username);
         $stmt->execute();
     }

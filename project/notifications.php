@@ -24,5 +24,7 @@ foreach($dbh->getNotifications($_SESSION["username"]) as $notification) {
     );
 }
 
+$dbh->readAllNotifications($_SESSION["username"]);
+
 require("template/base.php");
 ?>
