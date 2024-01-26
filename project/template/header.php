@@ -6,6 +6,10 @@
           <a class="" href="notifications.php">
             <i class="fas fa-bell text-light"></i>
           </a>
+        <?php elseif ($templateParams["headerLeftIcon"] == "logout"): ?>
+          <a class="" href="logout.php">
+            <i class="fa-solid fa-arrow-right-from-bracket fa-flip-horizontal text-light"></i>
+          </a>
         <?php elseif ($templateParams["headerLeftIcon"] == "back"): ?>
           <?php if(isset($templateParams["backPage"])): ?>
             <a class="" href="<?php echo $templateParams["backPage"]?>">

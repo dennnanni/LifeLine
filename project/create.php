@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else {
             $registration_result = $dbh->createPost($_SESSION["username"], $title, $description, $location, $category, array(), null);
         }
+        $_SESSION["taggedUsers"] = array();
     }
 }
 
@@ -31,7 +32,7 @@ $templateParams["active"] = "create-form.php";
 $templateParams["js"] = "create.js";
 
 //Header settings
-$templateParams["headerLeftIcon"] = null; // null | notifications | back
+$templateParams["headerLeftIcon"] = null; // null | notifications | back | logout
 $templateParams["backPage"] = null; // null | file.php  -> the page to address when back is pressed
 $templateParams["headerRightIcon"] = null; // null | search | settings
 
@@ -39,7 +40,11 @@ $templateParams["headerRightIcon"] = null; // null | search | settings
 $templateParams["footerActive"] = "create"; // home | create | diary
 
 $templateParams["categories"] = $dbh->getAllCategories();
-$templateParams["tag-number"] = 0;
+
+if(!isset($_SESSION["taggedUsers"])) {
+    $_SESSION["taggedUsers"] = array();
+}
+$templateParams["tag-number"] = count($_SESSION["taggedUsers"]);
 
 require("template/base.php");
 ?>

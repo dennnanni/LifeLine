@@ -26,7 +26,7 @@ $(document).ready(function() {
             let user = `
             <section class="w-100 ms-n40 ms-md-n3 mt-2">
             <img name="search-propic" src="upload/${data[i]["profilePic"]}"/>
-            <span class="d-inline-block">${data[i]["username"]}</span>
+            <span class="d-inline-block text-dark">${data[i]["username"]}</span>
             </section>
             `;
             result += user;

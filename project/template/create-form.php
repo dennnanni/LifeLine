@@ -45,7 +45,7 @@
                 <li>
                     <div class="justify-content-end">
                         <label for="tag"><?php echo $templateParams["tag-number"];?> Tag</label>
-                        <input class="w-50 mb-2 rounded-3 border-0 bg-secondary text-dark text-center" type="button" name="tag" id="tag" value="Tag friends"/>
+                        <a href="tag.php" class="w-75 mb-2 rounded-3 border-0 bg-secondary text-dark text-center p-1 text-decoration-none">Tag friends</a>
                     </div>
                 </li>
                 <li>
