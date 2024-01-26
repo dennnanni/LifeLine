@@ -8,7 +8,7 @@ $(document).ready(function() {
             showResult("{}");
         } else {
             request = $.ajax({
-                url: "utils/ajax.php",
+                url: "ajax/search.php",
                 type: "POST",
                 data: JSON.stringify(data),
                 success: function(response) {

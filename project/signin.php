@@ -16,6 +16,7 @@ if(isUserLoggedIn()){
     exit();
 }
 
+$_SESSION["current"] = "signin";
 $templateParams["title"] = "Login";
 $templateParams["active"] = "signin-form.php";
 

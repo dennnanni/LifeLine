@@ -2,6 +2,7 @@
 require("bootstrap.php");
 include("auth_session.php");
 
+$_SESSION["current"] = "tag";
 $templateParams["title"] = "Tag friends";
 $templateParams["active"] = "tag.php";
 $templateParams["js"] = "tag.js";

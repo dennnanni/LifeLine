@@ -2,6 +2,7 @@
 require_once("bootstrap.php");
 include("auth_session.php");
 
+$_SESSION["current"] = "diary";
 $templateParams["title"] = "Diary";
 $templateParams["active"] = "diary.php";
 

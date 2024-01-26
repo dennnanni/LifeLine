@@ -23,7 +23,7 @@ window.onload = function load() {
 
 function sendAction(username, action) {
     request = $.ajax({
-        url: "utils/tag-ajax.php",
+        url: "ajax/tag.php",
         type: "POST",
         data: { "username": username, "action": action }
     });

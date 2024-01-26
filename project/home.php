@@ -2,6 +2,7 @@
 require_once("bootstrap.php");
 include("auth_session.php");
 
+$_SESSION["current"] = "home";
 $templateParams["title"] = "Homepage";
 $templateParams["active"] = "home.php";
 

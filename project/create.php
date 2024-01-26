@@ -23,10 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else {
             $registration_result = $dbh->createPost($_SESSION["username"], $title, $description, $location, $category, array(), null);
         }
-        $_SESSION["taggedUsers"] = array();
     }
 }
 
+if($_SESSION["current"] == "tag") {
+    //Clear the post data
+    $_SESSION["taggedUsers"] = array();
+}
+
+$_SESSION["current"] = "create";
 $templateParams["title"] = "Create";
 $templateParams["active"] = "create-form.php";
 $templateParams["js"] = "create.js";

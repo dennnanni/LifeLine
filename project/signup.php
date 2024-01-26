@@ -63,6 +63,7 @@ if(isUserLoggedIn()){
     exit();
 }
 
+$_SESSION["current"] = "signup";
 $templateParams["title"] = "Registration";
 $templateParams["active"] = "signup-form.php";
 $templateParams["js"] = "signup.js";

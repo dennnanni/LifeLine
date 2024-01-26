@@ -1,12 +1,24 @@
 <?php
 
-/**
- * Return the active class for the active page on the header.
- */
-function isActive($pagename){
-    if(basename($_SERVER['PHP_SELF'])==$pagename){
-        echo " class='active' ";
+class Notifica {
+    public $tipo;
+    public $testo;
+    public $link;
+
+    public function __construct($tipo, $testo, $prezzo) {
+        $this->testo = $testo;
+        $this->tipo = $tipo;
+        $this->link = $link;
     }
+}
+
+function createNotifications($notifications) {
+    $listaNotifiche = array();
+
+    foreach($notifications as $notification) {
+        $listaNotifiche[] = new Notifica($notification["type"], $notification["testo"], $notification["link"]);
+    }
+    return $listaNotifiche;
 }
 
 /**

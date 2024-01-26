@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+$_SESSION["current"] = "create";
 $templateParams["title"] = "Create";
 $templateParams["active"] = "create-form.php";
 $templateParams["js"] = "create.js";

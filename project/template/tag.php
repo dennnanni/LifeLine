@@ -5,10 +5,9 @@
     <div class="flex-grow-1 text-nowrap w-100 pt-3">
         <div class="ms-n40 me-40">
             <div class="form-outline">
-                <h4 class="form-label text-dark bg-light">Tag a friend in your memory</h4>
+                <h4 class="form-label text-dark bg-light border border-1 border-tertiary-light">Tag a friend in your memory</h4>
             </div>
         </div>
-        <div id="searchResult">
         <?php foreach($templateParams["friends"] as $friend):?>
             <section class="w-100 ms-n40 ms-md-n3 mt-2">
                 <img name="search-propic" src="upload/<?php echo $friend["profilePic"]?>"/>
@@ -20,7 +19,6 @@
                 <?php endif; ?>
             </section>
         <?php endforeach;?>
-        </div>
     </div>
 </div>
 <?php require("footer.php"); ?>
