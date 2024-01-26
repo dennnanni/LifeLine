@@ -32,6 +32,12 @@ img[name="search-propic"] {
     border-radius: 26px;
 }
 
+[name="diary-propic"] {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+}
+
 div[name="icon-big"] {
     height: 24px;
     width: 24px;
