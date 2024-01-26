@@ -33,7 +33,7 @@ INSERT INTO POST (datetime, title, description, image, starsCount, commentsCount
 
 INSERT INTO POST (datetime, title, description, starsCount, commentsCount, category, author) VALUES
 ('2024-01-09 12:00:00', 'Post 12', 'Description 12', 2, 0, 'Love', 'user1'),
-('2024-01-10 12:00:00', 'Post 52', 'Description 52', 0, 0, 'Fun', 'user5);
+('2024-01-10 12:00:00', 'Post 52', 'Description 52', 0, 0, 'Fun', 'user5');
 
 -- Inserimento stelle (star)
 INSERT INTO STAR (postId, username) VALUES
