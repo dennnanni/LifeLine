@@ -9,22 +9,22 @@ window.onload = function load() {
                 checks[i].classList.remove("text-tertiary");
 
                 let username = checks[i].previousElementSibling.textContent;
-                send(username, "POST");
+                sendAction(username, "ADD");
             } else {
                 checks[i].classList.remove("text-secondary");
                 checks[i].classList.add("text-tertiary");
 
                 let username = checks[i].previousElementSibling.textContent;
-                send(username, "DELETE");
+                sendAction(username, "REMOVE");
             }
         });
     }
 }
 
-function send(username, method) {
+function sendAction(username, action) {
     request = $.ajax({
         url: "utils/tag-ajax.php",
-        type: method,
-        data: { "username": username }
+        type: "POST",
+        data: { "username": username, "action": action }
     });
 }

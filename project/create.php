@@ -40,10 +40,6 @@ $templateParams["headerRightIcon"] = null; // null | search | settings
 $templateParams["footerActive"] = "create"; // home | create | diary
 
 $templateParams["categories"] = $dbh->getAllCategories();
-
-if(!isset($_SESSION["taggedUsers"])) {
-    $_SESSION["taggedUsers"] = array();
-}
 $templateParams["tag-number"] = count($_SESSION["taggedUsers"]);
 
 require("template/base.php");
