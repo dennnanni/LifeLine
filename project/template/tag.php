@@ -1,7 +1,7 @@
 <?php require("header.php"); ?>
 <div class="d-flex">
     <div class="ms-5 ms-md-6 pt-3 vh-100 overflow-visible" name="lifeline">
-        <div class="ms-n1 bg-secondary rounded-3 d-flex justify-content-center" name="icon-big">
+        <div class="ms-n1 bg-secondary rounded-3 d-flex justify-content-center" name="icon-medium">
             <i class="fa-solid fa-tags h5 mt-1"></i>
         </div>
     </div>
@@ -12,7 +12,7 @@
         <?php foreach($templateParams["friends"] as $friend):?>
             <section class="w-100 ms-n40 ms-md-n3 mt-2 d-flex align-items-center justify-content-between">
                 <div class="d-flex justify-content-center align-items-center">
-                    <img name="search-propic" src="upload/<?php echo $friend["profilePic"]?>"/>
+                    <img name="propic-medium" src="upload/<?php echo $friend["profilePic"]?>"/>
                     <span class="d-inline-block text-dark"><?php echo $friend["username"]?></span>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
