@@ -46,10 +46,12 @@ div[name="icon-big"] {
     height: 32px;
     width: 32px;
 }
+
 div[name="icon-medium"] {
-    height: 24px;
-    width: 24px;
+    height: 26px;
+    width: 26px;
 }
+
 div[name="icon-small"] {
     height: 20px;
     width: 20px;

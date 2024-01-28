@@ -6,22 +6,31 @@
         </div>
         <div class="w-100 pt-3 position-relative justify-content-center">
             <!-- heading with propic, username, name, friends/button -->
-            <div class="ms-30">
+            <div class="ms-31">
                 <div class="d-flex align-items-center">
-                    <img name="propic-big" src="upload/default.jpg"/>
-                    <span class="ms-5 fw-bold fs-5"><?php echo "@".$templateParams["username"]; ?></span>
+                    <img name="propic-big" src="<?php echo "upload/".$templateParams["user"]["profilePic"]?>"/>
+                    <div class="ms-sm-4 ms-3">
+                        <div class="">
+                            <span class="fw-bold fs-5 d-block"><?php echo $templateParams["user"]["name"]; ?></span>
+                            <span class="d-block"><?php echo "@".$templateParams["user"]["username"]; ?></span>
+                        </div>
+                        <?php if (isset($templateParams["personal"])): ?>
+                        <!-- show friends count (maybe redirect to friends list?) -->
+                        <a class="btn btn-primary btn-sm rounded-4" href="#"><?php echo $templateParams["user"]["friendsCount"]." friends";?></a>
+                        <?php elseif ($templateParams["friendshipStatus"] == 1): ?>
+                        <!-- show friendship button -->
+                        <button type="button" class="btn btn-tertiary btn-sm float-end">Remove friendship</button>
+                        <?php elseif ($templateParams["friendshipStatus"] == 0): ?>
+                        <!-- show friendship button -->
+                        <button type="button" class="btn btn-tertiary btn-sm float-end">Cancel request</button>
+                        <?php elseif ($templateParams["friendshipStatus"] == -1): ?>
+                            <!-- show friendship button -->
+                        <button type="button" class="btn btn-secondary btn-sm float-end">Request friendship</button>
+                        <?php  endif; ?>
+                        
+                    </div>
                 </div>
-                
-                <?php if (isset($templateParams["posts"])): ?>
-                    <?php if (isset($templateParams["personal"])): ?>
-                    <!-- show friends count  -->
-                    <div>
-                    </div>
-                    <?php else: ?>
-                    <!-- show friendship button -->
-                    <div>
-                    </div>
-                    <?php  endif; ?>
+                <?php if ($templateParams["friendshipStatus"] == 1): ?>
                     <?php foreach($templateParams["posts"] as $post): ?>
                         <div class="d-flex align-items-center ms-31 my-1">
                             <div class="d-flex pe-4">
@@ -31,17 +40,20 @@
                                 </div>
                             </div>
                             <section class="d-flex align-items-center">
-                                <img src="upload/default.jpg" class="float-right w-25 h-25"/>
-                                <div class="">
+                                <?php 
+                                    if (isset($post["image"])) {
+                                        echo "<img src=\"upload/".$post["image"]."\" class=\"float-right w-25 h-25 rounded-4\"/>";
+                                    }
+                                ?>
+                                <div class="ms-2">
                                     <span class="fw-bold d-block"><?php echo $post["title"]; ?></span>
+                                    <!-- TODO: cambiare formato -->
                                     <span class="d-block small"><?php echo $post["datetime"] ?></span>
                                 </div>
                             </section>
                         </div>
                     <?php endforeach; ?>
-                <?php else: 
-                    echo $templateParams["friendshipStatus"];
-                    ?>
+                <?php else: ?>
                     <!-- show request friendship button or cancel request button -->
                 <?php endif; ?>
             </div>
