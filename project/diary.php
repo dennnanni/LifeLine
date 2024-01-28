@@ -24,13 +24,12 @@ $requestedUser = isset($_GET["username"]) ? $_GET["username"] : $_SESSION["usern
 if ($requestedUser == $_SESSION["username"]) {
     $templateParams["personal"] = true;
     $templateParams["posts"] = $dbh->getDiary($requestedUser);
-    $templateParams["friendshipStatus"] = 1;
 
     //Footer setting
     $templateParams["footerActive"] = "diary"; // home | create | diary
 } else {
-    $templateParams["friendshipStatus"] = $dbh->getFriendshipStatus($requestedUser, $_SESSION["username"]);
-    if ($templateParams["friendshipStatus"] == 1) { 
+    $templateParams["friendship"] = $dbh->getFriendshipStatus($requestedUser, $_SESSION["username"]);
+    if ($templateParams["friendship"]["status"] == 1) { 
         $templateParams["posts"] = $dbh->getDiary($requestedUser);
 
         //Footer setting

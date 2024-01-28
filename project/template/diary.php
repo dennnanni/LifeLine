@@ -2,7 +2,7 @@
 
 <div class="d-flex justify-content-center">
     <div class="vh-100 col-11 position-relative">
-        <div class="ms-5 ms-md-6 ms-xl-6 pt-3 min-vh-100 position-absolute" name="lifeline">
+        <div class="ms-5 ms-md-6 ms-xl-6 pt-3 min-vh-100 position-absolute" id="lifeline">
         </div>
         <div class="w-100 pt-3 position-relative justify-content-center">
             <!-- heading with propic, username, name, friends/button -->
@@ -10,13 +10,19 @@
                 <div class="d-flex align-items-center">
                     <img name="propic-big" src="<?php echo "upload/".$templateParams["username"]["profilePic"]?>"/>
                     <div class="ms-sm-4 ms-3">
-                        <div class="">
+                        <div>
                             <span class="fw-bold fs-5 d-block"><?php echo $templateParams["username"]["name"]; ?></span>
                             <span class="d-block"><?php echo $templateParams["username"]["username"]; ?></span>
                         </div>
                         <?php if (isset($templateParams["personal"])): ?>
                         <!-- show friends count (maybe redirect to friends list?) -->
-                        <a class="btn btn-primary btn-sm rounded-4" href="friends.php"><?php echo $templateParams["username"]["friendsCount"]." friends";?><?php echo $templateParams["username"]["friendsCount"]." friends";?></a>
+                        <a class="btn btn-primary btn-sm rounded-4" href="friends.php"><?php echo $templateParams["username"]["friendsCount"]." friends";?></a>
+                        <?php elseif (isset($templateParams["friendship"]) && $templateParams["friendship"]["status"] == 0 && $templateParams["friendship"]["sender"] == $templateParams["username"]["username"]): ?>
+                            <!-- due bottoni -->
+                            <form method="POST">
+                                <input type="submit"/>
+                                <input type="reset" />
+                            </form>
                         <?php else: ?>
                             <form method="POST">
                                 <input id="friendshipStatus" name="friendshipStatus" type="hidden" value="<?php echo $templateParams["friendshipStatus"]; ?>"/>
@@ -25,13 +31,14 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <?php if ($templateParams["friendshipStatus"] == 1): ?>
+                <?php if (isset($templateParams["personal"]) || 
+                    (isset($templateParams["friendship"]) && $templateParams["friendship"]["status"] == 1)): ?>
                     <?php foreach($templateParams["posts"] as $post): ?>
                         <div class="d-flex align-items-center ms-31 my-1">
                             <div class="d-flex pe-4">
                                 <div name="icon-medium" class="d-flex justify-content-center align-items-center bg-secondary rounded-3">
                                     <!-- TODO: gestire diversa icona per diversa categoria -->
-                                    <i class="fa-solid fa-heart"></i>
+                                    <i class="fa-solid <?php echo getIconClass($post["category"]); ?>"></i>
                                 </div>
                             </div>
                             <section class="d-flex align-items-center">
@@ -48,8 +55,6 @@
                             </section>
                         </div>
                     <?php endforeach; ?>
-                <?php else: ?>
-                    <!-- show request friendship button or cancel request button -->
                 <?php endif; ?>
             </div>
         </div>

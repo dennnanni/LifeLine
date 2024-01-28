@@ -161,12 +161,12 @@ class DatabaseHelper {
      * Return the friendship status: 1 if the users are friends, 0 if the request is pending, -1 if they are not
      */
     public function getFriendshipStatus($username1, $username2) {
-        $stmt = $this->db->prepare("SELECT accepted FROM friendship WHERE (friendship.sender = ? AND friendship.receiver = ?) OR (friendship.sender = ? AND friendship.receiver = ?)");
+        $stmt = $this->db->prepare("SELECT * FROM friendship WHERE (friendship.sender = ? AND friendship.receiver = ?) OR (friendship.sender = ? AND friendship.receiver = ?)");
         $stmt->bind_param('ssss', $username1, $username2, $username2, $username1);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return mysqli_num_rows($result) >= 1 ? $result->fetch_assoc()["accepted"] : -1;
+        return $result->fetch_assoc();
     }
 
     /**

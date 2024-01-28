@@ -87,4 +87,27 @@ function uploadImage($path, $image){
     return array($result, $msg);
 }
 
+function getIconClass($category) {
+    switch ($category) {
+        case "Love":
+            return "fa-heart";
+        case "Fun":
+            return "fa-champagne-glasses";
+        case "Music":
+            return "fa-music";
+        case "Art":
+            return "fa-palette";
+        case "Food":
+            return "fa-burger";
+        case "Fashion":
+            return "fa-shirt";
+        case "Sport":
+            return "fa-football";
+        case "Travel":
+            return "fa-plane";
+        default: 
+            return "";
+    }
+}
+
 ?>
