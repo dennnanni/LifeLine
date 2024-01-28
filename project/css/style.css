@@ -21,7 +21,7 @@ h1 {
     font-family: var(--titleFont);
 }
 
-div[name="lifeline"] {
+div#lifeline {
     width: 16px;
     background: linear-gradient(180deg, #FFCA0C 0%, rgba(255, 202, 12, 0.50) 44.6%, rgba(0, 143, 194, 0.53) 60.6%, #008FC2 100%);
 }
