@@ -18,14 +18,10 @@
                     <section class="w-100 mt-2 d-flex align-items-center justify-content-between">
                         <div class="d-flex justify-content-center align-items-center">
                             <img name="propic-medium" src="upload/<?php echo $friend["profilePic"]?>"/>
-                            <span class="d-inline-block text-dark ms-1"><?php echo $friend["name"]?> (@<?php echo $friend["username"]?>)</span>
+                            <span id = "<?php echo $friend["username"]?>" class="d-inline-block text-dark ms-1"><?php echo $friend["name"]?> (@<?php echo $friend["username"]?>)</span>
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
-                            <?php if(!in_array($friend["username"], $_SESSION["taggedUsers"])): ?>
-                                <i class="bi bi-check-circle-fill h3 text-tertiary mt-2"></i>
-                            <?php else: ?>
-                                <i class="bi bi-check-circle-fill h3 text-secondary mt-2"></i>
-                            <?php endif; ?>
+                            <i class="bi bi-check-circle-fill h3 <?php echo (in_array($friend["username"], $_SESSION["taggedUsers"]) ? "text-secondary" : "text-tertiary") ?> mt-2"></i>
                         </div>
                     </section>
                 <?php endforeach;?>
