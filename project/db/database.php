@@ -57,7 +57,7 @@ class DatabaseHelper {
         $stmt->execute();
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         
-        return password_verify($password, $result[0]["passwordHash"]) ? $result[0] : null;
+        return (count($result) == 0 ? null : (password_verify($password, $result[0]["passwordHash"]) ? $result[0] : null));
     }
 
     public function createPost($username, $title, $description, $location, $category, $taggedUsernameList, $image = null) {
