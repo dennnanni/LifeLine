@@ -19,12 +19,34 @@ window.onload = function load() {
             }
         });
     }
+    sendAction("", "REMOVE"); //Dummy request to load posts without filters
 }
 
 function sendAction(category, action) {
     request = $.ajax({
         url: "ajax/home.php",
         type: "POST",
-        data: { "category": category, "action": action }
+        data: { "category": category, "action": action },
+        success: function(response) {
+            showPosts(response);
+        }
     });
+}
+
+function showPosts(data) {
+    let result = "";
+    let post = JSON.parse(data);
+    for (let i = 0; i < post.length; i++) {
+        let postElement = `
+        <section class="mt-2">
+            <span class="d-inline-block text-dark">${post[i]["title"]}</span>
+            <span class="d-inline-block text-dark">(${post[i]["author"]})</span>
+            <span class="d-inline-block text-dark">${post[i]["datetime"]}</span>
+        </section>
+        `;
+        result += postElement;
+    }
+
+    let resultContainer = document.querySelector("#posts");
+    resultContainer.innerHTML = result;
 }

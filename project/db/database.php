@@ -93,7 +93,7 @@ class DatabaseHelper {
                                         "FROM friendship ".
                                         "WHERE friendship.sender = ? AND friendship.accepted = TRUE) ";
     
-        if (!is_null($categoryFilter)) {
+        if (!is_null($categoryFilter) && !empty($categoryFilter)) {
             $filterList = implode("', '", $categoryFilter);
             $query .= "AND post.category IN ('$filterList') ";
         }

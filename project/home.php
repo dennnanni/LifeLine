@@ -17,7 +17,6 @@ $templateParams["notificationsNumber"] = $dbh->getNewNotificationNumber($_SESSIO
 $templateParams["footerActive"] = "home"; // home | create | diary
 
 $templateParams["categories"] = $dbh->getAllCategories();
-$templateParams["posts"] = $dbh->loadHomePage($_SESSION["username"]);
 
 require("template/base.php");
 ?>
