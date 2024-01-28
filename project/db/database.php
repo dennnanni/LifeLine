@@ -60,6 +60,15 @@ class DatabaseHelper {
         return (count($result) == 0 ? null : (password_verify($password, $result[0]["passwordHash"]) ? $result[0] : null));
     }
 
+    /**
+     * Change a user photo url
+     */
+    public function changeUserPhoto($username, $photo) {
+        $stmt = $this->db->prepare("UPDATE user SET user.profilePic = ? WHERE user.username = ?");
+        $stmt->bind_param('ss', $photo, $username);
+        $stmt->execute();
+    }
+
     public function createPost($username, $title, $description, $location, $category, $taggedUsernameList, $image = null) {
         if(is_null($image)) {
             $stmt = $this->db->prepare("INSERT INTO post (title, description, location, category, author) VALUES (?, ?, ?, ?, ?)");

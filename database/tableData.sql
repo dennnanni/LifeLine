@@ -14,23 +14,23 @@ INSERT INTO CATEGORY (name) VALUES
 -- Inserimento utenti
 INSERT INTO USER (username, passwordHash, name, email, profilePic, friendsCount) VALUES
 ('user1', '$2y$10$gSymACzkVWNOcgfuekbeqebM/faIRCUbsQHpOq9u53IREvZzwftBC', 'User One', 'user1@example.com', 'default.jpg', 4),
-('user2', '$2y$10$JhR19ixeY/gTxhGeQ1R0tOluH97AImOe853fuGrEGcX8DaKa7vod6', 'User Two', 'user2@example.com', 'user2.jpg', 2),
+('user2', '$2y$10$JhR19ixeY/gTxhGeQ1R0tOluH97AImOe853fuGrEGcX8DaKa7vod6', 'User Two', 'user2@example.com', '1.jpg', 2),
 ('user3', '$2y$10$5uY9azSo4eTycQYJrwmMO./TQu6F4n7rqOUMci33dqENwRV7piFzu', 'User Three', 'user3@example.com', 'default.jpg', 3),
-('user4', '$2y$10$oZzthyhxGGnf4/fU2Qf/rez4t4IkNEMccdxoZHUASK8a7v7g75R3i', 'User Four', 'user4@example.com', 'user4.jpg', 2),
-('user5', '$2y$10$rYX/5TXUOtWNHu4YRqz0XOkcWtfWKJ2qF54dQTnUwJvOJ4P2P9TN.', 'User Five', 'user5@example.com', 'user5.jpg', 1);
+('user4', '$2y$10$oZzthyhxGGnf4/fU2Qf/rez4t4IkNEMccdxoZHUASK8a7v7g75R3i', 'User Four', 'user4@example.com', '2.jpg', 2),
+('user5', '$2y$10$rYX/5TXUOtWNHu4YRqz0XOkcWtfWKJ2qF54dQTnUwJvOJ4P2P9TN.', 'User Five', 'user5@example.com', '3.jpg', 1);
 
 -- Inserimento post
 INSERT INTO POST (datetime, title, description, location, image, starsCount, commentsCount, category, author) VALUES
-('2024-01-01 12:00:00', 'Post 11', 'Description 11', 'Milano', '1.jpg', 3, 2, 'Fashion', 'user1'),
-('2024-01-02 12:00:00', 'Post 22', 'Description 22', 'Padova', '2.jpg', 1, 0, 'Travel', 'user2'),
-('2024-01-03 12:00:00', 'Post 41', 'Description 41', 'Castiglione di Ravenna', '3.jpg', 1, 0, 'Music', 'user4');
+('2024-01-01 12:00:00', 'Post 11', 'Description 11', 'Milano', '4.jpg', 3, 2, 'Fashion', 'user1'),
+('2024-01-02 12:00:00', 'Post 22', 'Description 22', 'Padova', '5.jpg', 1, 0, 'Travel', 'user2'),
+('2024-01-03 12:00:00', 'Post 41', 'Description 41', 'Castiglione di Ravenna', '6.jpg', 1, 0, 'Music', 'user4');
 
 INSERT INTO POST (datetime, title, description, image, starsCount, commentsCount, category, author) VALUES
-('2024-01-05 22:00:00', 'Post 21', 'Description 21', '4.jpg', 0, 0, 'Fun', 'user2'),
-('2024-01-05 12:00:00', 'Post 31', 'Description 31', '5.jpg', 2, 2, 'Food', 'user3'),
-('2024-01-06 12:00:00', 'Post 32', 'Description 32', '6.jpg', 1, 0, 'Sport', 'user3'),
-('2024-01-08 10:00:00', 'Post 42', 'Description 42', '7.jpg', 0, 0, 'Art', 'user4'),
-('2024-01-08 12:00:00', 'Post 51', 'Description 51', '8.jpg', 1, 0, 'Food', 'user5');
+('2024-01-05 22:00:00', 'Post 21', 'Description 21', '7.jpg', 0, 0, 'Fun', 'user2'),
+('2024-01-05 12:00:00', 'Post 31', 'Description 31', '8.jpg', 2, 2, 'Food', 'user3'),
+('2024-01-06 12:00:00', 'Post 32', 'Description 32', '9.jpg', 1, 0, 'Sport', 'user3'),
+('2024-01-08 10:00:00', 'Post 42', 'Description 42', '10.jpg', 0, 0, 'Art', 'user4'),
+('2024-01-08 12:00:00', 'Post 51', 'Description 51', '11.jpg', 1, 0, 'Food', 'user5');
 
 INSERT INTO POST (datetime, title, description, starsCount, commentsCount, category, author) VALUES
 ('2024-01-09 12:00:00', 'Post 12', 'Description 12', 2, 0, 'Love', 'user1'),
