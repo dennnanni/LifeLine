@@ -2,14 +2,6 @@
 require_once("bootstrap.php");
 include("auth_session.php");
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if ($_POST["friendshipStatus"] == 1 || $_POST["friendshipStatus"] == 0) {
-        $dbh->removeFriendOrRequest($_SESSION["username"], $_GET["username"]);
-    } else {
-        $dbh->sendFriendship($_SESSION["username"], $_GET["username"]);
-    }
-}
-
 $_SESSION["current"] = "diary";
 $templateParams["title"] = "Diary";
 $templateParams["active"] = "diary.php";
@@ -29,7 +21,7 @@ if ($requestedUser == $_SESSION["username"]) {
     $templateParams["footerActive"] = "diary"; // home | create | diary
 } else {
     $templateParams["friendship"] = $dbh->getFriendshipStatus($requestedUser, $_SESSION["username"]);
-    if ($templateParams["friendship"]["status"] == 1) { 
+    if ($templateParams["friendship"]["accepted"] == 1) { 
         $templateParams["posts"] = $dbh->getDiary($requestedUser);
 
         //Footer setting
