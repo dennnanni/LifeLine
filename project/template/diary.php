@@ -12,22 +12,17 @@
                     <div class="ms-sm-4 ms-3">
                         <div class="">
                             <span class="fw-bold fs-5 d-block"><?php echo $templateParams["user"]["name"]; ?></span>
-                            <span class="d-block"><?php echo "@".$templateParams["user"]["username"]; ?></span>
+                            <span class="d-block"><?php echo $templateParams["user"]["username"]; ?></span>
                         </div>
                         <?php if (isset($templateParams["personal"])): ?>
                         <!-- show friends count (maybe redirect to friends list?) -->
                         <a class="btn btn-primary btn-sm rounded-4" href="#"><?php echo $templateParams["user"]["friendsCount"]." friends";?></a>
-                        <?php elseif ($templateParams["friendshipStatus"] == 1): ?>
-                        <!-- show friendship button -->
-                        <button type="button" class="btn btn-tertiary btn-sm float-end">Remove friendship</button>
-                        <?php elseif ($templateParams["friendshipStatus"] == 0): ?>
-                        <!-- show friendship button -->
-                        <button type="button" class="btn btn-tertiary btn-sm float-end">Cancel request</button>
-                        <?php elseif ($templateParams["friendshipStatus"] == -1): ?>
-                            <!-- show friendship button -->
-                        <button type="button" class="btn btn-secondary btn-sm float-end">Request friendship</button>
-                        <?php  endif; ?>
-                        
+                        <?php else: ?>
+                            <form method="POST">
+                                <input id="friendshipStatus" name="friendshipStatus" type="hidden" value="<?php echo $templateParams["friendshipStatus"]; ?>"/>
+                                <input id="actionButton" name="actionButton" type="submit" class="btn btn-sm"></input>
+                            </form>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <?php if ($templateParams["friendshipStatus"] == 1): ?>

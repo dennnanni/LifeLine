@@ -152,6 +152,17 @@ class DatabaseHelper {
     }
 
     /**
+     * Removes a frienship
+     */
+    public function removeFriendOrRequest($username1, $username2) {
+        $stmt = $this->db->prepare("DELETE FROM friendship WHERE (friendship.sender = ? AND friendship.receiver = ?) OR (friendship.sender = ? AND friendship.receiver = ?)");
+        $stmt->bind_param('ssss', $username1, $username2, $username2, $username1);
+        
+        return $stmt->execute();
+    }
+    
+
+    /**
      * Get a post.
      */
     public function getPost($postId) {
@@ -291,7 +302,7 @@ class DatabaseHelper {
      */
     public function sendFriendship($senderUsername, $receiverUsername) {
         $stmt = $this->db->prepare("INSERT INTO FRIENDSHIP (sender, receiver) VALUES (?, ?)");
-        $stmt->bind_param('ss', $sender, $receiver);
+        $stmt->bind_param('ss', $senderUsername, $receiverUsername);
         $stmt->execute();
 
         $this->createNotification(3, $senderUsername, $receiverUsername);

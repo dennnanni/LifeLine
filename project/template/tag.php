@@ -12,7 +12,7 @@
         <?php foreach($templateParams["friends"] as $friend):?>
             <section class="w-100 ms-n40 ms-md-n3 mt-2 d-flex align-items-center justify-content-between">
                 <div class="d-flex justify-content-center align-items-center">
-                    <img name="propic-medium" src="upload/<?php echo $friend["profilePic"]?>"/>
+                    <img name="search-propic" src="upload/<?php echo $friend["profilePic"]?>"/>
                     <span class="d-inline-block text-dark"><?php echo $friend["username"]?></span>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
