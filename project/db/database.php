@@ -104,6 +104,18 @@ class DatabaseHelper {
     }
 
     /**
+     * Get all posts shown in the diary page
+     */
+    public function getDiary($username) {
+        $stmt = $this->db->prepare('SELECT * FROM post WHERE post.author = ? OR EXISTS (SELECT * FROM tag WHERE post.id = tag.postId AND tag.username = ?) ORDER BY post.datetime DESC');
+        $stmt->bind_param('ss', $username, $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
      * Get a user information.
      */
     public function getUser($username) {
@@ -119,12 +131,12 @@ class DatabaseHelper {
      * Return true if the users are friends, false otherwise
      */
     public function areFriends($username1, $username2) {
-        $stmt = $this->db->prepare("SELECT * FROM friendship WHERE friendship.accepted = 1 AND ((friendship.sender = ? AND friendship.receiver = ?) OR (friendship.sender = ? AND friendship.receiver = ?))");
+        $stmt = $this->db->prepare("SELECT accepted FROM friendship WHERE friendship.accepted = 1 AND ((friendship.sender = ? AND friendship.receiver = ?) OR (friendship.sender = ? AND friendship.receiver = ?))");
         $stmt->bind_param('ssss', $username1, $username2, $username2, $username1);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return mysqli_num_rows($result) >= 1;
+        return mysqli_num_rows($result) >= 1 ? $result->fetch_assoc()["accepted"] : -1;
     }
 
     /**

@@ -26,21 +26,33 @@ div[name="lifeline"] {
     background: linear-gradient(180deg, #FFCA0C 0%, rgba(255, 202, 12, 0.50) 44.6%, rgba(0, 143, 194, 0.53) 60.6%, #008FC2 100%);
 }
 
-img[name="search-propic"] {
-    width: 50px;
-    height: 50px;
-    border-radius: 26px;
-}
-
-[name="diary-propic"] {
+img[name="propic-big"] {
     width: 70px;
     height: 70px;
     border-radius: 35px;
 }
 
+img[name="propic-medium"] {
+    width: 50px;
+    height: 50px;
+    border-radius: 26px;
+}
+
+img[name="propic-small"] {
+
+}
+
 div[name="icon-big"] {
+    height: 32px;
+    width: 32px;
+}
+div[name="icon-medium"] {
     height: 24px;
     width: 24px;
+}
+div[name="icon-small"] {
+    height: 20px;
+    width: 20px;
 }
 
 @media only screen and (max-device-width: 480px) {

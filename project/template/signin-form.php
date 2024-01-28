@@ -22,10 +22,10 @@
     <div class="row justify-content-center mb-4">
         <div class="col-xl-5 col-md-6 col-10">
             <ul class="nav nav-pills">
-                <li class="nav-item col-4 col-xl-5">
+                <li class="nav-item col-5 col-xl-5">
                     <a class="nav-link text-secondary btn-lg fw-bold" id="signin" href="signin.php">Sign in</a>
                 </li>
-                <li class="nav-item col-4 col-xl-5">
+                <li class="nav-item col-5 col-xl-5">
                     <a class="nav-link text-dark btn-lg fw-bold" id="signup" href="signup.php">Sign up</a>
                 </li>
             </ul>
