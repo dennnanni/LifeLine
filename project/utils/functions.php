@@ -110,4 +110,19 @@ function getIconClass($category) {
     }
 }
 
+function groupPostsByDay($posts) {
+    $groupedPosts = array();
+
+    foreach ($posts as $post) {
+        $dateWithoutTime = date("d/m/Y", strtotime($post['datetime']));
+
+        if (!isset($groupedPosts[$dateWithoutTime])) {
+            $groupedPosts[$dateWithoutTime] = array();
+        }
+        $groupedPosts[$dateWithoutTime][] = $post;
+    }
+
+    return $groupedPosts;
+}
+
 ?>

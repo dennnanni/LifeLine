@@ -35,16 +35,26 @@ function sendAction(category, action) {
 
 function showPosts(data) {
     let result = "";
-    let post = JSON.parse(data);
-    for (let i = 0; i < post.length; i++) {
-        let postElement = `
-        <section class="mt-2">
-            <span class="d-inline-block text-dark">${post[i]["title"]}</span>
-            <span class="d-inline-block text-dark">(${post[i]["author"]})</span>
-            <span class="d-inline-block text-dark">${post[i]["datetime"]}</span>
-        </section>
-        `;
-        result += postElement;
+    let postByDay = JSON.parse(data);
+    console.log(data);
+
+    for (const date in postByDay) {
+        if (postByDay.hasOwnProperty(date)) {
+            let postElement = `<h2>${date}</h2>`;
+
+            postByDay[date].forEach(post => {
+                postElement += `
+                <a href="diary.php?username=${post.author}" class="text-decoration-none" >
+                    <section class="mt-2">
+                        <span class="d-inline-block text-dark">${post.title}</span>
+                        <span class="d-inline-block text-dark">(${post.author})</span>
+                        <span class="d-inline-block text-dark">${post.datetime}</span>
+                    </section>
+                </a>
+                `;
+            });
+            result += postElement;
+        }
     }
 
     let resultContainer = document.querySelector("#posts");

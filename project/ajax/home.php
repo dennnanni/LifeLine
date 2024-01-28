@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["selectedCategories"] = array_diff($_SESSION["selectedCategories"], [$_POST["category"]]);//remove user from tagged users
     }
 
-    $queryResult = $dbh->loadHomePage($_SESSION["username"], $_SESSION["selectedCategories"]);
+    $queryResult = groupPostsByDay($dbh->loadHomePage($_SESSION["username"], $_SESSION["selectedCategories"]));
     echo json_encode($queryResult);
 }
 
