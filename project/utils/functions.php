@@ -34,7 +34,7 @@ function registerUserSession($username, $name){
     $_SESSION["username"] = $username;
     $_SESSION["name"] = $name;
     $_SESSION["current"] = "";
-    
+
     $_SESSION["title"] = "";
     $_SESSION["description"] = "";
     $_SESSION["location"] = "";

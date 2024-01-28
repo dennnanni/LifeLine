@@ -3,6 +3,7 @@ require_once("bootstrap.php");
 include("auth_session.php");
 
 $_SESSION["current"] = "home";
+$_SESSION["selectedCategories"] = array();
 $templateParams["title"] = "Homepage";
 $templateParams["active"] = "home.php";
 $templateParams["js"] = "home.js";
