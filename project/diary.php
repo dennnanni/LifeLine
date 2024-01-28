@@ -4,9 +4,9 @@ include("auth_session.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($_POST["friendshipStatus"] == 1 || $_POST["friendshipStatus"] == 0) {
-        $dbh->removeFriendOrRequest($_SESSION["username"], $_GET["user"]);
+        $dbh->removeFriendOrRequest($_SESSION["username"], $_GET["username"]);
     } else {
-        $dbh->sendFriendship($_SESSION["username"], $_GET["user"]);
+        $dbh->sendFriendship($_SESSION["username"], $_GET["username"]);
     }
 }
 
@@ -19,7 +19,7 @@ $templateParams["js"] = "diary.js";
 $templateParams["headerLeftIcon"] = "logout"; // null | notifications | back | logout
 $templateParams["headerRightIcon"] = "photo"; // null | search | photo
 
-$requestedUser = isset($_GET["user"]) ? $_GET["user"] : $_SESSION["username"];
+$requestedUser = isset($_GET["username"]) ? $_GET["username"] : $_SESSION["username"];
 
 if ($requestedUser == $_SESSION["username"]) {
     $templateParams["personal"] = true;
@@ -38,7 +38,7 @@ if ($requestedUser == $_SESSION["username"]) {
     }
 }
 
-$templateParams["user"] = $dbh->getUser($requestedUser);
+$templateParams["username"] = $dbh->getUser($requestedUser);
 
 require("template/base.php");
 ?>

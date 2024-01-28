@@ -8,15 +8,15 @@
             <!-- heading with propic, username, name, friends/button -->
             <div class="ms-31">
                 <div class="d-flex align-items-center">
-                    <img name="propic-big" src="<?php echo "upload/".$templateParams["user"]["profilePic"]?>"/>
+                    <img name="propic-big" src="<?php echo "upload/".$templateParams["username"]["profilePic"]?>"/>
                     <div class="ms-sm-4 ms-3">
                         <div class="">
-                            <span class="fw-bold fs-5 d-block"><?php echo $templateParams["user"]["name"]; ?></span>
-                            <span class="d-block"><?php echo $templateParams["user"]["username"]; ?></span>
+                            <span class="fw-bold fs-5 d-block"><?php echo $templateParams["username"]["name"]; ?></span>
+                            <span class="d-block"><?php echo $templateParams["username"]["username"]; ?></span>
                         </div>
                         <?php if (isset($templateParams["personal"])): ?>
                         <!-- show friends count (maybe redirect to friends list?) -->
-                        <a class="btn btn-primary btn-sm rounded-4" href="#"><?php echo $templateParams["user"]["friendsCount"]." friends";?></a>
+                        <a class="btn btn-primary btn-sm rounded-4" href="friends.php"><?php echo $templateParams["username"]["friendsCount"]." friends";?><?php echo $templateParams["username"]["friendsCount"]." friends";?></a>
                         <?php else: ?>
                             <form method="POST">
                                 <input id="friendshipStatus" name="friendshipStatus" type="hidden" value="<?php echo $templateParams["friendshipStatus"]; ?>"/>
