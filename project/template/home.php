@@ -25,15 +25,4 @@
         <button class="bg-light border border-2 border-tertiary rounded-4 text-dark w-100 text-center" type="button">Music</button>
     </div>
 </div>
-
-<div>
-</div>
-
-<?php 
-
-// foreach($templateParams["posts"] as $post) {
-//     echo $post['title'];
-// }
-
-?>
 <?php require("footer.php"); ?>
