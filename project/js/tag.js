@@ -4,17 +4,17 @@ window.onload = function load() {
     for (let i = 0; i < checks.length; i++) {
 
         checks[i].addEventListener('click', function() {
+            let username = checks[i].closest('div').previousElementSibling.querySelector('span').id;
+
             if (checks[i].classList.contains("text-tertiary")) {
                 checks[i].classList.add("text-secondary");
                 checks[i].classList.remove("text-tertiary");
 
-                let username = checks[i].closest('div').previousElementSibling.querySelector('span').textContent;
                 sendAction(username, "ADD");
             } else {
                 checks[i].classList.remove("text-secondary");
                 checks[i].classList.add("text-tertiary");
 
-                let username = checks[i].closest('div').previousElementSibling.querySelector('span').textContent;
                 sendAction(username, "REMOVE");
             }
         });

@@ -82,14 +82,32 @@ class DatabaseHelper {
         return true;//TODO: modifica
     }
 
-    public function loadHomePage($username) {
-        $stmt = $this->db->prepare("SELECT * FROM post WHERE post.author IN (SELECT friendship.sender FROM friendship WHERE friendship.receiver = ? AND friendship.accepted = TRUE UNION SELECT friendship.receiver FROM friendship WHERE friendship.sender = ? AND friendship.accepted = TRUE) ORDER BY datetime DESC");
+    public function loadHomePage($username, $categoryFilter = null) {
+        $query =    "SELECT * ".
+                    "FROM post ".
+                    "WHERE post.author IN (SELECT friendship.sender ".
+                                        "FROM friendship ".
+                                        "WHERE friendship.receiver = ? AND friendship.accepted = TRUE ".
+                                        "UNION ".
+                                        "SELECT friendship.receiver ".
+                                        "FROM friendship ".
+                                        "WHERE friendship.sender = ? AND friendship.accepted = TRUE) ";
+    
+        if (!is_null($categoryFilter)) {
+            $filterList = implode("', '", $categoryFilter);
+            $query .= "AND post.category IN ('$filterList') ";
+        }
+    
+        $query .= "ORDER BY datetime DESC";
+    
+        $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss', $username, $username);
         $stmt->execute();
         $result = $stmt->get_result();
-
+    
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    
 
     /**
      * Get all the post of a user.

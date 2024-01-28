@@ -33,13 +33,13 @@ function isUserLoggedIn(){
 function registerUserSession($username, $name){
     $_SESSION["username"] = $username;
     $_SESSION["name"] = $name;
-    $_SESSION["taggedUsers"] = array();
     $_SESSION["current"] = "";
     
     $_SESSION["title"] = "";
     $_SESSION["description"] = "";
     $_SESSION["location"] = "";
     $_SESSION["category"] = "";
+    $_SESSION["taggedUsers"] = array();
 }
 
 function validate($data) {
