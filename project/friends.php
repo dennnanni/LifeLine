@@ -8,20 +8,13 @@ $templateParams["active"] = "friends.php";
 
 //Header settings
 $templateParams["headerLeftIcon"] = "back"; // null | notifications | back | logout
+$templateParams["backPage"] = "diary.php";
 
 //Footer setting
-$templateParams["footerActive"] = "create"; // home | create | diary
+$templateParams["footerActive"] = "diary"; // home | create | diary
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    if (empty($_GET["username"])) {
-        $templateParams["user"] = $dbh->getUser($_SESSION["username"]);
-    }
-    else {
-        $templateParams["user"] = $dbh->getUser($_GET["username"]);
-    }
-    $templateParams["friends"] = $dbh->getFriends($templateParams["user"]["username"]);
-    $templateParams["backPage"] = "diary.php?username=".$templateParams["user"]["username"];
-}
+$templateParams["user"] = $dbh->getUser($_SESSION["username"]);
+$templateParams["friends"] = $dbh->getFriends($templateParams["user"]["username"]);
 
 require("template/base.php");
 ?>
