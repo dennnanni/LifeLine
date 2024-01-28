@@ -26,8 +26,8 @@ INSERT INTO POST (datetime, title, description, location, image, starsCount, com
 ('2024-01-03 12:00:00', 'Post 41', 'Description 41', 'Castiglione di Ravenna', '6.jpg', 1, 0, 'Music', 'user4');
 
 INSERT INTO POST (datetime, title, description, image, starsCount, commentsCount, category, author) VALUES
-('2024-01-05 22:00:00', 'Post 21', 'Description 21', '7.jpg', 0, 0, 'Fun', 'user2'),
-('2024-01-05 12:00:00', 'Post 31', 'Description 31', '8.jpg', 2, 2, 'Food', 'user3'),
+('2024-01-05 12:00:00', 'Post 31', 'Description 31', '7.jpg', 2, 2, 'Food', 'user3'),
+('2024-01-05 22:00:00', 'Post 21', 'Description 21', '8.jpg', 0, 0, 'Fun', 'user2'),
 ('2024-01-06 12:00:00', 'Post 32', 'Description 32', '9.jpg', 1, 0, 'Sport', 'user3'),
 ('2024-01-08 10:00:00', 'Post 42', 'Description 42', '10.jpg', 0, 0, 'Art', 'user4'),
 ('2024-01-08 12:00:00', 'Post 51', 'Description 51', '11.jpg', 1, 0, 'Food', 'user5');
