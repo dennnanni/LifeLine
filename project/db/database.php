@@ -43,8 +43,8 @@ class DatabaseHelper {
             return false;
         }
 
-        $stmt = $this->db->prepare("INSERT INTO USER (username, password, name, email) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param('ssss', $username, $password, $name, $email);
+        $stmt = $this->db->prepare("INSERT INTO USER (username, passwordHash, name, email) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param('ssss', $username, password_hash($password, PASSWORD_DEFAULT), $name, $email);
         return $stmt->execute();
     }
 
@@ -52,12 +52,12 @@ class DatabaseHelper {
      * Return the user if values are correct
      */
     public function login($email, $password) {
-        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.email = ? AND user.password = ?");
-        $stmt->bind_param('ss', $email, $password);
+        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.email = ?");
+        $stmt->bind_param('s', $email);
         $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        
+        return password_verify($password, $result[0]["passwordHash"]) ? $result[0] : null;
     }
 
     public function createPost($username, $title, $description, $location, $category, $taggedUsernameList, $image = null) {

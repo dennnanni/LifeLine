@@ -10,11 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else {
         $login_result = $dbh->login($email, $password);
-        if(count($login_result)==0){
+        if(is_null($login_result)){
             $templateParams["loginError"] = "Error! Incorrect email or password!"; //Login fallito
         }
         else{
-            registerUserSession($login_result[0]["username"], $login_result[0]["name"]);
+            registerUserSession($login_result["username"], $login_result["name"]);
         }
     }
 }

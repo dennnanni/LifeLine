@@ -11,12 +11,12 @@ INSERT INTO CATEGORY (name) VALUES
 ('Music');
 
 -- Inserimento utenti
-INSERT INTO USER (username, password, name, email, profilePic) VALUES
-('user1', '1', 'User One', 'user1@example.com', 'default.jpg'),
-('user2', '2', 'User Two', 'user2@example.com', 'user2.jpg'),
-('user3', '3', 'User Three', 'user3@example.com', 'default.jpg'),
-('user4', '4', 'User Four', 'user4@example.com', 'user4.jpg'),
-('user5', '5', 'User Five', 'user5@example.com', 'user5.jpg');
+INSERT INTO USER (username, passwordHash, name, email, profilePic) VALUES
+('user1', '$2y$10$gSymACzkVWNOcgfuekbeqebM/faIRCUbsQHpOq9u53IREvZzwftBC', 'User One', 'user1@example.com', 'default.jpg'),
+('user2', '$2y$10$JhR19ixeY/gTxhGeQ1R0tOluH97AImOe853fuGrEGcX8DaKa7vod6', 'User Two', 'user2@example.com', 'user2.jpg'),
+('user3', '$2y$10$5uY9azSo4eTycQYJrwmMO./TQu6F4n7rqOUMci33dqENwRV7piFzu', 'User Three', 'user3@example.com', 'default.jpg'),
+('user4', '$2y$10$oZzthyhxGGnf4/fU2Qf/rez4t4IkNEMccdxoZHUASK8a7v7g75R3i', 'User Four', 'user4@example.com', 'user4.jpg'),
+('user5', '$2y$10$rYX/5TXUOtWNHu4YRqz0XOkcWtfWKJ2qF54dQTnUwJvOJ4P2P9TN.', 'User Five', 'user5@example.com', 'user5.jpg');
 
 -- Inserimento post
 INSERT INTO POST (datetime, title, description, location, image, starsCount, commentsCount, category, author) VALUES
