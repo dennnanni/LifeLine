@@ -16,7 +16,7 @@
                         </div>
                         <?php if (isset($templateParams["personal"])): ?>
                         <!-- show friends count (maybe redirect to friends list?) -->
-                        <a class="btn btn-primary btn-sm rounded-4" href="#"><?php echo $templateParams["user"]["friendsCount"]." friends";?></a>
+                        <a class="btn btn-primary btn-sm rounded-4" href="friends.php?username=<?php echo $templateParams["user"]["username"]?>"><?php echo $templateParams["user"]["friendsCount"]." friends";?></a>
                         <?php elseif ($templateParams["friendshipStatus"] == 1): ?>
                         <!-- show friendship button -->
                         <button type="button" class="btn btn-tertiary btn-sm float-end">Remove friendship</button>
