@@ -8,7 +8,8 @@ INSERT INTO CATEGORY (name) VALUES
 ('Food'),
 ('Fashion'),
 ('Art'),
-('Music');
+('Music'),
+('Sport');
 
 -- Inserimento utenti
 INSERT INTO USER (username, passwordHash, name, email, profilePic, friendsCount) VALUES
@@ -27,7 +28,7 @@ INSERT INTO POST (datetime, title, description, location, image, starsCount, com
 INSERT INTO POST (datetime, title, description, image, starsCount, commentsCount, category, author) VALUES
 ('2024-01-05 22:00:00', 'Post 21', 'Description 21', '4.jpg', 0, 0, 'Fun', 'user2'),
 ('2024-01-05 12:00:00', 'Post 31', 'Description 31', '5.jpg', 2, 2, 'Food', 'user3'),
-('2024-01-06 12:00:00', 'Post 32', 'Description 32', '6.jpg', 1, 0, 'Fashion', 'user3'),
+('2024-01-06 12:00:00', 'Post 32', 'Description 32', '6.jpg', 1, 0, 'Sport', 'user3'),
 ('2024-01-08 10:00:00', 'Post 42', 'Description 42', '7.jpg', 0, 0, 'Art', 'user4'),
 ('2024-01-08 12:00:00', 'Post 51', 'Description 51', '8.jpg', 1, 0, 'Food', 'user5');
 

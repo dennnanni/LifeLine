@@ -3,8 +3,10 @@ require_once("bootstrap.php");
 include("auth_session.php");
 
 $_SESSION["current"] = "home";
+$_SESSION["selectedCategories"] = array();
 $templateParams["title"] = "Homepage";
 $templateParams["active"] = "home.php";
+$templateParams["js"] = "home.js";
 
 //Header settings
 $templateParams["headerLeftIcon"] = "notifications"; // null | notifications | back | logout
@@ -14,7 +16,7 @@ $templateParams["notificationsNumber"] = $dbh->getNewNotificationNumber($_SESSIO
 //Footer setting
 $templateParams["footerActive"] = "home"; // home | create | diary
 
-$templateParams["posts"] = $dbh->loadHomePage($_SESSION["username"]);
+$templateParams["categories"] = $dbh->getAllCategories();
 
 require("template/base.php");
 ?>
