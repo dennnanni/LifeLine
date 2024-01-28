@@ -11,18 +11,19 @@
                     <div class="ms-sm-4 ms-3">
                         <div class="">
                             <span class="fw-bold fs-5 d-block"><?php echo $templateParams["user"]["name"]; ?>'s friends</span>
-                            
                         </div>
                     </div>
                 </div>
                 <div class="ms-2">
                     <?php foreach($templateParams["friends"] as $friend):?>
-                        <div class="d-flex align-items-center my-4">
-                            <div class="justify-content-center ">
-                                <img name="propic-medium" src="upload/<?php echo $friend["profilePic"]?>"/>
-                                <span class="d-inline-block text-dark"><?php echo $friend["name"]?> (@<?php echo $friend["username"]?>)</span>
+                        <a href="diary.php?username=<?php echo $friend["username"]?>" class="text-decoration-none">
+                            <div class="d-flex align-items-center my-4">
+                                <div class="justify-content-center ">
+                                    <img name="propic-medium" src="upload/<?php echo $friend["profilePic"]?>"/>
+                                    <span class="d-inline-block text-dark"><?php echo $friend["name"]?> (@<?php echo $friend["username"]?>)</span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     <?php endforeach;?>
                 </div>
             </div>
