@@ -170,13 +170,40 @@ class DatabaseHelper {
     }
 
     /**
-     * Removes a frienship
+     * Removes a friendship
      */
-    public function removeFriendOrRequest($username1, $username2) {
+    public function removeFriend($username1, $username2) {
+        $stmt = $this->db->prepare("DELETE FROM friendship WHERE (friendship.sender = ? AND friendship.receiver = ?) OR (friendship.sender = ? AND friendship.receiver = ?)");
+        $stmt->bind_param('ssss', $username1, $username2, $username2, $username1);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $this->updateFriendsCount($username1, -1);
+        $this->updateFriendsCount($username2, -1);
+    }
+
+    /**
+     * Removes a request
+     */
+    public function removeRequest($username1, $username2) {
         $stmt = $this->db->prepare("DELETE FROM friendship WHERE (friendship.sender = ? AND friendship.receiver = ?) OR (friendship.sender = ? AND friendship.receiver = ?)");
         $stmt->bind_param('ssss', $username1, $username2, $username2, $username1);
         
         return $stmt->execute();
+    }
+
+    /**
+     * Accepts friendship request and updates user's friends count
+     * 
+     */
+    public function acceptRequest($senderUsername, $receiverUsername) {
+        $stmt = $this->db->prepare('UPDATE friendship SET accepted = 1 WHERE sender = ?;');
+        $stmt->bind_param('s', $senderUsername);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $this->updateFriendsCount($senderUsername);
+        $this->updateFriendsCount($receiverUsername);
     }
     
 
@@ -355,6 +382,19 @@ class DatabaseHelper {
         }
         
         $stmt->execute();
+        return $stmt->affected_rows > 0;
+    }
+
+    /** 
+     * Updates friendsCount of the given username
+     * Default value of the increment is 1, 
+     * negative increment decrease friends number
+     */
+    private function updateFriendsCount($username, $increment = 1) {
+        $stmt = $this->db->prepare('UPDATE user SET user.friendsCount = user.friendsCount + ? WHERE user.username = ?');
+        $stmt->bind_param('is', $increment, $username);
+        $stmt->execute();
+
         return $stmt->affected_rows > 0;
     }
 }

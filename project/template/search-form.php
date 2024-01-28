@@ -1,7 +1,7 @@
 <?php require("header.php"); ?>
 <div class="col-10 d-flex justify-content-center">
     <div class="vh-100 position-relative">
-        <div class="ms-5 ms-md-6 ms-xl-6 pt-3 h-100 position-absolute" name="lifeline">
+        <div id="lifeline" class="ms-5 ms-md-6 ms-xl-6 pt-3 h-100 position-absolute">
         </div>
         <div class="mx-40 w-100 pt-3 justify-content-center position-relative">
             <div class="">
