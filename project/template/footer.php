@@ -1,4 +1,4 @@
-<footer class="mt-auto bg-light fixed-bottom vw-100">
+<footer class="mt-auto bg-light vw-100">
     <div class="row">
         <div class="col-sm-12 col-12 d-flex">
             <div class="col-4 col-sm-4">

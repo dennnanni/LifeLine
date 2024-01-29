@@ -1,8 +1,8 @@
 <?php require("header.php"); ?>
 
-<div class="d-flex justify-content-center">
-    <div class="vh-100 col-11 position-relative">
-        <div class="ms-5 ms-md-6 ms-xl-6 pt-3 min-vh-100 position-absolute" id="lifeline">
+<div class="d-flex flex-grow-1 justify-content-center mb-3">
+    <div class="col-11 position-relative">
+        <div class="ms-5 ms-md-6 ms-xl-6 pt-3 position-absolute h-100" id="lifeline">
         </div>
         <div class="w-100 pt-3 position-relative justify-content-center">
             <!-- heading with propic, username, name, friends/button -->
@@ -33,21 +33,20 @@
                 </div>
                 <?php if (isset($templateParams["personal"]) || 
                     (isset($templateParams["friendship"]) && $templateParams["friendship"]["accepted"] == 1)): ?>
-                    <div id="diary">
+                    <div id="diary" class="pt-3">
                         <?php foreach($templateParams["posts"] as $post): ?>
                             <div class="d-flex align-items-center ms-31 my-1">
                                 <div class="d-flex pe-4">
                                     <div name="icon-medium" class="d-flex justify-content-center align-items-center bg-secondary rounded-3">
-                                        <!-- TODO: gestire diversa icona per diversa categoria -->
                                         <i class="fa-solid <?php echo getIconClass($post["category"]); ?>"></i>
                                     </div>
                                 </div>
                                 <section class="d-flex align-items-center">
-                                    <?php 
-                                        if (isset($post["image"])) {
-                                            echo "<img src=\"upload/".$post["image"]."\" class=\"float-right w-25 h-25 rounded-4\"/>";
-                                        }
-                                    ?>
+                                    <?php if (isset($post["image"])): ?>
+                                        <div class="d-flex justify-content-center thumbnail-wrapper rounded-4 overflow-hidden">
+                                            <img src="upload/<?php echo $post["image"]; ?>" class="float-right h-100"/>
+                                        </div>
+                                    <?php endif;?>
                                     <div class="ms-2">
                                         <span class="fw-bold d-block"><?php echo $post["title"]; ?></span>
                                         <!-- TODO: cambiare formato -->

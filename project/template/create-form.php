@@ -10,7 +10,7 @@
         </div>
     </div>
 <?php endif; ?>
-<div class="row ms-0 w-100 d-flex justify-content-center">
+<div class="row ms-0 w-100 d-flex justify-content-center mb-3">
         <form class="col-xl-5 col-md-6 col-10" method="POST" enctype="multipart/form-data">
             <ul class="list-unstyled">
                 <li>

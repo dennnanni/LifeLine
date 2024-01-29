@@ -26,6 +26,11 @@ div#lifeline {
     background: linear-gradient(180deg, #FFCA0C 0%, rgba(255, 202, 12, 0.50) 44.6%, rgba(0, 143, 194, 0.53) 60.6%, #008FC2 100%);
 }
 
+.thumbnail-wrapper {
+    width: 100px;
+    height: 100px;
+}
+
 img[name="propic-big"] {
     width: 70px;
     height: 70px;

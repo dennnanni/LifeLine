@@ -26,6 +26,7 @@ window.onload = function load() {
             actionButton.value = "Remove friend";
             actionButton.classList.remove("btn-secondary")
             actionButton.classList.add("btn-tertiary");
+            window.location.reload();
         } else if (friendshipStatus.value == 0) {
             actionButton.value = "Cancel request";
             actionButton.classList.remove("btn-secondary")
