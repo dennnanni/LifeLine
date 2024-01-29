@@ -131,11 +131,23 @@ class DatabaseHelper {
     }
 
     /**
-     * Get all posts shown in the diary page
+     * Get all posts shown in the personal diary page
      */
     public function getDiary($username) {
         $stmt = $this->db->prepare('SELECT * FROM post WHERE post.author = ? OR EXISTS (SELECT * FROM tag WHERE post.id = tag.postId AND tag.username = ?) ORDER BY post.timestamp DESC');
         $stmt->bind_param('ss', $username, $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Get all posts shown in the diary page
+     */
+    public function getFriendDiary($username, $friend) {
+        $stmt = $this->db->prepare('SELECT * FROM post LEFT JOIN tag ON author = username WHERE post.author = ? OR EXISTS (SELECT * FROM friendship WHERE (sender = ? AND receiver = ?) OR (sender = ? AND receiver = ?)) ORDER BY post.timestamp DESC');
+        $stmt->bind_param('sssss', $friend, $friend, $username, $username, $friend);
         $stmt->execute();
         $result = $stmt->get_result();
 

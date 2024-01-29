@@ -21,8 +21,8 @@ if ($requestedUser == $_SESSION["username"]) {
     $templateParams["footerActive"] = "diary"; // home | create | diary
 } else {
     $templateParams["friendship"] = $dbh->getFriendshipStatus($requestedUser, $_SESSION["username"]);
-    if ($templateParams["friendship"]["accepted"] == 1) { 
-        $templateParams["posts"] = $dbh->getDiary($requestedUser);
+    if (isset($templateParams["friendship"]) && $templateParams["friendship"]["accepted"] == 1) { 
+        $templateParams["posts"] = $dbh->getFriendDiary($_SESSION["username"], $requestedUser);
 
         //Footer setting
         $templateParams["footerActive"] = "home"; // home | create | diary

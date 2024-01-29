@@ -87,7 +87,7 @@ function uploadImage($path, $image){
     return array($result, $msg);
 }
 
-function getIconClass($category) {
+function getCategoryIconClass($category) {
     switch ($category) {
         case "Love":
             return "fa-heart";
@@ -105,6 +105,21 @@ function getIconClass($category) {
             return "fa-football";
         case "Travel":
             return "fa-plane";
+        default: 
+            return "";
+    }
+}
+
+function getNotificationIconClass($type) {
+    switch ($type) {
+        case 1:
+            return "fa-star";
+        case 2:
+            return "fa-comment";
+        case 3:
+            return "fa-user";
+        case 4:
+            return "fa-tag";
         default: 
             return "";
     }

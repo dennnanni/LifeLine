@@ -15,10 +15,11 @@
                             <span id="username" class="d-block"><?php echo $templateParams["username"]["username"]; ?></span>
                         </div>
                         <?php if (isset($templateParams["personal"])): ?>
-                        <!-- show friends count (maybe redirect to friends list?) -->
-                        <a class="btn btn-primary btn-sm rounded-4" href="friends.php"><?php echo $templateParams["username"]["friendsCount"]." friends";?></a>
+                        <!-- show friends count -->
+                        <a class="btn btn-primary btn-sm rounded-4" href="friends.php"><?php 
+                            $ending = $templateParams["username"]["friendsCount"] != 1 ? "s" : "";
+                            echo $templateParams["username"]["friendsCount"]." friend".$ending;?></a>
                         <?php elseif (isset($templateParams["friendship"]) && $templateParams["friendship"]["accepted"] == 0 && $templateParams["friendship"]["sender"] == $templateParams["username"]["username"]): ?>
-                            <!-- due bottoni -->
                             <div class="d-flex">
                                 <input id="acceptFriendship" type="button" class="btn btn-primary btn-sm" value="Accept"/>
                                 <input id="denyFriendship" type="button" class="btn btn-tertiary btn-sm ms-3" value="Deny"/>
@@ -38,7 +39,7 @@
                             <div class="d-flex align-items-center ms-4 my-1">
                                 <div class="d-flex pe-5">
                                     <div name="icon-medium" class="d-flex justify-content-center align-items-center bg-secondary rounded-3">
-                                        <i class="fa-solid <?php echo getIconClass($post["category"]); ?>"></i>
+                                        <i class="fa-solid <?php echo getCategoryIconClass($post["category"]); ?>"></i>
                                     </div>
                                 </div>
                                 <section class="d-flex align-items-center">
