@@ -44,12 +44,10 @@ function showPosts(data) {
 
             postByDay[date].forEach(post => {
                 postElement += `
-                <a href="diary.php?username=${post.author}" class="text-decoration-none" >
-                    <section class="mt-2">
-                        <span class="d-inline-block text-dark">${post.title}</span>
-                        <span class="d-inline-block text-dark">(${post.author})</span>
-                        <span class="d-inline-block text-dark">${post.datetime}</span>
-                    </section>
+                <a href="diary.php?username=${post.author}" class="text-decoration-none pt-2" >
+                    <span class="d-inline-block text-dark">${post.title}</span>
+                    <span class="d-inline-block text-dark">(${post.author})</span>
+                    <span class="d-inline-block text-dark">${post.timestamp}</span>
                 </a>
                 `;
             });

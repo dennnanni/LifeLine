@@ -22,15 +22,16 @@ $(document).ready(function() {
         let result = "";
         data = JSON.parse(data);
 
-        for (let i = 0; i < data.length; i++) {
-            let user = `
-            <section class="mt-2">
-            <img name="propic-medium" src="upload/${data[i]["profilePic"]}"/>
-            <span class="d-inline-block text-dark">${data[i]["username"]}</span>
-            </section>
+        data.forEach(user => {
+            result += `
+            <a href="diary.php?username=${user["username"]}" class="text-decoration-none">
+                <div class="mt-2">
+                <img name="propic-medium" src="upload/${user["profilePic"]}"/>
+                <span class="d-inline-block text-dark">${user.username}</span>
+                </div>
+            </a>
             `;
-            result += user;
-        }
+        })
 
         let resultContainer = document.querySelector("#searchResult");
         resultContainer.innerHTML = result;

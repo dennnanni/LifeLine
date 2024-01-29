@@ -114,7 +114,7 @@ function groupPostsByDay($posts) {
     $groupedPosts = array();
 
     foreach ($posts as $post) {
-        $dateWithoutTime = date("d/m/Y", strtotime($post['datetime']));
+        $dateWithoutTime = date("d/m/Y", strtotime($post['timestamp']));
 
         if (!isset($groupedPosts[$dateWithoutTime])) {
             $groupedPosts[$dateWithoutTime] = array();

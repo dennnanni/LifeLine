@@ -11,7 +11,7 @@ SELECT COUNT(*) = 1 FROM user WHERE user.username = "?" AND user.password = "?";
 
 -- query di creazione post
 
-INSERT INTO post (datetime, title, description, location, image, category, username) VALUES
+INSERT INTO post (timestamp, title, description, location, image, category, username) VALUES
 ('?', '?', '?', '?', '?', '?', '?');
 
 -- query di caricamento homepage
@@ -43,10 +43,10 @@ SELECT * FROM comment WHERE comment.postId = ?;
 
 -- query di aggiunta commento
 
-INSERT INTO comment (postId, username, text, datetime) VALUES
+INSERT INTO comment (postId, username, text, timestamp) VALUES
 (?, '?', '?', '?');
 
-INSERT INTO NOTIFICATION (datetime, text, username) VALUES
+INSERT INTO NOTIFICATION (timestamp, text, username) VALUES
 ('?', '?', '?');
 
 -- query di aggiunta like
@@ -54,7 +54,7 @@ INSERT INTO NOTIFICATION (datetime, text, username) VALUES
 INSERT INTO star (postId, username) VALUES
 (?, '?');
 
-INSERT INTO notification (datetime, text, username) VALUES
+INSERT INTO notification (timestamp, text, username) VALUES
 ('?', '?', '?');
 
 -- query di visualizzazione persone da taggare (tutti gli amici di una persona)
@@ -76,5 +76,5 @@ WHERE notification.username = "?"; --imposta tutte le notifiche a lette quando v
 INSERT INTO friendship (receiver, sender) VALUES
 ('user1', 'user2');
 
-INSERT INTO notification (datetime, text, username) VALUES
+INSERT INTO notification (timestamp, text, username) VALUES
 ('?', '?', '?');

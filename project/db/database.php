@@ -107,7 +107,7 @@ class DatabaseHelper {
             $query .= "AND post.category IN ('$filterList') ";
         }
     
-        $query .= "ORDER BY datetime DESC";
+        $query .= "ORDER BY timestamp DESC";
     
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss', $username, $username);
@@ -134,7 +134,7 @@ class DatabaseHelper {
      * Get all posts shown in the diary page
      */
     public function getDiary($username) {
-        $stmt = $this->db->prepare('SELECT * FROM post WHERE post.author = ? OR EXISTS (SELECT * FROM tag WHERE post.id = tag.postId AND tag.username = ?) ORDER BY post.datetime DESC');
+        $stmt = $this->db->prepare('SELECT * FROM post WHERE post.author = ? OR EXISTS (SELECT * FROM tag WHERE post.id = tag.postId AND tag.username = ?) ORDER BY post.timestamp DESC');
         $stmt->bind_param('ss', $username, $username);
         $stmt->execute();
         $result = $stmt->get_result();

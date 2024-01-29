@@ -10,7 +10,7 @@ window.onload = function load() {
         $.ajax({
             url: "ajax/diary.php", 
             type: "POST",
-            data: {"action": action, "username": username.innerText, "friendshipStatus": friendshipStatus.value},
+            data: {"action": action, "username": username.innerText, "friendshipStatus": friendshipStatus == null ? 1 : friendshipStatus.value },
             success: function(response) {
                 console.log(response);
                 setUpAction();
@@ -26,7 +26,6 @@ window.onload = function load() {
             actionButton.value = "Remove friend";
             actionButton.classList.remove("btn-secondary")
             actionButton.classList.add("btn-tertiary");
-            window.location.reload();
         } else if (friendshipStatus.value == 0) {
             actionButton.value = "Cancel request";
             actionButton.classList.remove("btn-secondary")
@@ -40,8 +39,8 @@ window.onload = function load() {
 
     if (acceptFriendship != null) {
         acceptFriendship.addEventListener('click', function() {
-            friendshipStatus.value = 1;
             updateStatus("ADD");
+            window.location.reload();
         });
     }
 
@@ -58,6 +57,7 @@ window.onload = function load() {
             if (friendshipStatus.value == 1) {
                 friendshipStatus.value = -1;
                 updateStatus("REMOVE");
+                window.location.reload();
             } else if (friendshipStatus.value == 0) {
                 friendshipStatus.value = -1;
                 updateStatus("CANCEL");
