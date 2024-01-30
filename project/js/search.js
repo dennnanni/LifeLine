@@ -4,17 +4,15 @@ $(document).ready(function() {
 
     searchBar.addEventListener("input", function() {
         let data = searchBar.value;
-        if (data == "") {
-            showResult("{}");
-        } else {
+        if (data != "") {
             request = $.ajax({
                 url: "ajax/search.php",
                 type: "POST",
                 data: JSON.stringify(data),
-                success: function(response) {
-                    showResult(response);
-                }
+                success: showResult
             });
+        } else {
+            document.querySelector("#searchResult").innerHTML = "";
         }
     });
 

@@ -317,10 +317,10 @@ class DatabaseHelper {
     /**
      * Get all the usernames matching a text
      */
-    public function searchUsers($username) {
+    public function searchUsers($currentUserUsername, $username) {
         $username = "%$username%";
-        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.username LIKE ? ORDER BY username");
-        $stmt->bind_param('s', $username);
+        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.username LIKE ? AND user.username <> ? ORDER BY username");
+        $stmt->bind_param('ss', $username, $currentUserUsername);
         $stmt->execute();
         $result = $stmt->get_result();
 
