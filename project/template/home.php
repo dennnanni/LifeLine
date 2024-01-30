@@ -6,6 +6,6 @@
         </div>
     <?php endforeach; ?>
 </div>
-<div id="posts">
+<div id="posts" class="mb-7">
 </div>
 <?php require("footer.php"); ?>
