@@ -24,7 +24,7 @@ if(isUserLoggedIn()){
     exit();
 }
 
-$_SESSION["current"] = "signin";
+$_SESSION["current"] = basename($_SERVER["REQUEST_URI"]);
 $templateParams["title"] = "Login";
 $templateParams["active"] = "signin-form.php";
 $templateParams["js"] = "authentication.js";

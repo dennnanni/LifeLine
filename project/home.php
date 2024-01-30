@@ -2,8 +2,8 @@
 require_once("bootstrap.php");
 include("auth_session.php");
 
-$_SESSION["current"] = "home";
-$_SESSION["selectedCategories"] = array();
+$_SESSION["previous"] = $_SESSION["current"];
+$_SESSION["current"] = basename($_SERVER["REQUEST_URI"]);
 $templateParams["title"] = "Homepage";
 $templateParams["active"] = "home.php";
 $templateParams["js"] = "home.js";
@@ -17,6 +17,7 @@ $templateParams["notificationsNumber"] = $dbh->getNewNotificationNumber($_SESSIO
 $templateParams["footerActive"] = "home"; // home | create | diary
 
 $templateParams["categories"] = $dbh->getAllCategories();
+$templateParams["selectedCategories"] = $_SESSION["selectedCategories"];
 
 require("template/base.php");
 ?>

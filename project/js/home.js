@@ -8,12 +8,16 @@ window.onload = function load() {
 
             if (filter[i].classList.contains("bg-light")) {
                 filter[i].classList.remove("bg-light");
+                filter[i].classList.remove("text-dark");
                 filter[i].classList.add("bg-primary");
+                filter[i].classList.add("text-light");
 
                 sendAction("ADD", category);
             } else {
                 filter[i].classList.remove("bg-primary");
+                filter[i].classList.remove("text-light");
                 filter[i].classList.add("bg-light");
+                filter[i].classList.add("text-dark");
 
                 sendAction("REMOVE", category);
             }

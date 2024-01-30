@@ -26,7 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-if($_SESSION["current"] != "tag") {
+$_SESSION["previous"] = $_SESSION["current"];
+$_SESSION["current"] = basename($_SERVER["REQUEST_URI"]);
+
+if($_SESSION["previous"] != "tag.php") {
     //Clear the post data if the user exited from the creation process
     $_SESSION["title"] = "";
     $_SESSION["description"] = "";
@@ -35,7 +38,6 @@ if($_SESSION["current"] != "tag") {
     $_SESSION["taggedUsers"] = array();
 }
 
-$_SESSION["current"] = "create";
 $templateParams["title"] = "Create";
 $templateParams["active"] = "create-form.php";
 $templateParams["js"] = "create.js";

@@ -15,15 +15,9 @@
             <i class="fa-solid fa-arrow-right-from-bracket fa-flip-horizontal text-light"></i>
           </a>
         <?php elseif ($templateParams["headerLeftIcon"] == "back"): ?>
-          <?php if(isset($templateParams["backPage"])): ?>
-            <a class="m-0 h5" href="<?php echo $templateParams["backPage"]?>">
-              <i class="fas fa-chevron-left text-light"></i>
-            </a>
-          <?php else: ?>
-            <a class="m-0 h5" href="">
-              <i class="fas fa-chevron-left text-light"></i>
-            </a>
-          <?php endif; ?>
+          <a class="m-0 h5" href="<?php echo isset($templateParams["backPage"]) ? $templateParams["backPage"] : '' ?>">
+            <i class="fas fa-chevron-left text-light"></i>
+          </a>
         <?php endif; ?>
       <?php endif; ?>
     </div>

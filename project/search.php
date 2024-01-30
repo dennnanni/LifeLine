@@ -2,7 +2,8 @@
 require("bootstrap.php");
 include("auth_session.php");
 
-$_SESSION["current"] = "search";
+$_SESSION["previous"] = $_SESSION["current"];
+$_SESSION["current"] = basename($_SERVER["REQUEST_URI"]);
 $templateParams["title"] = "Search";
 $templateParams["active"] = "search-form.php";
 $templateParams["js"] = "search.js";

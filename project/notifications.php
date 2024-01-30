@@ -2,7 +2,8 @@
 require("bootstrap.php");
 include("auth_session.php");
 
-$_SESSION["current"] = "notifications";
+$_SESSION["previous"] = $_SESSION["current"];
+$_SESSION["current"] = basename($_SERVER["REQUEST_URI"]);
 $templateParams["title"] = "Notifications";
 $templateParams["active"] = "notifications.php";
 

@@ -13,7 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: diary.php");
 }
 
-$_SESSION["current"] = "photo";
+$_SESSION["previous"] = $_SESSION["current"];
+$_SESSION["current"] = basename($_SERVER["REQUEST_URI"]);
 $templateParams["title"] = "Photo";
 $templateParams["active"] = "photo.php";
 $templateParams["js"] = "photo.js";
