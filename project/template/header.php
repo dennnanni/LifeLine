@@ -3,7 +3,7 @@
     <div class="col-1 d-flex justify-content-center align-items-center">
       <?php if(isset($templateParams["headerLeftIcon"])): ?>
         <?php if ($templateParams["headerLeftIcon"] == "notifications"): ?>
-          <a class="" href="notifications.php">
+          <a class="m-0 h5" href="notifications.php">
             <?php if(isset($templateParams["notificationsNumber"]) && $templateParams["notificationsNumber"] > 0): ?>
               <i class="fas fa-bell text-secondary"></i>
             <?php else: ?>
@@ -11,16 +11,16 @@
             <?php endif;?>
           </a>
         <?php elseif ($templateParams["headerLeftIcon"] == "logout"): ?>
-          <a class="" href="logout.php">
+          <a class="m-0 h5" href="logout.php">
             <i class="fa-solid fa-arrow-right-from-bracket fa-flip-horizontal text-light"></i>
           </a>
         <?php elseif ($templateParams["headerLeftIcon"] == "back"): ?>
           <?php if(isset($templateParams["backPage"])): ?>
-            <a class="" href="<?php echo $templateParams["backPage"]?>">
+            <a class="m-0 h5" href="<?php echo $templateParams["backPage"]?>">
               <i class="fas fa-chevron-left text-light"></i>
             </a>
           <?php else: ?>
-            <a class="" href="">
+            <a class="m-0 h5" href="">
               <i class="fas fa-chevron-left text-light"></i>
             </a>
           <?php endif; ?>
@@ -35,15 +35,15 @@
     <div class="col-1 d-flex justify-content-center align-items-center">
       <?php if(isset($templateParams["headerRightIcon"])): ?>
         <?php if ($templateParams["headerRightIcon"] == "search"): ?>
-          <a class="" href="search.php">
+          <a class="m-0 h5" href="search.php">
             <i class="fa-solid fa-magnifying-glass text-light"></i>
           </a>
         <?php elseif ($templateParams["headerRightIcon"] == "photo"): ?>
-          <a class="" href="photo.php">
+          <a class="m-0 h5" href="photo.php">
             <i class="fa-regular fa-id-badge text-light"></i>
           </a>
         <?php elseif ($templateParams["headerRightIcon"] == "done"): ?>
-        <a class="" href="<?php echo $templateParams["backPage"]?>">
+        <a class="m-0 h5" href="<?php echo $templateParams["backPage"]?>">
           <i class="fa-solid fa-check text-light"></i>
         </a>
         <?php endif; ?>
