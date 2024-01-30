@@ -17,9 +17,7 @@
                     <div class="mt-3 w-100 h-100 mb-2">
                         <h5 class="text-dark">Image</h5>
                         <input class="square" type="file" id="immaginePost" name="immaginePost" accept="image/jpg, image/jpeg, image/png, image/gif" hidden>
-                        <div class="w-100 h-100">
-                            <img id="post-image" src="images/empty-post-photo.jpg" class=" border border-1 border-tertiary-light border-solid rounded-3" alt="photo image">
-                        </div>
+                        <img id="post-image" src="images/empty-post-photo.jpg" class=" border border-1 border-tertiary-light border-solid rounded-3 w-100 h-100" alt="photo image">
                     </div>
                 </li>
                 <li>

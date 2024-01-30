@@ -19,8 +19,8 @@ $templateParams["active"] = "photo.php";
 $templateParams["js"] = "photo.js";
 
 //Header setting
-$templateParams["headerLeftIcon"] = "back"; // null | notifications | back | logout
-$templateParams["backPage"] = "diary.php"; // null | notifications | back | logout
+$templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
+$templateParams["backPage"] = "diary.php";
 
 //Footer setting
 $templateParams["footerActive"] = "diary"; // home | create | diary

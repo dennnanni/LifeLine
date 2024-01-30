@@ -8,8 +8,8 @@ $templateParams["active"] = "tag.php";
 $templateParams["js"] = "tag.js";
 
 //Header settings
-$templateParams["headerLeftIcon"] = "back"; // null | notifications | back | logout
-$templateParams["backPage"] = "create.php"; // null | file.php  -> the page to address when back is pressed
+$templateParams["headerRightIcon"] = "done"; // null | notifications | back | done | logout
+$templateParams["backPage"] = "create.php"; // null | file.php  -> the page to address when back or done is pressed
 
 //Footer setting
 $templateParams["footerActive"] = "create"; // home | create | diary

@@ -8,7 +8,7 @@ $templateParams["active"] = "diary.php";
 $templateParams["js"] = "diary.js";
 
 //Header settings
-$templateParams["headerLeftIcon"] = "logout"; // null | notifications | back | logout
+$templateParams["headerLeftIcon"] = "logout"; // null | notifications | back | done | logout
 $templateParams["headerRightIcon"] = "photo"; // null | search | photo
 
 $requestedUser = isset($_GET["username"]) ? $_GET["username"] : $_SESSION["username"];

@@ -50,8 +50,7 @@
                                     <?php endif;?>
                                     <div class="ms-2">
                                         <span class="fw-bold d-block"><?php echo $post["title"]; ?></span>
-                                        <!-- TODO: cambiare formato -->
-                                        <span class="d-block small"><?php echo $post["timestamp"]; ?></span>
+                                        <span class="d-block small"><?php echo date("d/m/Y", strtotime($post['timestamp'])) ?></span>
                                     </div>
                                 </section>
                             </div>

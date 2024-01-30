@@ -42,6 +42,10 @@
           <a class="" href="photo.php">
             <i class="fa-regular fa-id-badge text-light"></i>
           </a>
+        <?php elseif ($templateParams["headerRightIcon"] == "done"): ?>
+        <a class="" href="<?php echo $templateParams["backPage"]?>">
+          <i class="fa-solid fa-check text-light"></i>
+        </a>
         <?php endif; ?>
       <?php endif; ?>
     </div>

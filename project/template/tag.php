@@ -4,16 +4,13 @@
         <div class="ms-7 pt-3 h-100 position-absolute" id="lifeline">
         </div>
         <div class="w-100 pt-3 position-relative justify-content-center">
-            <div class="ms-4">
-                <div class="ms-5">
-                    <div class="ms-n1 bg-secondary rounded-3 d-flex justify-content-center" name="icon-medium">
+            <div class="ms-6">
+                <div class="ms-3"> <!--TODO: configure bootstrap 1.7rem spacing -->
+                    <div class="bg-secondary rounded-3 d-inline-flex justify-content-center" name="icon-medium">
                         <i class="fa-solid fa-tags h5 mt-1"></i>
                     </div>
-                    <div class=" d-inline-block">
-                        <h6 class="form-label ms-6 text-dark bg-light">Tag a friend in your memory</h6>
-                    </div>
+                    <h2 class="form-label ms-3 text-dark bg-light fs-5 d-inline-block">Tag a friend in your memory</h2>
                 </div>
-                <div class="ms-2">
                 <?php foreach($templateParams["friends"] as $friend):?>
                     <section class="w-100 mt-2 d-flex align-items-center justify-content-between">
                         <div class="d-flex justify-content-center align-items-center">
@@ -25,7 +22,6 @@
                         </div>
                     </section>
                 <?php endforeach;?>
-                </div>
             </div>
         </div>
     </div>
