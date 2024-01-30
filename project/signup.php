@@ -32,6 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else{
             registerUserSession($username, $fullname);
+            header("Location: photo.php");
+            exit();
         }
     }
 }

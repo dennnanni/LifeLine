@@ -36,10 +36,14 @@
           <a class="m-0 h5" href="photo.php">
             <i class="fa-regular fa-id-badge text-light"></i>
           </a>
+        <?php elseif ($templateParams["headerRightIcon"] == "diary"): ?>
+          <a class="m-0 h5" href="diary.php">
+            <i class="bi bi-book text-light"></i>
+          </a>
         <?php elseif ($templateParams["headerRightIcon"] == "done"): ?>
-        <a class="m-0 h5" href="<?php echo $templateParams["backPage"]?>">
-          <i class="fa-solid fa-check text-light"></i>
-        </a>
+          <a class="m-0 h5" href="<?php echo $templateParams["backPage"]?>">
+            <i class="fa-solid fa-check text-light"></i>
+          </a>
         <?php endif; ?>
       <?php endif; ?>
     </div>

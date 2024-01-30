@@ -15,13 +15,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $_SESSION["previous"] = $_SESSION["current"];
 $_SESSION["current"] = basename($_SERVER["REQUEST_URI"]);
-$templateParams["title"] = "Photo";
+
+$templateParams["title"] = $_SESSION["previous"];
 $templateParams["active"] = "photo.php";
 $templateParams["js"] = "photo.js";
 
-//Header setting
-$templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
-$templateParams["backPage"] = "diary.php";
+if($_SESSION["previous"] == "signup.php") {
+    $templateParams["headerRightIcon"] = "diary";
+}
+else {
+    //Header setting
+    $templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
+    $templateParams["backPage"] = "diary.php";
+}
 
 //Footer setting
 $templateParams["footerActive"] = "diary"; // home | create | diary

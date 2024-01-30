@@ -8,11 +8,10 @@ window.onload = function load() {
 
     let updateStatus = function(action) {
         $.ajax({
-            url: "ajax/diary.php", 
+            url: "ajax/diary.php",
             type: "POST",
-            data: {"action": action, "username": username.innerText, "friendshipStatus": friendshipStatus == null ? 1 : friendshipStatus.value },
+            data: { "action": action, "username": username.innerText, "friendshipStatus": friendshipStatus == null ? 1 : friendshipStatus.value },
             success: function(response) {
-                console.log(response);
                 setUpAction();
             }
         });
@@ -64,7 +63,7 @@ window.onload = function load() {
             } else {
                 friendshipStatus.value = 0;
                 updateStatus("SEND");
-            }            
+            }
         });
     }
 }

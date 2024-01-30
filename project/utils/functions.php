@@ -33,8 +33,6 @@ function isUserLoggedIn(){
 function registerUserSession($username, $name){
     $_SESSION["username"] = $username;
     $_SESSION["name"] = $name;
-    $_SESSION["previous"] = "";
-    $_SESSION["current"] = "";
 
     $_SESSION["selectedCategories"] = array();
     
