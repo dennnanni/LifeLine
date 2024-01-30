@@ -147,7 +147,7 @@ class DatabaseHelper {
      */
     public function getFriendDiary($username, $friend) {
         $stmt = $this->db->prepare('SELECT * FROM post LEFT JOIN tag ON post.author = tag.username WHERE post.author = ? OR tag.username = ? AND EXISTS (SELECT * FROM friendship WHERE (sender = ? AND receiver = ?) OR (sender = ? AND receiver = ?)) ORDER BY post.timestamp DESC');
-        $stmt->bind_param('sssss', $friend, $friend, $friend, $username, $username, $friend);
+        $stmt->bind_param('ssssss', $friend, $friend, $friend, $username, $username, $friend);
         $stmt->execute();
         $result = $stmt->get_result();
 
