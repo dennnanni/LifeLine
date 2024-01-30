@@ -44,17 +44,19 @@
                                         <i class="fa-solid <?php echo getCategoryIconClass($post["category"]); ?>"></i>
                                     </div>
                                 </div>
-                                <section class="d-flex align-items-center">
-                                    <?php if (isset($post["image"])): ?>
-                                        <div class="d-flex justify-content-center thumbnail-wrapper rounded-4 overflow-hidden">
-                                            <img src="upload/<?php echo $post["image"]; ?>" class="float-right h-100"/>
+                                <a href="post.php?id=<?php echo $post["id"]?>" class="text-decoration-none text-dark">
+                                    <section class="d-flex align-items-center">
+                                        <?php if (isset($post["image"])): ?>
+                                            <div class="d-flex justify-content-center thumbnail-wrapper rounded-4 overflow-hidden">
+                                                <img src="upload/<?php echo $post["image"]; ?>" class="float-right h-100"/>
+                                            </div>
+                                        <?php endif;?>
+                                        <div class="ms-2">
+                                            <span class="fw-bold d-block"><?php echo $post["title"]; ?></span>
+                                            <span class="d-block small"><?php echo date("d/m/Y", strtotime($post['timestamp'])) ?></span>
                                         </div>
-                                    <?php endif;?>
-                                    <div class="ms-2">
-                                        <span class="fw-bold d-block"><?php echo $post["title"]; ?></span>
-                                        <span class="d-block small"><?php echo date("d/m/Y", strtotime($post['timestamp'])) ?></span>
-                                    </div>
-                                </section>
+                                    </section>
+                                </a>
                             </div>
                         <?php endforeach; ?>
                     </div>
