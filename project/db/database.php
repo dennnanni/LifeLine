@@ -146,8 +146,8 @@ class DatabaseHelper {
      * Get all posts shown in the diary page
      */
     public function getFriendDiary($username, $friend) {
-        $stmt = $this->db->prepare('SELECT * FROM post LEFT JOIN tag ON author = username WHERE post.author = ? OR EXISTS (SELECT * FROM friendship WHERE (sender = ? AND receiver = ?) OR (sender = ? AND receiver = ?)) ORDER BY post.timestamp DESC');
-        $stmt->bind_param('sssss', $friend, $friend, $username, $username, $friend);
+        $stmt = $this->db->prepare('SELECT * FROM post LEFT JOIN tag ON post.author = tag.username WHERE post.author = ? OR tag.username = ? AND EXISTS (SELECT * FROM friendship WHERE (sender = ? AND receiver = ?) OR (sender = ? AND receiver = ?)) ORDER BY post.timestamp DESC');
+        $stmt->bind_param('sssss', $friend, $friend, $friend, $username, $username, $friend);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -332,7 +332,7 @@ class DatabaseHelper {
      * Return the notifications
      */
     public function getNotifications($username) {
-        $stmt = $this->db->prepare("SELECT * FROM notification WHERE notification.receiver = ?");
+        $stmt = $this->db->prepare("SELECT * FROM notification WHERE notification.receiver = ? ORDER BY notification.timestamp DESC");
         $stmt->bind_param('s', $username);
         $stmt->execute();
         $result = $stmt->get_result();
