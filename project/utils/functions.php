@@ -5,16 +5,16 @@ function composeMessage($type, $sender, $post) {
     $message = "";
     switch($type) {
         case 1:
-            $message = "<strong>@".$sender."</strong> starred you memory \"".$post["title"]."\"";
+            $message = "<a href=\"diary.php?username=.$sender.\" class=\"fw-bold\">@".$sender."</a> starred you memory \"".$post["title"]."\"";
             break;
         case 2:
-            $message = "<strong>@".$sender."</strong> commented on your memory \"".$post["title"]."\"";
+            $message = "<a href=\"diary.php?username=.$sender.\" class=\"fw-bold\">@".$sender."</a> commented on your memory \"".$post["title"]."\"";
             break;
         case 3:
-            $message = "<strong>@".$sender."</strong> sent you a friend request";
+            $message = "<a href=\"diary.php?username=.$sender.\" class=\"fw-bold\">@".$sender."</a> sent you a friend request";
             break;
         case 4:
-            $message = "<strong>@".$sender."</strong> tagged you in a memory \"".$post["title"]."\"";
+            $message = "<a href=\"diary.php?username=.$sender.\" class=\"fw-bold\">@".$sender."</a> tagged you in a memory \"".$post["title"]."\"";
             break;
     }
     return $message;
