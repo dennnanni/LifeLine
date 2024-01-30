@@ -14,12 +14,12 @@ $templateParams["backPage"] = "home.php"; // null | file.php  -> the page to add
 $templateParams["footerActive"] = "home"; // home | create | diary
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    if (empty($_GET["postId"])) {
+    if (empty($_GET["id"])) {
         header("Location: 404.php");
         exit();
     }
     else {
-        $templateParams["post"] = $dbh->getPost($_GET["postId"]);
+        $templateParams["post"] = $dbh->getPost($_GET["id"]);
         $templateParams["author"] = $dbh->getUser($templateParams["post"]["author"]);
     }
 }
