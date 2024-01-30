@@ -30,7 +30,7 @@
             </li>
             <li>
                 <label for="location" hidden>Location</label>
-                <input class="w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" type="text" id="location" name="location" placeholder="Location" value="<?php echo $_SESSION["location"]?>"/>
+                <input class="w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" type="text" id="location" name="location" maxlength="32" placeholder="Location" value="<?php echo $_SESSION["location"]?>"/>
             </li>
             <li>
                 <select class="form-select w-100 mb-2 border border-1 border-tertiary-light border-solid btn-lg bg-light text-dark" id="category" name="category">
