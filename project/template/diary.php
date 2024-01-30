@@ -1,8 +1,8 @@
 <?php require("header.php"); ?>
 
 <div class="d-flex flex-grow-1 justify-content-center mb-7">
-    <div class="col-11 position-relative">
-        <div class="ms-7 pt-3 position-absolute h-100" id="lifeline">
+    <div class="col-11 col-md-8 col-xl-4 position-relative">
+        <div class="ms-7 pt-3 position-absolute h-100 mt-6" id="lifeline">
         </div>
         <div class="w-100 pt-3 position-relative justify-content-center">
             <!-- heading with propic, username, name, friends/button -->
@@ -38,7 +38,7 @@
                     (isset($templateParams["friendship"]) && $templateParams["friendship"]["accepted"] == 1)): ?>
                     <div id="diary" class="pt-3">
                         <?php foreach($templateParams["posts"] as $post): ?>
-                            <div class="d-flex align-items-center ms-4 my-1">
+                            <div class="d-flex align-items-center ms-4 my-2">
                                 <div class="d-flex pe-5">
                                     <div name="icon-medium" class="d-flex justify-content-center align-items-center bg-secondary rounded-3">
                                         <i class="fa-solid <?php echo getCategoryIconClass($post["category"]); ?>"></i>
