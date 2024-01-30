@@ -10,19 +10,19 @@ window.onload = function load() {
                 filter[i].classList.remove("bg-light");
                 filter[i].classList.add("bg-primary");
 
-                sendAction(category, "ADD");
+                sendAction("ADD", category);
             } else {
                 filter[i].classList.remove("bg-primary");
                 filter[i].classList.add("bg-light");
 
-                sendAction(category, "REMOVE");
+                sendAction("REMOVE", category);
             }
         });
     }
-    sendAction("", "REMOVE"); //Dummy request to load posts without filters
+    sendAction("SHOWALL"); //Dummy request to load posts without filters
 }
 
-function sendAction(category, action) {
+function sendAction(action, category = "") {
     request = $.ajax({
         url: "ajax/home.php",
         type: "POST",
@@ -36,9 +36,8 @@ function sendAction(category, action) {
 function showPosts(data) {
     let result = "";
     let postByDay = JSON.parse(data);
-    console.log(data);
 
-    for (const date in postByDay) {
+    for (let date in postByDay) {
         if (postByDay.hasOwnProperty(date)) {
             let postElement = `<h2>${date}</h2>`;
 
