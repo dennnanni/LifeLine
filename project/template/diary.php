@@ -8,7 +8,7 @@
             <!-- heading with propic, username, name, friends/button -->
             <div class="ms-4">
                 <div class="d-flex align-items-center">
-                    <img name="propic-big" src="<?php echo "upload/".$templateParams["username"]["profilePic"]?>"/>
+                    <img class="propic-big" src="<?php echo "upload/".$templateParams["username"]["profilePic"]?>"/>
                     <div class="ms-sm-5 ms-3 w-100 d-flex justify-content-between align-items-center">
                         <div>
                             <span class="fw-bold fs-5 d-block"><?php echo $templateParams["username"]["name"]; ?></span>
@@ -40,7 +40,7 @@
                         <?php foreach($templateParams["posts"] as $post): ?>
                             <div class="d-flex align-items-center ms-4 my-2">
                                 <div class="d-flex pe-5">
-                                    <div name="icon-medium" class="d-flex justify-content-center align-items-center bg-secondary rounded-3">
+                                    <div class="icon-medium d-flex justify-content-center align-items-center bg-secondary rounded-3">
                                         <i class="fa-solid <?php echo getCategoryIconClass($post["category"]); ?>"></i>
                                     </div>
                                 </div>

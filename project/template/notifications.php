@@ -6,7 +6,7 @@
         <div class="w-100 pt-3 position-relative justify-content-center">
             <div class="ms-4">
                 <div class="ms-3">
-                    <div class="bg-secondary rounded-3 d-inline-flex justify-content-center" name="icon-medium">
+                    <div class="bg-secondary rounded-3 d-inline-flex justify-content-center icon-medium">
                         <i class="fa-solid fa-tags h5 mt-1"></i>
                     </div>
                     <h2 class="form-label ms-3 text-dark bg-light fs-5 d-inline-block">Your notifications</h2>
@@ -14,7 +14,7 @@
                 <?php foreach($templateParams["notifications"] as $notification):?>
                     <div class="d-flex align-items-center ms-4 my-3">
                         <div class="d-flex pe-3">
-                            <div name="icon-medium" class="d-flex justify-content-center align-items-center bg-secondary rounded-3">
+                            <div class="icon-medium d-flex justify-content-center align-items-center bg-secondary rounded-3">
                                 <i class="fa-solid <?php echo getNotificationIconClass($notification["type"]); ?>"></i>
                             </div>
                         </div>

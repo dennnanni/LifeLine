@@ -27,37 +27,38 @@ div#lifeline {
 }
 
 .thumbnail-wrapper {
-    width: 100px;
-    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
 }
 
-img[name="propic-big"] {
+.propic-big {
     width: 70px;
     height: 70px;
     border-radius: 35px;
 }
 
-img[name="propic-medium"] {
+.propic-medium {
     width: 50px;
     height: 50px;
     border-radius: 26px;
 }
 
-img[name="propic-small"] {
+/* probably we gonna need the propic small (comments?) */
 
-}
-
-div[name="icon-big"] {
+/* icon in post page */
+.icon-big {
     height: 32px;
     width: 32px;
 }
 
-div[name="icon-medium"] {
+/* icon in tag and diary*/
+.icon-medium {
     height: 26px;
     width: 26px;
 }
 
-div[name="icon-small"] {
+/* icon in homepage */
+.icon-small {
     height: 20px;
     width: 20px;
 }
