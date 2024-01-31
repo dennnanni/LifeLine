@@ -42,7 +42,7 @@
             </li>
             <li class="d-flex justify-content-end">
                 <div>
-                    <label for="tag"><?php echo $templateParams["tag-number"];?> Tag</label>
+                    <label><?php echo $templateParams["tag-number"];?> Tag</label>
                     <a id="tag" href="tag.php" class="w-75 mb-2 rounded-3 border-0 bg-secondary text-dark text-center p-1 text-decoration-none">Tag friends</a>
                 </div>
             </li>

@@ -28,15 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-if(getPreviousPage() != "tag.php") {
-    //Clear the post data if the user exited from the creation process
-    $_SESSION["title"] = "";
-    $_SESSION["description"] = "";
-    $_SESSION["location"] = "";
-    $_SESSION["category"] = "";
-    $_SESSION["taggedUsers"] = array();
-}
-
 $templateParams["title"] = "Create";
 $templateParams["active"] = "create-form.php";
 $templateParams["js"] = "create.js";

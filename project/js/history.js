@@ -2,7 +2,6 @@ window.addEventListener('load', function() {
     let backArrow = document.getElementById("backArrow");
     let done = document.getElementById("done");
 
-    console.log(backArrow);
     if (backArrow) {
         backArrow.addEventListener("click", function() {
             requestBackPage();

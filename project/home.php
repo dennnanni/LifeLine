@@ -4,6 +4,7 @@ include("auth_session.php");
 
 updateHistory(basename($_SERVER["REQUEST_URI"]));
 
+clearPostData();
 $templateParams["title"] = "Homepage";
 $templateParams["active"] = "home.php";
 $templateParams["js"] = "home.js";

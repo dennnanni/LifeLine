@@ -27,6 +27,14 @@ function getPreviousPage() {
     return prev($_SESSION["history"]);
 }
 
+function clearPostData() {
+    $_SESSION["title"] = "";
+    $_SESSION["description"] = "";
+    $_SESSION["location"] = "";
+    $_SESSION["category"] = "";
+    $_SESSION["taggedUsers"] = array();
+}
+
 function composeMessage($type, $sender, $post) {
     $message = "";
     switch($type) {
@@ -62,11 +70,7 @@ function registerUserSession($username, $name){
 
     $_SESSION["selectedCategories"] = array();
     
-    $_SESSION["title"] = "";
-    $_SESSION["description"] = "";
-    $_SESSION["location"] = "";
-    $_SESSION["category"] = "";
-    $_SESSION["taggedUsers"] = array();
+    clearPostData();
 }
 
 function validate($data) {

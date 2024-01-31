@@ -4,6 +4,7 @@ include("auth_session.php");
 
 updateHistory(basename($_SERVER["REQUEST_URI"]));
 
+clearPostData();
 $templateParams["title"] = "Diary";
 $templateParams["active"] = "diary.php";
 $templateParams["js"] = "diary.js";
