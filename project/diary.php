@@ -2,8 +2,7 @@
 require_once("bootstrap.php");
 include("auth_session.php");
 
-$_SESSION["previous"] = $_SESSION["current"];
-$_SESSION["current"] = basename($_SERVER["REQUEST_URI"]);
+updateHistory(basename($_SERVER["REQUEST_URI"]));
 
 $templateParams["title"] = "Diary";
 $templateParams["active"] = "diary.php";
@@ -24,10 +23,9 @@ if ($requestedUser == $_SESSION["username"]) {
 } else {
     //Header settings
     $templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
-    $templateParams["backPage"] = "friends.php";
 
     //Footer setting
-    $templateParams["footerActive"] = $_SESSION["previous"] == "friends.php" ? "diary" : "home"; // home | create | diary
+    $templateParams["footerActive"] = getPreviousPage() == "friends.php" ? "diary" : "home"; // home | create | diary
 
     $templateParams["friendship"] = $dbh->getFriendshipStatus($requestedUser, $_SESSION["username"]);
     if (isset($templateParams["friendship"]) && $templateParams["friendship"]["accepted"] == 1) { 

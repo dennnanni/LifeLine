@@ -2,8 +2,8 @@
 require_once("bootstrap.php");
 include("auth_session.php");
 
-$_SESSION["previous"] = $_SESSION["current"];
-$_SESSION["current"] = basename($_SERVER["REQUEST_URI"]);
+updateHistory(basename($_SERVER["REQUEST_URI"]));
+
 $templateParams["title"] = "Homepage";
 $templateParams["active"] = "home.php";
 $templateParams["js"] = "home.js";

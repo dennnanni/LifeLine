@@ -2,6 +2,8 @@
 require_once("bootstrap.php");
 include("auth_session.php");
 
+updateHistory(basename($_SERVER["REQUEST_URI"]));
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = validate($_POST["title"]);
     $description = validate($_POST["description"]);
@@ -26,10 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-$_SESSION["previous"] = $_SESSION["current"];
-$_SESSION["current"] = basename($_SERVER["REQUEST_URI"]);
-
-if($_SESSION["previous"] != "tag.php") {
+if(getPreviousPage() != "tag.php") {
     //Clear the post data if the user exited from the creation process
     $_SESSION["title"] = "";
     $_SESSION["description"] = "";

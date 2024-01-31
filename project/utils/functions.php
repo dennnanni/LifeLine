@@ -1,5 +1,31 @@
 <?php
 
+function updateHistory($pageName) {
+    if(!isset($_SESSION)) {
+        session_start();
+    }
+
+    if(!isset($_SESSION["history"])) {
+        $_SESSION["history"] = array();
+    }
+
+    if(end($_SESSION["history"]) != $pageName) {
+        array_push($_SESSION["history"], $pageName);
+    }
+}
+
+function getPreviousPage() {
+    if(!isset($_SESSION)) {
+        session_start();
+    }
+
+    if(!isset($_SESSION["history"])) {
+        $_SESSION["history"] = array();
+    }
+
+    end($_SESSION["history"]);
+    return prev($_SESSION["history"]);
+}
 
 function composeMessage($type, $sender, $post) {
     $message = "";

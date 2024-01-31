@@ -11,6 +11,7 @@
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <script src="https://kit.fontawesome.com/711c6e0480.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/history.js"></script>
 
         <?php if(isset($templateParams["js"])): ?>
             <script type="text/javascript" src="js/<?php echo $templateParams["js"]?>"></script>

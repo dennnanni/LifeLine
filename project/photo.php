@@ -2,6 +2,8 @@
 require_once("bootstrap.php");
 include("auth_session.php");
 
+updateHistory(basename($_SERVER["REQUEST_URI"]));
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nomeFile = validate($_FILES["immaginePost"]["name"]);
     
@@ -13,23 +15,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: diary.php");
 }
 
-$_SESSION["previous"] = $_SESSION["current"];
-$_SESSION["current"] = basename($_SERVER["REQUEST_URI"]);
-
-$templateParams["title"] = $_SESSION["previous"];
+$templateParams["title"] = "Photo";
 $templateParams["active"] = "photo.php";
 $templateParams["js"] = "photo.js";
 
 //Footer setting
 $templateParams["footerActive"] = "diary"; // home | create | diary
 
-if($_SESSION["previous"] == "signup.php") {
+if(getPreviousPage() == "signup.php") {
     $templateParams["skip"] = true;
 }
 else {
     //Header setting
     $templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
-    $templateParams["backPage"] = "diary.php";
     
     $templateParams["skip"] = false;
 }
