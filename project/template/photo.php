@@ -22,8 +22,13 @@
                 </li>
                 <li>
                     <label for="submit" hidden>Change photo</label>
-                    <input class="mt-2 w-100 rounded-3 border-0 bg-secondary btn-lg text-dark" type="submit" name="submit" id="submit" value="Change profile photo" />
+                    <input class="mt-2 mx-0 w-100 rounded-3 border border-2 border-secondary bg-secondary btn-lg text-dark" type="submit" name="submit" id="submit" value="Set photo" />
                 </li>
+                <?php if($templateParams["skip"]): ?>
+                    <li>
+                        <a id="skip" href="diary.php" class="mt-3 text-decoration-none text-dark w-25 d-block h4">Skip</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </form>
     </div>

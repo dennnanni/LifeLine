@@ -20,17 +20,19 @@ $templateParams["title"] = $_SESSION["previous"];
 $templateParams["active"] = "photo.php";
 $templateParams["js"] = "photo.js";
 
+//Footer setting
+$templateParams["footerActive"] = "diary"; // home | create | diary
+
 if($_SESSION["previous"] == "signup.php") {
-    $templateParams["headerRightIcon"] = "diary";
+    $templateParams["skip"] = true;
 }
 else {
     //Header setting
     $templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
     $templateParams["backPage"] = "diary.php";
+    
+    $templateParams["skip"] = false;
 }
-
-//Footer setting
-$templateParams["footerActive"] = "diary"; // home | create | diary
 
 require("template/base.php");
 ?>
