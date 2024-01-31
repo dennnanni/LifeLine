@@ -1,14 +1,14 @@
-<?php if(isset($templateParams["registrationError"])): ?>
-    <div class="toast-container position-absolute top-0 start-50 translate-middle-x">
-        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <strong class="me-auto text-secondary">Lifeline</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" onclick="closeToast(this)"></button>
-            </div>
-            <div class="toast-body"><?php echo $templateParams["registrationError"]; ?></div>
+<div class="toast-container position-absolute top-0 start-50 translate-middle-x">
+    <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto text-secondary">Lifeline</strong>
+            <button id="toastDismiss" type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            <span id="errorMessage"></span>
         </div>
     </div>
-<?php endif; ?>
+</div>
 <header class="mt-5">
     <div class="container mt-5">
         <div class="row">
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <form class="col-xl-5 col-md-6 col-10" action="signup.php" method="POST" id="signupForm">
+        <form class="col-xl-5 col-md-6 col-10" action="#" id="signupForm">
             <ul class="list-unstyled">
                 <li>
                    <label for="username" hidden>Username</label>
@@ -52,7 +52,7 @@
                 </li>
                 <li>
                     <label for="submit" hidden>Submit</label>
-                    <input class="w-100 rounded-3 border-0 bg-secondary btn-lg text-dark" type="submit" name="submit" id="submit" value="Submit" />
+                    <input class="w-100 rounded-3 border-0 bg-secondary btn-lg text-dark" type="button" name="submit" id="submit" value="Submit" />
                 </li>
             </ul>
         </form>
