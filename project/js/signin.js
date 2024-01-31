@@ -19,12 +19,12 @@ window.onload = function () {
 
     submit.addEventListener('click', function() {
         result = $.ajax({
-            url: "ajax/signup.php",
+            url: "ajax/signin.php",
             type: "POST",
-            data: $("#signupForm").serialize(),
+            data: $("#signinForm").serialize(),
             success: function(response) {
                 if (response == "success") {
-                    window.location.assign("photo.php")
+                    window.location.assign("home.php");
                 } else {
                     let data = JSON.parse(response);
                     showMessage(data.error);

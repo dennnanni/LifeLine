@@ -36,12 +36,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else{
             registerUserSession($username, $fullname);
-            header("Location: ../photo.php");
-            exit();
         }
     }
 
-    echo json_encode(["error" => $errorMessage]);
+    if (isset($errorMessage)) {
+        echo json_encode(["error" => $errorMessage]);
+    } else {
+        echo "success";
+    }
 }
-
 ?>

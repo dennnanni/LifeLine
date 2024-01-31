@@ -43,8 +43,10 @@ class DatabaseHelper {
             return false;
         }
 
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
         $stmt = $this->db->prepare("INSERT INTO USER (username, passwordHash, name, email) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param('ssss', $username, password_hash($password, PASSWORD_DEFAULT), $name, $email);
+        $stmt->bind_param('ssss', $username, $passwordHash, $name, $email);
         return $stmt->execute();
     }
 
