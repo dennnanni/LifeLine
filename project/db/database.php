@@ -281,14 +281,18 @@ class DatabaseHelper {
      * Put a star on a post and create a notification about it.
      * Return true if success, false otherwise
      */
-    public function createStar($username, $postId) {
+    public function addStar($username, $postId) {
         $postAuthor = getPost($postId)["author"];
 
         $stmt = $this->db->prepare("INSERT INTO star (postId, username) VALUES (?, ?)");
         $stmt->bind_param('is', $postId, $username);
         $stmt->execute();
 
-        $this->createNotification(1, $username, $postAuthor, $postId);
+        if($stmt->affected_rows > 0) {
+            $this->updateStarsCounter($postId);
+
+            $this->createNotification(1, $username, $postAuthor, $postId);
+        }
         return $stmt->affected_rows > 0;
     }
 
@@ -296,9 +300,17 @@ class DatabaseHelper {
      * Remove a star from a post
      */
     public function removeStar($username, $postId) {
+        $postAuthor = getPost($postId)["author"];
+
         $stmt = $this->db->prepare("DELETE FROM star WHERE star.postId = ? AND star.username = ?");
         $stmt->bind_param('is', $postId, $username);
         $stmt->execute();
+
+        if($stmt->affected_rows > 0) {
+            $this->updateStarsCounter($postId, -1);
+
+            $this->deleteNotification(1, $username, $postAuthor, $postId);
+        }
 
         return null;
     }
@@ -408,6 +420,24 @@ class DatabaseHelper {
         return $stmt->affected_rows > 0;
     }
 
+    /**
+     * Delete a notification.
+     * Return true if success, false otherwise
+     */
+    private function deleteNotification($type, $sender, $receiver, $postId = null) {
+        if($type == 3) {
+            $stmt = $this->db->prepare("DELETE FROM notification WHERE notification.type = ? AND notification.sender = ? AND notification.receiver = ?");
+            $stmt->bind_param('iss', $type, $sender, $receiver);
+        }
+        else {
+            $stmt = $this->db->prepare("DELETE FROM notification WHERE notification.type = ? AND notification.sender = ? AND notification.receiver = ? AND notification.postId = ?");
+            $stmt->bind_param('issi', $type, $sender, $receiver, $postId);
+        }
+        
+        $stmt->execute();
+        return $stmt->affected_rows > 0;
+    }
+
     /** 
      * Updates friendsCount of the given username
      * Default value of the increment is 1, 
@@ -416,6 +446,19 @@ class DatabaseHelper {
     private function updateFriendsCount($username, $increment = 1) {
         $stmt = $this->db->prepare('UPDATE user SET user.friendsCount = user.friendsCount + ? WHERE user.username = ?');
         $stmt->bind_param('is', $increment, $username);
+        $stmt->execute();
+
+        return $stmt->affected_rows > 0;
+    }
+
+    /** 
+     * Updates the stars counter of the given post
+     * Default value of the increment is 1, 
+     * negative increment decrease star counter
+     */
+    private function updateStarsCounter($postId, $increment = 1) {
+        $stmt = $this->db->prepare('UPDATE post SET post.starsCount = post.starsCount + ? WHERE post.id = ?');
+        $stmt->bind_param('is', $increment, $postId);
         $stmt->execute();
 
         return $stmt->affected_rows > 0;
