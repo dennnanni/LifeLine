@@ -22,7 +22,7 @@
             </li>
             <li>
                 <label for="title" hidden>Title</label>
-                <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="title" name="title" placeholder="Title" maxlength="25"><?php echo $_SESSION["title"]?></textarea>
+                <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="title" name="title" placeholder="Title" maxlength="20"><?php echo $_SESSION["title"]?></textarea>
             </li>
             <li>
                 <label for="description" hidden>Description</label>
