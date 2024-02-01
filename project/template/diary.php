@@ -15,26 +15,25 @@
                             <span id="username" class="d-block"><?php echo $templateParams["username"]["username"]; ?></span>
                         </div>
                         <div>
-                            <?php if (isset($templateParams["personal"])): ?>
                             <!-- show friends count -->
-                            <a class="btn btn-primary text-light btn-sm rounded-4" href="friends.php"><?php
+                            <a class="btn btn-primary text-light btn-sm rounded-4 mb-2 w-100" href="friends.php?username=<?php echo $templateParams["username"]["username"]?>"><?php
                                 $ending = $templateParams["username"]["friendsCount"] != 1 ? "s" : "";
                                 echo $templateParams["username"]["friendsCount"]." friend".$ending;?></a>
-                            <?php elseif (isset($templateParams["friendship"]) && $templateParams["friendship"]["accepted"] == 0 && $templateParams["friendship"]["sender"] == $templateParams["username"]["username"]): ?>
+                            <?php if (isset($templateParams["friendship"]) && $templateParams["friendship"]["accepted"] == 0 && $templateParams["friendship"]["sender"] == $templateParams["username"]["username"]): ?>
                                 <div class="d-flex">
-                                    <input id="acceptFriendship" type="button" class="btn btn-primary text-light btn-sm" value="Accept"/>
-                                    <input id="denyFriendship" type="button" class="btn btn-tertiary btn-sm ms-1" value="Deny"/>
+                                    <input id="acceptFriendship" type="button" class="btn btn-primary text-light btn-sm rounded-4" value="Accept"/>
+                                    <input id="denyFriendship" type="button" class="btn btn-tertiary btn-sm ms-1 rounded-4" value="Deny"/>
                                 </div>
-                            <?php else: ?>
+                            <?php elseif (!$templateParams["personal"]): ?>
                                 <div>
                                     <input id="friendshipStatus" name="friendshipStatus" type="hidden" value="<?php echo $templateParams["friendship"]["accepted"]; ?>"/>
-                                    <input id="actionButton" name="actionButton" type="button" class="btn btn-sm"/>
+                                    <input id="actionButton" name="actionButton" type="button" class="btn btn-sm rounded-4"/>
                                 </div>
                             <?php endif; ?>
                         </div>
                     </div>
                 </div>
-                <?php if (isset($templateParams["personal"]) || 
+                <?php if ($templateParams["personal"] || 
                     (isset($templateParams["friendship"]) && $templateParams["friendship"]["accepted"] == 1)): ?>
                     <div id="diary" class="pt-3">
                         <?php foreach($templateParams["posts"] as $post): ?>

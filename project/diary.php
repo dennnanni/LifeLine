@@ -31,6 +31,8 @@ if ($requestedUser == $_SESSION["username"]) {
     if (isset($templateParams["friendship"]) && $templateParams["friendship"]["accepted"] == 1) { 
         $templateParams["posts"] = $dbh->getFriendDiary($_SESSION["username"], $requestedUser);
     }
+
+    $templateParams["personal"] = false;
 }
 
 $templateParams["username"] = $dbh->getUser($requestedUser);

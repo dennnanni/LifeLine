@@ -13,7 +13,8 @@ $templateParams["headerLeftIcon"] = "back"; // null | notifications | back | don
 //Footer setting
 $templateParams["footerActive"] = $_SESSION["footerActivePage"]; // home | create | diary
 
-$templateParams["user"] = $dbh->getUser($_SESSION["username"]);
+$requestedUser = isset($_GET["username"]) ? $_GET["username"] : $_SESSION["username"];
+$templateParams["user"] = $dbh->getUser($requestedUser);
 $templateParams["friends"] = $dbh->getFriends($templateParams["user"]["username"]);
 
 require("template/base.php");
