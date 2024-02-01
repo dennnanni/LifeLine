@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else{
             registerUserSession($login_result["username"], $login_result["name"]);
         }
+        $_SESSION["footerActivePage"] = "home";
     }
 
     if (isset($errorMessage)) {

@@ -11,7 +11,7 @@ $templateParams["active"] = "post.php";
 $templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
 
 //Footer setting
-$templateParams["footerActive"] = "home"; // home | create | diary
+$templateParams["footerActive"] = $_SESSION["footerActivePage"];
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (empty($_GET["id"])) {

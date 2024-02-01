@@ -80,6 +80,16 @@ function validate($data) {
     return $data;
 }
 
+function indexAvailable($path) {
+    $acceptedExtensions = array("jpg", "jpeg", "png", "gif");
+    foreach($acceptedExtensions as $ext) {
+        if(file_exists($path.".".$ext)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 function uploadImage($path, $image){
     $imageName = basename($image["name"]);
     $imageFileType = strtolower(pathinfo($path.$imageName,PATHINFO_EXTENSION));
@@ -105,7 +115,7 @@ function uploadImage($path, $image){
             $newName++;
             $newPath = $path.$newName.".".$imageFileType;
         }
-        while(file_exists($newPath));
+        while(!indexAvailable($path.$newName));
 
         if(!move_uploaded_file($image["tmp_name"], $newPath)){
             $msg.= "Errore nel caricamento dell'immagine.";

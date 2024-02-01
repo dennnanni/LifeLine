@@ -37,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else{
             registerUserSession($username, $fullname);
         }
+        $_SESSION["footerActivePage"] = "diary";
     }
 
     if (isset($errorMessage)) {

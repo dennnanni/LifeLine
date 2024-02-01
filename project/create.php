@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else {
             $registration_result = $dbh->createPost($_SESSION["username"], $title, $description, $location, $category, $_SESSION["taggedUsers"]);
         }
+        header("Location: diary.php");
     }
 }
 
@@ -33,7 +34,7 @@ $templateParams["active"] = "create-form.php";
 $templateParams["js"] = "create.js";
 
 //Footer setting
-$templateParams["footerActive"] = "create"; // home | create | diary
+$templateParams["footerActive"] = $_SESSION["footerActivePage"];
 
 $templateParams["categories"] = $dbh->getAllCategories();
 $templateParams["tag-number"] = count($_SESSION["taggedUsers"]);

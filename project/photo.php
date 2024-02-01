@@ -20,7 +20,7 @@ $templateParams["active"] = "photo.php";
 $templateParams["js"] = "photo.js";
 
 //Footer setting
-$templateParams["footerActive"] = "diary"; // home | create | diary
+$templateParams["footerActive"] = $_SESSION["footerActivePage"];
 
 if(getPreviousPage() == "signup.php") {
     $templateParams["skip"] = true;

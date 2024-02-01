@@ -11,7 +11,7 @@ $templateParams["active"] = "comments.php";
 $templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
 
 //Footer setting
-$templateParams["footerActive"] = getPreviousPage() == "diary.php" ? "diary" : "home"; // home | create | diary
+$templateParams["footerActive"] = $_SESSION["footerActivePage"];
 
 $templateParams["comments"] = array();
 
