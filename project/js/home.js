@@ -57,7 +57,7 @@ function showPosts(data) {
                 ` : "";
                 /*TODO cambiare ps-md-6 con uno spacer a 2.25 rem*/
                 postElement += `
-                <div class="row mb-3">
+                <div class="row mb-3 px-2">
                     <div class="border border-3 border-tertiary-light rounded-4 position-relative">
                         <div class="lifeline-small position-absolute h-100 ms-1 ms-md-6"> 
                         </div>
