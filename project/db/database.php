@@ -257,6 +257,18 @@ class DatabaseHelper {
     /**
      * Get all the post comments
      */
+    public function getStars($postId) {
+        $stmt = $this->db->prepare("SELECT star.username FROM star WHERE star.postId = ?");
+        $stmt->bind_param('i', $postId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Get all the post comments
+     */
     public function getComments($postId) {
         $stmt = $this->db->prepare("SELECT * FROM comment WHERE comment.postId = ?");
         $stmt->bind_param('i', $postId);
