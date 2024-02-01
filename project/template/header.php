@@ -22,9 +22,7 @@
       <?php endif; ?>
     </div>
     <div class="col-10 text-center">
-      <a class="" href="home.php">
-        <h1 id="home" class="footerLink text-light">LifeLine</h1>
-      </a>
+      <h1 id="home" class="footerLink text-light">LifeLine</h1>
     </div>
     <div class="col-1 d-flex justify-content-center align-items-center">
       <?php if(isset($templateParams["headerRightIcon"])): ?>
