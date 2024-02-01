@@ -15,17 +15,20 @@ $templateParams["footerActive"] = $_SESSION["footerActivePage"];
 $requestedUser = isset($_GET["username"]) ? $_GET["username"] : $_SESSION["username"];
 
 if ($requestedUser == $_SESSION["username"]) {
-    //Header settings
-    $templateParams["headerLeftIcon"] = "logout"; // null | notifications | back | done | logout
-    $templateParams["headerRightIcon"] = "photo"; // null | search | photo
-
-
+    if($_SESSION["footerActivePage"] == "home") {
+        $templateParams["headerLeftIcon"] = "back";
+    }
+    elseif($_SESSION["footerActivePage"] == "diary") {
+        $templateParams["headerLeftIcon"] = "logout";
+        $templateParams["headerRightIcon"] = "photo";
+    }
 
     $templateParams["personal"] = true;
     $templateParams["posts"] = $dbh->getDiary($requestedUser);
 } else {
+    
     //Header settings
-    $templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
+    $templateParams["headerLeftIcon"] = "back";
 
     $templateParams["friendship"] = $dbh->getFriendshipStatus($requestedUser, $_SESSION["username"]);
     if (isset($templateParams["friendship"]) && $templateParams["friendship"]["accepted"] == 1) { 

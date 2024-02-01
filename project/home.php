@@ -10,7 +10,7 @@ $templateParams["active"] = "home.php";
 $templateParams["js"] = "home.js";
 
 //Header settings
-$templateParams["headerLeftIcon"] = "notifications"; // null | notifications | back | done | logout
+$templateParams["headerLeftIcon"] = "notifications";
 $templateParams["headerRightIcon"] = "search"; // null | search | photo
 $templateParams["notificationsNumber"] = $dbh->getNewNotificationNumber($_SESSION["username"]); // null | integer
 

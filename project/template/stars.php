@@ -5,14 +5,17 @@
         </div>
         <div class="w-100 pt-3 position-relative justify-content-center">
             <div class="ms-4">
-                <div class="ms-3">
-                    <div class="bg-secondary rounded-3 d-inline-flex justify-content-center icon-medium">
-                        <i class="fa-solid fa-tags h5 mt-1"></i>
-                    </div>
-                    <h2 class="form-label ms-3 text-dark bg-light fs-5 d-inline-block"><?php echo $templateParams["post"]["title"]?> stars (<?php echo $templateParams["starCounter"]?>)</h2>
-                </div>
                 <?php foreach($templateParams["stars"] as $star):?>
-                    <?php echo implode(", ", $star)?>
+                <div class="d-flex align-items-center ms-4 my-3">
+                    <div class="d-flex pe-3">
+                        <div class="icon-medium d-flex justify-content-center align-items-center bg-secondary rounded-3">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <section class="d-flex align-items-center">
+                        <span class="d-inline-block text-dark"><a class="text-decoration-none text-dark" href="diary.php?username=<?php echo $star["username"]?>" class="fw-bold">@<?php echo $star["username"]?></a></span>
+                    </section>
+                </div>
                 <?php endforeach;?>
             </div>
         </div>

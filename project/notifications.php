@@ -8,7 +8,7 @@ $templateParams["title"] = "Notifications";
 $templateParams["active"] = "notifications.php";
 
 //Header settings
-$templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
+$templateParams["headerLeftIcon"] = "back";
 
 //Footer setting
 $templateParams["footerActive"] = $_SESSION["footerActivePage"];

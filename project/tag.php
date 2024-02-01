@@ -9,7 +9,7 @@ $templateParams["active"] = "tag.php";
 $templateParams["js"] = "tag.js";
 
 //Header settings
-$templateParams["headerRightIcon"] = "done"; // null | notifications | back | done | logout
+$templateParams["headerRightIcon"] = "done";
 
 //Footer setting
 $templateParams["footerActive"] = $_SESSION["footerActivePage"];

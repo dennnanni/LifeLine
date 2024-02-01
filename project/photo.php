@@ -27,7 +27,7 @@ if(getPreviousPage() == "signup.php") {
 }
 else {
     //Header setting
-    $templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
+    $templateParams["headerLeftIcon"] = "back";
     
     $templateParams["skip"] = false;
 }

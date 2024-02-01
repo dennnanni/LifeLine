@@ -9,7 +9,7 @@ $templateParams["active"] = "search-form.php";
 $templateParams["js"] = "search.js";
 
 //Header settings
-$templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
+$templateParams["headerLeftIcon"] = "back";
 
 //Footer setting
 $templateParams["footerActive"] = $_SESSION["footerActivePage"];
