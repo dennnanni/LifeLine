@@ -21,20 +21,20 @@ INSERT INTO USER (username, passwordHash, name, email, profilePic, friendsCount)
 
 -- Inserimento post
 INSERT INTO POST (timestamp, title, description, location, image, starsCount, commentsCount, category, author) VALUES
-(TIMESTAMP('2024-01-01 12:00:00'), 'Post 11', 'Description 11', 'Milano', '4.jpg', 3, 2, 'Fashion', 'user1'),
-(TIMESTAMP('2024-01-02 12:00:00'), 'Post 22', 'Description 22', 'Padova', '5.jpg', 1, 0, 'Travel', 'user2'),
-(TIMESTAMP('2024-01-03 12:00:00'), 'Post 41', 'Description 41', 'Castiglione di Ravenna', '6.jpg', 1, 0, 'Music', 'user4');
+(TIMESTAMP('2024-01-01 12:00:00'), 'Preferred outfit', 'This is my best gucci outfit of the show.', 'Milano', '4.jpg', 3, 2, 'Fashion', 'user1'),
+(TIMESTAMP('2024-01-02 12:00:00'), 'What a view', "I don't think i ever slept with a view like this.", 'Padova', '5.jpg', 1, 0, 'Travel', 'user2'),
+(TIMESTAMP('2024-01-03 12:00:00'), 'Blink 182', 'The concert is EPIC!!', 'Castiglione di Ravenna', '6.jpg', 1, 0, 'Music', 'user4');
 
 INSERT INTO POST (timestamp, title, description, image, starsCount, commentsCount, category, author) VALUES
-(TIMESTAMP('2024-01-05 12:00:00'), 'Post 31', 'Description 31', '7.jpg', 2, 2, 'Food', 'user3'),
-(TIMESTAMP('2024-01-05 22:00:00'), 'Post 21', 'Description 21', '8.jpg', 0, 0, 'Fun', 'user2'),
-(TIMESTAMP('2024-01-06 12:00:00'), 'Post 32', 'Description 32', '9.jpg', 1, 0, 'Sport', 'user3'),
-(TIMESTAMP('2024-01-08 10:00:00'), 'Post 42', 'Description 42', '10.jpg', 0, 0, 'Art', 'user4'),
-(TIMESTAMP('2024-01-08 12:00:00'), 'Post 51', 'Description 51', '11.jpg', 1, 0, 'Food', 'user5');
+(TIMESTAMP('2024-01-05 12:00:00'), "That's a lunch!", "I don't think we can eat all this stuff, send help!", '7.jpg', 2, 2, 'Food', 'user3'),
+(TIMESTAMP('2024-01-05 22:00:00'), 'Fantastic day', 'Today the weather is beautiful and this park even more.', '8.jpg', 0, 0, 'Fun', 'user2'),
+(TIMESTAMP('2024-01-06 12:00:00'), 'A new champion', 'Today Jannik Sinner won his first ever grand slam against medvedev after 2 lost sets, FORZA SINNER!', '9.jpg', 1, 0, 'Sport', 'user3'),
+(TIMESTAMP('2024-01-08 10:00:00'), 'Art gallery', 'This art gallery is so inspirational.', '10.jpg', 0, 0, 'Art', 'user4'),
+(TIMESTAMP('2024-01-08 12:00:00'), 'Delicious pasta', 'I just cooked this pasta today and i swear it was soooo good.', '11.jpg', 1, 0, 'Food', 'user5');
 
 INSERT INTO POST (timestamp, title, description, starsCount, commentsCount, category, author) VALUES
-(TIMESTAMP('2024-01-09 12:00:00'), 'Post 12', 'Description 12', 2, 0, 'Love', 'user1'),
-(TIMESTAMP('2024-01-10 12:00:00'), 'Post 52', 'Description 52', 0, 0, 'Fun', 'user5');
+(TIMESTAMP('2024-01-09 12:00:00'), 'Sadness', "I just broke up with my girlfriend, i'm so sad right now.", 2, 0, 'Love', 'user1'),
+(TIMESTAMP('2024-01-10 12:00:00'), 'Poor cat', 'I just realized that my cat has been locked in the bathroom for the past 5 hours!', 0, 0, 'Fun', 'user5');
 
 -- Inserimento stelle (star)
 INSERT INTO STAR (postId, username) VALUES
