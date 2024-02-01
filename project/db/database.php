@@ -220,8 +220,8 @@ class DatabaseHelper {
      * 
      */
     public function acceptRequest($senderUsername, $receiverUsername) {
-        $stmt = $this->db->prepare('UPDATE friendship SET accepted = 1 WHERE sender = ?;');
-        $stmt->bind_param('s', $senderUsername);
+        $stmt = $this->db->prepare('UPDATE friendship SET accepted = 1 WHERE sender = ? AND receiver = ?');
+        $stmt->bind_param('ss', $senderUsername, $receiverUsername);
         $stmt->execute();
         $result = $stmt->get_result();
 

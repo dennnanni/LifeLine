@@ -10,7 +10,7 @@
                     <img class="propic-big" src="<?php echo "upload/".$templateParams["user"]["profilePic"]?>"/>
                     <div class="ms-sm-5 ms-3">
                         <div class="">
-                            <span class="fw-bold fs-5 d-block"><?php echo $templateParams["user"]["name"] ?> friends</span>
+                            <span class="fw-bold fs-5 d-block"><?php echo $templateParams["user"]["name"] ?>'s friends</span>
                         </div>
                     </div>
                 </div>

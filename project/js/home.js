@@ -46,14 +46,6 @@ function showPosts(data) {
             let postElement = `<h2>${date}</h2>`;
 
             postByDay[date].forEach(post => {
-                // postElement += `
-                // <a href="post.php?id=${post.id}" class="text-decoration-none pt-2 d-block">
-                //     <span class="d-inline-block text-dark">${post.title}</span>
-                //     <span class="d-inline-block text-dark">(${post.author})</span>
-                //     <span class="d-inline-block text-dark">${post.timestamp}</span>
-                // </a>
-                // `;
-
                 let imagePresent = post.image != null;
 
                 let imageIHTML = imagePresent ? `
@@ -69,17 +61,17 @@ function showPosts(data) {
                     <div class="border border-3 border-tertiary-light rounded-4 position-relative">
                         <div class="lifeline-small position-absolute h-100 ms-1 ms-md-6"> 
                         </div>
-                        <div class="row py-2 position-relative">
-                            <div class="col-1 ps-2 ps-md-6"> 
+                        <a href="post.php?id=${post.id}" class="text-decoration-none text-dark row py-2 position-relative">
+                            <div class="col-1 ps-2 ps-md-6">
                                 <div class="icon-medium bg-secondary rounded-4 d-flex align-items-center justify-content-center">
                                     <i class="fs-5 fa-solid ${getCategoryIconClass(post.category)}"></i>
                                 </div>
                             </div>
-                            <div class="${imagePresent ? "col-6 col-md-8" : "col-11"}">
-                                <h2 class="fs-5">@${post.author}</h2>
+                            <div class="${imagePresent ? "col-6 col-md-8" : "col-11"} ps-1 ps-md-0">
+                                <h3 class="fs-5">@${post.author}</h3>
                                 <section>
                                     <header>
-                                        <span class="fs-4">${post.title}</span>
+                                        <h4 class="fs-4">${post.title}</h4>
                                     </header>
                                     <p class="text-truncate">${post.description}</p>
                                     <footer class="d-flex h-100 align-items-end">
@@ -99,7 +91,7 @@ function showPosts(data) {
                                 </section>
                             </div>
                             ${imageIHTML}
-                        </div>
+                        </a>
                     </div>
                 </div>
                 `;
