@@ -18,7 +18,7 @@
         <?php endif; ?>
     </head>
     
-    <body class="d-flex flex-column min-vh-100">
+    <body class="d-flex flex-column min-vh-100 <?php echo $templateParams["title"] == "Login" || $templateParams["title"] == "Registration" ? "background" : "" ?>">
         <?php require($templateParams["active"]); ?>
     </body>
 </html>

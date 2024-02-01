@@ -10,7 +10,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     $queryResult = groupPostsByDay($dbh->loadHomePage($_SESSION["username"], $_SESSION["selectedCategories"]));
-    echo json_encode($queryResult);
+
+    foreach ($queryResult as $key => $value) {
+        $posts[$key] = array();
+        foreach ($value as $post) {
+            $posts[$key][] = array(
+                "id" => $post["id"],
+                "author" => $post["author"],
+                "title" => $post["title"],
+                "description" => $post["description"],
+                "image" => $post["image"],
+                "location" => $post["location"],
+                "category" => $post["category"],
+                "starsCount" => $post["starsCount"],
+                "commentsCount" => $post["commentsCount"],
+                "tag" => $dbh->getPostTaggedUsers($post["id"]),
+                "starred" => $dbh->isPostStarredByUser($post["id"], $_SESSION["username"]) 
+            );
+        }
+    }
+
+    echo json_encode(isset($posts) ? $posts : array());
 }
 
 ?>

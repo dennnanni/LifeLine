@@ -10,14 +10,7 @@
         <?php endforeach; ?>
     </div>
 </div>
-<!-- <div id="posts" class="mb-7">
-</div> -->
-
-<div class="container">
-    <div class="row">
-        <section class="border border-3 border-tertiary-light rounded-4">
-            <div class="lifeline-small"></div>
-        </section>
-    </div>
+<div id="posts" class="container mb-7 px-2 ps-sm-0">
 </div>
+
 <?php require("footer.php"); ?>

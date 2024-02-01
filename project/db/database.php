@@ -267,7 +267,7 @@ class DatabaseHelper {
     }
 
     public function createComment($username, $postId, $text) {
-        $postAuthor = getPost($postId)["author"];
+        $postAuthor = $this->getPost($postId)["author"];
 
         $stmt = $this->db->prepare("INSERT INTO COMMENT (postId, username, text) VALUES (?, ?, ?)");
         $stmt->bind_param('iss', $postId, $username, $text);
@@ -278,11 +278,23 @@ class DatabaseHelper {
     }
 
     /**
+     * Returns true if the given post is starred by the given user, false otherwise
+     */
+    public function isPostStarredByUser($postId, $username) {
+        $stmt = $this->db->prepare("SELECT * FROM star WHERE postId = ? AND username = ?");
+        $stmt->bind_param("is", $postId, $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->num_rows > 0;
+    }
+
+    /**
      * Put a star on a post and create a notification about it.
      * Return true if success, false otherwise
      */
     public function addStar($username, $postId) {
-        $postAuthor = getPost($postId)["author"];
+        $postAuthor = $this->getPost($postId)["author"];
 
         $stmt = $this->db->prepare("INSERT INTO star (postId, username) VALUES (?, ?)");
         $stmt->bind_param('is', $postId, $username);
@@ -300,7 +312,7 @@ class DatabaseHelper {
      * Remove a star from a post
      */
     public function removeStar($username, $postId) {
-        $postAuthor = getPost($postId)["author"];
+        $postAuthor = $this->getPost($postId)["author"];
 
         $stmt = $this->db->prepare("DELETE FROM star WHERE star.postId = ? AND star.username = ?");
         $stmt->bind_param('is', $postId, $username);

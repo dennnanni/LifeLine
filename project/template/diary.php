@@ -2,11 +2,11 @@
 
 <div class="d-flex flex-grow-1 justify-content-center mb-7">
     <div class="col-11 col-md-8 col-xl-4 position-relative">
-        <div class="lifeline ms-7 pt-3 position-absolute h-100 mt-6">
+        <div class="lifeline ms-5 pt-3 position-absolute h-100 mt-6">
         </div>
         <div class="w-100 pt-3 position-relative justify-content-center">
             <!-- heading with propic, username, name, friends/button -->
-            <div class="ms-4">
+            <div class="ms-n1">
                 <div class="d-flex align-items-center">
                     <img class="propic-big" src="<?php echo "upload/".$templateParams["username"]["profilePic"]?>"/>
                     <div class="ms-sm-5 ms-3 w-100 d-flex justify-content-between align-items-center">
@@ -38,7 +38,7 @@
                     (isset($templateParams["friendship"]) && $templateParams["friendship"]["accepted"] == 1)): ?>
                     <div id="diary" class="pt-3">
                         <?php foreach($templateParams["posts"] as $post): ?>
-                            <div class="d-flex align-items-center ms-4 my-2">
+                            <div class="d-flex align-items-center ms-5 my-2">
                                 <div class="d-flex pe-5">
                                     <div class="icon-medium d-flex justify-content-center align-items-center bg-secondary rounded-3">
                                         <i class="fa-solid <?php echo getCategoryIconClass($post["category"]); ?>"></i>
@@ -47,8 +47,8 @@
                                 <a href="post.php?id=<?php echo $post["id"]?>" class="text-decoration-none text-dark">
                                     <section class="d-flex align-items-center">
                                         <?php if (isset($post["image"])): ?>
-                                            <div class="d-flex justify-content-center thumbnail-wrapper rounded-4 overflow-hidden">
-                                                <img src="upload/<?php echo $post["image"]; ?>" class="float-right h-100"/>
+                                            <div class="d-flex justify-content-center rounded-4">
+                                                <img src="upload/<?php echo $post["image"]; ?>" class="thumbnail-wrapper-sm rounded-4"/>
                                             </div>
                                         <?php endif;?>
                                         <div class="ms-2">
