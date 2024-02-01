@@ -43,7 +43,7 @@ function showPosts(data) {
 
     for (let date in postByDay) {
         if (postByDay.hasOwnProperty(date)) {
-            let postElement = `<h2>${date}</h2>`;
+            let postElement = `<h5>${date}</h5>`;
 
             postByDay[date].forEach(post => {
                 let imagePresent = post.image != null;
@@ -123,7 +123,7 @@ function getCategoryIconClass(category) {
             return "fa-football";
         case "Travel":
             return "fa-plane";
-        default: 
+        default:
             return "";
     }
 }

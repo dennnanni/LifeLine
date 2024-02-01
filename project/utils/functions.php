@@ -170,7 +170,7 @@ function groupPostsByDay($posts) {
     $groupedPosts = array();
 
     foreach ($posts as $post) {
-        $dateWithoutTime = date("d/m/Y", strtotime($post['timestamp']));
+        $dateWithoutTime = convertiData(date("d/m/Y", strtotime($post['timestamp'])));
 
         if (!isset($groupedPosts[$dateWithoutTime])) {
             $groupedPosts[$dateWithoutTime] = array();
@@ -179,6 +179,19 @@ function groupPostsByDay($posts) {
     }
 
     return $groupedPosts;
+}
+
+function convertiData($data) {
+    $dataObj = DateTime::createFromFormat('d/m/Y', $data);
+
+    if ($dataObj === false) {
+        return $data;//Restituisci la data originale in caso di errore formato
+    }
+
+    $numeroGiorno = $dataObj->format('j');
+    $nomeMese = $dataObj->format('F');
+
+    return $numeroGiorno . ' ' . $nomeMese;
 }
 
 ?>
