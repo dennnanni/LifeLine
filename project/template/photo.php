@@ -33,4 +33,4 @@
         </form>
     </div>
 
-<?php require("footer.php"); ?>
+<?php if(!$templateParams["skip"]) { require("footer.php"); }?>
