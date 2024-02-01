@@ -8,7 +8,7 @@
             <!-- heading with propic, username, name, friends/button -->
             <div class="ms-n1">
                 <div class="d-flex align-items-center">
-                    <img class="propic-big" src="<?php echo "upload/".$templateParams["username"]["profilePic"]?>"/>
+                    <img class="propic-big" src="<?php echo "upload/".$templateParams["username"]["profilePic"]?>" alt="<?php echo $templateParams["username"]["name"] ?>'s profile picture"/>
                     <div class="ms-sm-5 ms-3 w-100 d-flex justify-content-between align-items-center">
                         <div>
                             <span class="fw-bold fs-5 d-block"><?php echo $templateParams["username"]["name"]; ?></span>
@@ -47,7 +47,7 @@
                                     <section class="d-flex align-items-center">
                                         <?php if (isset($post["image"])): ?>
                                             <div class="d-flex justify-content-center rounded-4">
-                                                <img src="upload/<?php echo $post["image"]; ?>" class="thumbnail-wrapper-sm rounded-4"/>
+                                                <img src="upload/<?php echo $post["image"]; ?>" class="thumbnail-wrapper-sm rounded-4" alt="post image"/>
                                             </div>
                                         <?php endif;?>
                                         <div class="ms-2">

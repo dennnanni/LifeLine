@@ -14,7 +14,7 @@
                 <?php foreach($templateParams["friends"] as $friend):?>
                     <section class="w-100 mt-2 d-flex align-items-center justify-content-between">
                         <div class="d-flex justify-content-center align-items-center">
-                            <img class="propic-medium" src="upload/<?php echo $friend["profilePic"]?>"/>
+                            <img class="propic-medium" src="upload/<?php echo $friend["profilePic"]?>" alt="friend profile picture"/>
                             <span id = "<?php echo $friend["username"]?>" class="d-inline-block text-dark ms-1"><?php echo $friend["name"]?> (@<?php echo $friend["username"]?>)</span>
                         </div>
                         <div class="d-flex justify-content-center align-items-center">

@@ -11,7 +11,7 @@
         <!-- Header with username, location and date -->
         <div class="d-flex ps-1">
             <div class="col">
-                <img class="propic-big" src="upload/<?php echo $templateParams["author"]["profilePic"] ?>" alt="<?php $templateParams["author"]["name"]?>'s profile pic"/>
+                <img class="propic-big" src="upload/<?php echo $templateParams["author"]["profilePic"] ?>" alt="<?php $templateParams["author"]["name"]?>'s profile picture"/>
             </div>
             <div class="col-10 d-flex align-items-center">
                 <div class="row">
