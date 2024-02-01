@@ -26,7 +26,5 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
 }
 
-
-
 require("template/base.php");
 ?>
