@@ -23,7 +23,7 @@
     </div>
     <div class="col-10 text-center">
       <a class="" href="home.php">
-        <h1 class="text-light">LifeLine</h1>
+        <h1 id="home" class="footerLink text-light">LifeLine</h1>
       </a>
     </div>
     <div class="col-1 d-flex justify-content-center align-items-center">
