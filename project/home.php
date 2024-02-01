@@ -15,7 +15,7 @@ $templateParams["headerRightIcon"] = "search"; // null | search | photo
 $templateParams["notificationsNumber"] = $dbh->getNewNotificationNumber($_SESSION["username"]); // null | integer
 
 //Footer setting
-$templateParams["footerActive"] = "home"; // home | create | diary
+$templateParams["footerActive"] = $_SESSION["footerActivePage"]; // home | create | diary
 
 $templateParams["categories"] = $dbh->getAllCategories();
 $templateParams["selectedCategories"] = $_SESSION["selectedCategories"];

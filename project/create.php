@@ -34,7 +34,7 @@ $templateParams["active"] = "create-form.php";
 $templateParams["js"] = "create.js";
 
 //Footer setting
-$templateParams["footerActive"] = "create"; // home | create | diary
+$templateParams["footerActive"] = $_SESSION["footerActivePage"];
 
 $templateParams["categories"] = $dbh->getAllCategories();
 $templateParams["tag-number"] = count($_SESSION["taggedUsers"]);

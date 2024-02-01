@@ -11,7 +11,7 @@ $templateParams["active"] = "friends.php";
 $templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
 
 //Footer setting
-$templateParams["footerActive"] = "diary"; // home | create | diary
+$templateParams["footerActive"] = $_SESSION["footerActivePage"]; // home | create | diary
 
 $templateParams["user"] = $dbh->getUser($_SESSION["username"]);
 $templateParams["friends"] = $dbh->getFriends($templateParams["user"]["username"]);

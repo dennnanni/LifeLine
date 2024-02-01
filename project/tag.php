@@ -12,7 +12,7 @@ $templateParams["js"] = "tag.js";
 $templateParams["headerRightIcon"] = "done"; // null | notifications | back | done | logout
 
 //Footer setting
-$templateParams["footerActive"] = "create"; // home | create | diary
+$templateParams["footerActive"] = $_SESSION["footerActivePage"];
 
 $templateParams["friends"] = $dbh->getFriends($_SESSION["username"]);
 

@@ -12,7 +12,7 @@ $templateParams["js"] = "search.js";
 $templateParams["headerLeftIcon"] = "back"; // null | notifications | back | done | logout
 
 //Footer setting
-$templateParams["footerActive"] = "home"; // home | create | diary
+$templateParams["footerActive"] = $_SESSION["footerActivePage"];
 
 require("template/base.php");
 ?>
