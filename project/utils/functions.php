@@ -42,7 +42,7 @@ function composeMessage($type, $sender, $post) {
             $message = "<a href=\"diary.php?username=".$sender."\" class=\"fw-bold\">@".$sender."</a> starred your memory \"<a href=\"post.php?id=".$post["id"]."\" class=\"fw-bold text-dark\">".$post["title"]."</a>\"";
             break;
         case 2:
-            $message = "<a href=\"diary.php?username=$sender\" class=\"fw-bold\">@".$sender."</a> commented on your memory \"<a href=\"post.php?id=".$post["id"]."\" class=\"fw-bold text-dark\">".$post["title"]."</a>\"";
+            $message = "<a href=\"diary.php?username=$sender\" class=\"fw-bold\">@".$sender."</a> commented on your memory \"<a href=\"comments.php?id=".$post["id"]."\" class=\"fw-bold text-dark\">".$post["title"]."</a>\"";
             break;
         case 3:
             $message = "<a href=\"diary.php?username=$sender\" class=\"fw-bold\">@".$sender."</a> sent you a friend request";
