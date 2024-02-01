@@ -2,7 +2,7 @@
 
 <div class="d-flex flex-grow-1 justify-content-center mb-7">
     <div class="col-11 col-md-8 col-xl-4 position-relative">
-        <div class="ms-7 pt-3 position-absolute h-100 mt-6" id="lifeline">
+        <div class="lifeline ms-7 pt-3 position-absolute h-100 mt-6">
         </div>
         <div class="w-100 pt-3 position-relative justify-content-center">
             <!-- heading with propic, username, name, friends/button -->

@@ -2,7 +2,7 @@
 
 <div class="d-flex flex-grow-1 justify-content-center mb-7">
     <div class="col-11 position-relative">
-        <div class="ms-7 pt-3 h-100 position-absolute mt-6" id="lifeline">
+        <div class="lifeline ms-7 pt-3 h-100 position-absolute mt-6">
         </div>
         <div class="w-100 pt-3 position-relative justify-content-center">
             <div class="ms-4">
