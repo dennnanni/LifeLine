@@ -285,6 +285,7 @@ class DatabaseHelper {
         $stmt->bind_param('iss', $postId, $username, $text);
         $stmt->execute();
 
+        $this->updateCommentsCounter($postId);
         $this->createNotification(2, $username, $postAuthor, $postId);
         return $stmt->affected_rows > 0;
     }
@@ -482,6 +483,19 @@ class DatabaseHelper {
      */
     private function updateStarsCounter($postId, $increment = 1) {
         $stmt = $this->db->prepare('UPDATE post SET post.starsCount = post.starsCount + ? WHERE post.id = ?');
+        $stmt->bind_param('is', $increment, $postId);
+        $stmt->execute();
+
+        return $stmt->affected_rows > 0;
+    }
+
+    /** 
+     * Updates the comments counter of the given post
+     * Default value of the increment is 1, 
+     * negative increment decrease comments counter
+     */
+    private function updateCommentsCounter($postId, $increment = 1) {
+        $stmt = $this->db->prepare('UPDATE post SET post.commentsCount = post.commentsCount + ? WHERE post.id = ?');
         $stmt->bind_param('is', $increment, $postId);
         $stmt->execute();
 
