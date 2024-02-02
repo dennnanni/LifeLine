@@ -79,8 +79,8 @@ INSERT INTO NOTIFICATION (timestamp, type, sender, receiver, postId) VALUES
 
 (TIMESTAMP('2024-01-02 12:15:00'), 2, 'user2', 'user1', 1),
 (TIMESTAMP('2024-01-03 12:30:00'), 2, 'user5', 'user1', 1),
-(TIMESTAMP('2024-01-07 17:00:00'), 2, 'user1', 'user3', 5),
-(TIMESTAMP('2024-01-08 10:30:00'), 2, 'user4', 'user3', 5),
+(TIMESTAMP('2024-01-07 17:00:00'), 2, 'user1', 'user3', 4),
+(TIMESTAMP('2024-01-08 10:30:00'), 2, 'user4', 'user3', 4),
 
 (TIMESTAMP('2024-01-01 12:00:00'), 4, 'user1', 'user2', 1),
 (TIMESTAMP('2024-01-01 12:00:00'), 4, 'user1', 'user4', 1),
