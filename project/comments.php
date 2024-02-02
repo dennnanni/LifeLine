@@ -6,6 +6,7 @@ updateHistory(basename($_SERVER["REQUEST_URI"]));
 
 $templateParams["title"] = "Comments";
 $templateParams["active"] = "comments.php";
+$templateParams["js"] = "comments.js";
 
 //Header settings
 $templateParams["headerLeftIcon"] = "back";

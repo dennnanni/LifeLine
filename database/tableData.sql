@@ -54,14 +54,14 @@ INSERT INTO STAR (postId, username) VALUES
 INSERT INTO COMMENT (postId, username, text, timestamp) VALUES
 (1, 'user2', 'Great post!', TIMESTAMP('2024-01-02 12:15:00')),
 (1, 'user5', 'Nice one!', TIMESTAMP('2024-01-03 12:30:00')),
-(5, 'user1', 'Amazing!', TIMESTAMP('2024-01-07 17:00:00')),
-(5, 'user4', 'Delicious!', TIMESTAMP('2024-01-08 10:30:00'));
+(4, 'user1', 'Amazing!', TIMESTAMP('2024-01-07 17:00:00')),
+(4, 'user4', 'Delicious!', TIMESTAMP('2024-01-08 10:30:00'));
 
 -- Inserimento tag
 INSERT INTO TAG (postId, username) VALUES
 (1, 'user2'),
 (1, 'user4'),
-(5, 'user1');
+(4, 'user1');
 
 -- Inserimento notifiche star, commenti e tag
 INSERT INTO NOTIFICATION (timestamp, type, sender, receiver, postId) VALUES
