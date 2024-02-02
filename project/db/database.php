@@ -270,7 +270,7 @@ class DatabaseHelper {
      * Get all the post comments
      */
     public function getComments($postId) {
-        $stmt = $this->db->prepare("SELECT * FROM comment WHERE comment.postId = ? ORDER BY timestamp");
+        $stmt = $this->db->prepare("SELECT * FROM comment WHERE comment.postId = ? ORDER BY comment.timestamp");
         $stmt->bind_param('i', $postId);
         $stmt->execute();
         $result = $stmt->get_result();
