@@ -246,7 +246,7 @@ class DatabaseHelper {
      * Get all the users tagged in a post.
      */
     public function getPostTaggedUsers($postId) {
-        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.username IN (SELECT tag.username FROM tag WHERE tag.postId = ?)");
+        $stmt = $this->db->prepare("SELECT username FROM user WHERE user.username IN (SELECT tag.username FROM tag WHERE tag.postId = ?)");
         $stmt->bind_param('i', $postId);
         $stmt->execute();
         $result = $stmt->get_result();

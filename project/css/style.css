@@ -41,6 +41,11 @@ h1 {
     max-height: 200px;
 }
 
+.thumbnail-wrapper-xl {
+    max-width: 500px;
+    max-height: 500px;
+}
+
 .propic-big {
     width: 70px;
     height: 70px;

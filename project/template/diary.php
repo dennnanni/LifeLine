@@ -1,7 +1,7 @@
 <?php require("header.php"); ?>
 
 <div class="d-flex flex-grow-1 justify-content-center mb-9">
-    <div class="col-11 col-md-8 col-xl-4 position-relative">
+    <div class="col-10 col-md-8 col-lg-6 col-xl-4 position-relative">
         <div class="lifeline ms-6 pt-4 position-absolute h-100 mt-7">
         </div>
         <div class="w-100 pt-4 position-relative justify-content-center">
@@ -40,7 +40,7 @@
                             <div class="d-flex align-items-center ms-6 my-2">
                                 <div class="d-flex pe-6">
                                     <div class="icon-medium d-flex justify-content-center align-items-center bg-secondary rounded-3">
-                                        <i class="fa-solid <?php echo getCategoryIconClass($post["category"]); ?>"></i>
+                                        <i class="fa-solid <?php echo getCategoryIconClass($post["category"]); ?> fs-5"></i>
                                     </div>
                                 </div>
                                 <a href="post.php?id=<?php echo $post["id"]?>" class="text-decoration-none text-dark">

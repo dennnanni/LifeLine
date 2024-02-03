@@ -55,6 +55,7 @@ function showPosts(data) {
                     </div>
                 </div>
                 ` : "";
+
                 postElement += `
                 <div class="row mb-4 px-2">
                     <div class="border border-3 border-tertiary-light rounded-4 position-relative">
@@ -66,21 +67,23 @@ function showPosts(data) {
                                     <i class="fs-5 fa-solid ${getCategoryIconClass(post.category)}"></i>
                                 </div>
                             </div>
-                            <div class="${imagePresent ? "col-6 col-md-8" : "col-11"} ps-1 ps-md-0">
+                            <div class="${imagePresent ? "col-6 col-md-8 pe-1" : "col-11"} ps-1 ps-md-0">
                                 <h3 class="fs-5">@${post.author}</h3>
                                 <section>
                                     <header>
                                         <h4 class="fs-4">${post.title}</h4>
                                     </header>
                                     <p class="text-truncate">${post.description}</p>
-                                    <footer class="d-flex h-100 align-items-end">
-                                        <div class="col d-inline-flex align-items-center fs-5">
-                                            <span class="me-1">${post.starsCount}</span>
-                                            <i class="fa-${post.starred ? "solid text-secondary" : "regular"} fa-star"></i>
-                                        </div>
-                                        <div class="col d-inline-flex align-items-center fs-5">
-                                            <span class="me-1">${post.commentsCount}</span>
-                                            <i class="fa-regular fa-comment"></i>
+                                    <footer class="d-flex h-100">
+                                        <div class="col-9 d-inline-flex align-items-center fs-5">
+                                            <div>
+                                                <span class="me-1">${post.starsCount}</span>
+                                                <i class="fa-${post.starred ? "solid text-secondary" : "regular"} fa-star"></i>
+                                            </div>
+                                            <div class="ms-5">
+                                                <span class="me-1">${post.commentsCount}</span>
+                                                <i class="fa-regular fa-comment"></i>
+                                            </div>
                                         </div>
                                         <div class="col d-inline-flex align-items-center justify-content-end fs-5">
                                             ${post.tag.length != 0 ? "<i class=\"fa-solid fa-tags me-1\"></i>" : ""}
