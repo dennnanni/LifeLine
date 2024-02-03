@@ -1,15 +1,15 @@
 <?php require("header.php"); ?>
-<div class="d-flex flex-grow-1 justify-content-center mb-7">
+<div class="d-flex flex-grow-1 justify-content-center mb-9">
     <div class="col-11 position-relative">
-        <div class="lifeline ms-7 pt-3 h-100 position-absolute">
+        <div class="lifeline ms-9 pt-4 h-100 position-absolute">
         </div>
-        <div class="w-100 pt-3 position-relative justify-content-center">
-            <div class="ms-6">
-                <div class="todo"> <!--TODO: configure bootstrap .7rem spacing -->
+        <div class="w-100 pt-4 position-relative justify-content-center">
+            <div class="ms-7">
+                <div class="ms-3"> <!--TODO: configure bootstrap .7rem spacing -->
                     <div class="bg-secondary rounded-3 d-inline-flex justify-content-center icon-medium">
                         <i class="fa-solid fa-tags h5 mt-1"></i>
                     </div>
-                    <h2 class="form-label ms-3 text-dark bg-light fs-5 d-inline-block">Tag a friend</h2>
+                    <h2 class="form-label ms-4 text-dark bg-light fs-5 d-inline-block">Tag a friend</h2>
                 </div>
                 <?php foreach($templateParams["friends"] as $friend):?>
                     <section class="w-100 mt-2 d-flex align-items-center justify-content-between">

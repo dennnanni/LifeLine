@@ -1,15 +1,15 @@
 <?php require("header.php"); ?>
 
-<div class="d-flex flex-grow-1 justify-content-center mb-7">
+<div class="d-flex flex-grow-1 justify-content-center mb-9">
     <div class="col-11 col-md-8 col-xl-4 position-relative">
-        <div class="lifeline ms-5 pt-3 position-absolute h-100 mt-6">
+        <div class="lifeline ms-6 pt-4 position-absolute h-100 mt-7">
         </div>
-        <div class="w-100 pt-3 position-relative justify-content-center">
+        <div class="w-100 pt-4 position-relative justify-content-center">
             <!-- heading with propic, username, name, friends/button -->
             <div class="ms-n1">
                 <div class="d-flex align-items-center">
                     <img class="propic-big" src="<?php echo "upload/".$templateParams["username"]["profilePic"]?>" alt="<?php echo $templateParams["username"]["name"] ?>'s profile picture"/>
-                    <div class="ms-sm-5 ms-3 w-100 d-flex justify-content-between align-items-center">
+                    <div class="ms-sm-6 ms-4 w-100 d-flex justify-content-between align-items-center">
                         <div>
                             <span class="fw-bold fs-5 d-block"><?php echo $templateParams["username"]["name"]; ?></span>
                             <span id="username" class="d-block"><?php echo $templateParams["username"]["username"]; ?></span>
@@ -35,10 +35,10 @@
                 </div>
                 <?php if ($templateParams["personal"] || 
                     (isset($templateParams["friendship"]) && $templateParams["friendship"]["accepted"] == 1)): ?>
-                    <div id="diary" class="pt-3">
+                    <div id="diary" class="pt-4">
                         <?php foreach($templateParams["posts"] as $post): ?>
-                            <div class="d-flex align-items-center ms-5 my-2">
-                                <div class="d-flex pe-5">
+                            <div class="d-flex align-items-center ms-6 my-2">
+                                <div class="d-flex pe-6">
                                     <div class="icon-medium d-flex justify-content-center align-items-center bg-secondary rounded-3">
                                         <i class="fa-solid <?php echo getCategoryIconClass($post["category"]); ?>"></i>
                                     </div>

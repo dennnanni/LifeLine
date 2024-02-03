@@ -5,8 +5,8 @@
 <a href="comments.php?id=<?php echo $templateParams["post"]["id"]?>">Commenti</a>
 <a href="stars.php?id=<?php echo $templateParams["post"]["id"]?>">Stelle</a>
 
-<div class="d-flex flex-grow-1 position-relative mb-7">
-    <div class="lifeline ms-6 pt-3 position-absolute h-100 mt-6"></div>
+<div class="d-flex flex-grow-1 position-relative mb-9">
+    <div class="lifeline ms-7 pt-4 position-absolute h-100 mt-7"></div>
     <div class="col-12 col-md-8 col-xl-4 position-relative">
         <!-- Header with username, location and date -->
         <div class="d-flex ps-1">

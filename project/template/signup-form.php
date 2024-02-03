@@ -9,8 +9,8 @@
         </div>
     </div>
 </div>
-<header class="mt-5">
-    <div class="container mt-5">
+<header class="mt-6">
+    <div class="container mt-6">
         <div class="row">
             <div class="col-12 text-center">
                 <h1 class="text-primary">LifeLine</h1>
@@ -18,8 +18,8 @@
         </div>
     </div>
 </header>
-<main class="mt-5">
-    <div class="row justify-content-center mb-4">
+<main class="mt-6">
+    <div class="row justify-content-center mb-5">
         <div class="col-xl-5 col-md-6 col-10">
             <ul class="nav nav-pills">
                 <li class="nav-item col-5 col-xl-5">

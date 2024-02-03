@@ -55,14 +55,13 @@ function showPosts(data) {
                     </div>
                 </div>
                 ` : "";
-                /*TODO cambiare ps-md-6 con uno spacer a 2.25 rem*/
                 postElement += `
-                <div class="row mb-3 px-2">
+                <div class="row mb-4 px-2">
                     <div class="border border-3 border-tertiary-light rounded-4 position-relative">
-                        <div class="lifeline-small position-absolute h-100 ms-1 ms-md-6"> 
+                        <div class="lifeline-small position-absolute h-100 ms-1 ms-md-7"> 
                         </div>
                         <a href="post.php?id=${post.id}" class="text-decoration-none text-dark row py-2 position-relative">
-                            <div class="col-1 ps-2 ps-md-6">
+                            <div class="col-1 ps-2 ps-md-8">
                                 <div class="icon-medium bg-secondary rounded-4 d-flex align-items-center justify-content-center">
                                     <i class="fs-5 fa-solid ${getCategoryIconClass(post.category)}"></i>
                                 </div>

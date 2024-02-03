@@ -10,11 +10,11 @@
         </div>
     </div>
 <?php endif; ?>
-<div class="row ms-0 w-100 d-flex justify-content-center mb-7">
+<div class="row ms-0 w-100 d-flex justify-content-center mb-9">
     <form class="col-xl-5 col-md-6 col-10" method="POST" enctype="multipart/form-data">
         <ul class="list-unstyled">
             <li>
-                <div class="mt-3 w-50 h-50 mb-2">
+                <div class="mt-4 w-50 h-50 mb-2">
                     <h5 class="text-dark">Image</h5>
                     <input class="square" type="file" id="immaginePost" name="immaginePost" accept="image/jpg, image/jpeg, image/png, image/gif" hidden>
                         <img id="post-image" src="images/empty-post-photo.jpg" class="w-100 h-100 border border-1 border-tertiary-light border-solid rounded-3" alt="post image">
