@@ -29,11 +29,11 @@
                         </div>
                     <?php endforeach;?>
                 </div>
-                <div class="input-group mb-3 mt-3">
-                    <input id="comment" name="comment" type="text" class="form-control" placeholder="Leave a comment" maxlength="64">
-                    <label for="comment" hidden>Comment</label>
+                <div class="input-group">
+                    <label for="commentArea" hidden>Comment</label>
+                    <textarea id="commentArea" class="form-control border border-0" placeholder="Leave a comment"></textarea>
                     <div class="input-group-append">
-                        <button id="postComment" class="btn btn-outline-secondary text-dark bg-secondary" type="button">Send</button>
+                        <button id="sendButton" class="h-100 btn btn-outline-secondary text-dark bg-secondary" type="button">Send</button>
                     </div>
                 </div>
             </div>

@@ -1,15 +1,14 @@
 window.onload = function load() {
-    let postId = document.getElementById("postId").value;
-    let postComment = document.getElementById("postComment");
-    let input = document.getElementById("comment");
+    let commentArea = document.getElementById('commentArea');
+    let sendButton = document.getElementById('sendButton');
 
-    postComment.addEventListener('click', function() {
-        if (input.value != "") {
-            sendComment(input.value, postId);
-            input.value = "";
+    sendButton.addEventListener('click', function() {
+        if (commentArea.value != "") {
+            let postId = document.getElementById("postId").value;
+            sendComment(commentArea.value, postId);
+            commentArea.value = "";
         }
     });
-
 }
 
 function sendComment(comment, postId) {
