@@ -11,7 +11,7 @@ window.onload = function load() {
             url: "ajax/diary.php",
             type: "POST",
             data: { "action": action, "username": username.innerText, "friendshipStatus": friendshipStatus == null ? 1 : friendshipStatus.value },
-            success: function(response) {
+            success: function() {
                 setUpAction();
             }
         });

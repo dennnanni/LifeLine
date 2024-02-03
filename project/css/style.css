@@ -53,28 +53,37 @@ h1 {
     border-radius: 26px;
 }
 
+.propic-small {
+    width: 35px;
+    height: 35px;
+    border-radius: 26px;
+}
+
+
 /* probably we gonna need the propic small (comments?) */
 
+
 /* icon in post page */
+
 .icon-big {
     height: 32px;
     width: 32px;
 }
 
+
 /* icon in tag and diary*/
+
 .icon-medium {
     height: 26px;
     width: 26px;
 }
 
+
 /* icon in homepage */
+
 .icon-small {
     height: 20px;
     width: 20px;
-}
-
-@media only screen and (max-device-width: 1000px) {
-
 }
 
 @media only screen and (max-device-width: 480px) {
@@ -102,5 +111,4 @@ h1 {
     nav {
         height: 10%;
     }
-
 }
