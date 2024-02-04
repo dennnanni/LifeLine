@@ -23,7 +23,7 @@ $(document).ready(function() {
         data.forEach(user => {
             result += `
             <a href="diary.php?username=${user["username"]}" class="text-decoration-none pt-2 d-block">
-                <img class="propic-medium" src="upload/${user["profilePic"]}"/>
+                <img class="propic-medium" src="upload/${user["profilePic"]}" alt="${user.username}'s profile picture"/>
                 <span class="d-inline-block text-dark">${user.username}</span>
             </a>
             `;

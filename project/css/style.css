@@ -36,16 +36,6 @@ h1 {
     max-height: 100px;
 }
 
-.thumbnail-wrapper {
-    max-width: 200px;
-    max-height: 200px;
-}
-
-.thumbnail-wrapper-xl {
-    max-width: 500px;
-    max-height: 500px;
-}
-
 .thumbnail {
     max-width: 200px;
     max-height: 200px;

@@ -18,9 +18,9 @@
                                 <i class="fa-solid <?php echo getNotificationIconClass($notification["type"]); ?>"></i>
                             </div>
                         </div>
-                        <section class="d-flex align-items-center">
+                        <div class="d-flex align-items-center">
                             <span class="d-inline-block text-dark"><?php echo $notification["text"]?></span>
-                        </section>
+                </div>
                     </div>
                 <?php endforeach;?>
             </div>

@@ -35,16 +35,16 @@
                 </div>
                 <?php if ($templateParams["personal"] || 
                     (isset($templateParams["friendship"]) && $templateParams["friendship"]["accepted"] == 1)): ?>
-                    <div id="diary" class="pt-4">
+                    <div class="pt-4">
                         <?php foreach($templateParams["posts"] as $post): ?>
                             <div class="d-flex align-items-center ms-6 my-2">
                                 <div class="d-flex pe-6">
                                     <div class="icon-medium d-flex justify-content-center align-items-center bg-secondary rounded-3">
-                                        <i class="fa-solid <?php echo getCategoryIconClass($post["category"]); ?> fs-5"></i>
+                                        <span class="fa-solid <?php echo getCategoryIconClass($post["category"]); ?> fs-5"></span>
                                     </div>
                                 </div>
                                 <a href="post.php?id=<?php echo $post["id"]?>" class="text-decoration-none text-dark">
-                                    <section class="d-flex align-items-center">
+                                    <div class="d-flex align-items-center">
                                         <?php if (isset($post["image"])): ?>
                                             <div class="">
                                                 <img src="upload/<?php echo $post["image"]; ?>" class="thumbnail-sm rounded-4" alt="post image"/>
@@ -54,7 +54,7 @@
                                             <span class="fw-bold d-block"><?php echo $post["title"]; ?></span>
                                             <span class="d-block small"><?php echo date("d/m/Y", strtotime($post['timestamp'])) ?></span>
                                         </div>
-                                    </section>
+                                    </div>
                                 </a>
                             </div>
                         <?php endforeach; ?>

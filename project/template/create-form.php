@@ -15,7 +15,7 @@
         <ul class="list-unstyled">
             <li>
                 <div class="mt-4 w-50 h-50 mb-2">
-                    <h5 class="text-dark">Image</h5>
+                    <label class="text-dark fs-5" for="immaginePost">Image</label>
                     <input class="square" type="file" id="immaginePost" name="immaginePost" accept="image/jpg, image/jpeg, image/png, image/gif" hidden>
                         <img id="post-image" src="images/empty-post-photo.jpg" class="w-100 h-100 border border-1 border-tertiary-light border-solid rounded-3" alt="post image">
                 </div>
@@ -33,6 +33,7 @@
                 <input class="w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" type="text" id="location" name="location" maxlength="32" placeholder="Location" value="<?php echo $_SESSION["location"]?>"/>
             </li>
             <li>
+                <label for="category" hidden>Category</label>
                 <select class="form-select w-100 mb-2 border border-1 border-tertiary-light border-solid btn-lg bg-light text-dark" id="category" name="category">
                     <option value="0" <?php if($_SESSION["category"] == ""): { echo "selected";} endif;?>>Category</option>
                     <?php foreach($templateParams["categories"] as $category): ?>
