@@ -46,8 +46,8 @@
                                 <a href="post.php?id=<?php echo $post["id"]?>" class="text-decoration-none text-dark">
                                     <section class="d-flex align-items-center">
                                         <?php if (isset($post["image"])): ?>
-                                            <div class="d-flex justify-content-center rounded-4">
-                                                <img src="upload/<?php echo $post["image"]; ?>" class="thumbnail-wrapper-sm rounded-4" alt="post image"/>
+                                            <div class="">
+                                                <img src="upload/<?php echo $post["image"]; ?>" class="thumbnail-sm rounded-4" alt="post image"/>
                                             </div>
                                         <?php endif;?>
                                         <div class="ms-2">

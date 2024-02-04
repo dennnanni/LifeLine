@@ -278,6 +278,21 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    /**
+     * Get last comment from a given user in a given post.
+     */
+    public function getLastCommentInPost($postId) {
+        $stmt = $this->db->prepare('SELECT * FROM comment WHERE comment.postId = ? ORDER BY comment.timestamp DESC LIMIT 1');
+        $stmt->bind_param('i', $postId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_assoc();
+    }
+
+    /**
+     * Writes a comment 
+     */
     public function createComment($username, $postId, $text) {
         $postAuthor = $this->getPost($postId)["author"];
 

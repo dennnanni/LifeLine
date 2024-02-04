@@ -31,7 +31,7 @@ h1 {
     background: linear-gradient(180deg, #FFCA0C 0%, rgba(255, 202, 12, 0.50) 44.6%, rgba(0, 143, 194, 0.53) 60.6%, #008FC2 100%);
 }
 
-.thumbnail-wrapper-sm {
+.thumbnail-sm {
     max-width: 100px;
     max-height: 100px;
 }
@@ -44,6 +44,11 @@ h1 {
 .thumbnail-wrapper-xl {
     max-width: 500px;
     max-height: 500px;
+}
+
+.thumbnail {
+    max-width: 200px;
+    max-height: 200px;
 }
 
 .propic-big {

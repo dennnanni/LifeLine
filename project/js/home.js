@@ -52,8 +52,8 @@ function showPosts(data) {
                 let imageIHTML = imagePresent ? `
                 <div class="col d-flex align-items-center justify-content-end">
                     <a href="post.php?id=${post.id}" class="text-decoration-none text-dark">
-                        <div class="rounded-4 thumbnail-wrapper">
-                            <img class="rounded-4 w-100" src="upload/${post.image}" alt="post image"/>
+                        <div>
+                            <img class="rounded-4 thumbnail" src="upload/${post.image}" alt="post image"/>
                         </div>
                     </a>
                 </div>
@@ -70,28 +70,26 @@ function showPosts(data) {
                                     <i class="fs-5 fa-solid ${getCategoryIconClass(post.category)}"></i>
                                 </div>
                             </div>
-                            <div class="${imagePresent ? "col-6 col-md-8 pe-1" : "col-11"} ps-1 ps-md-0">
-                                <a href="diary.php?username=${post.author}" class="text-decoration-none text-dark"><h3 class="fs-5">@${post.author}</h3></a>
-                                <article>
-                                    <a href="post.php?id=${post.id}" class="text-decoration-none text-dark">
-                                        <header>
-                                            <h4 class="fs-4">${post.title}</h4>
-                                        </header>
-                                        <p class="text-truncate">${post.description}</p>
-                                    </a>
-                                    <footer class="d-flex h-100">
+                            <div class="${imagePresent ? "col-6 col-md-8 pe-1" : "col-11"} ps-2 ps-lg-0">
+                                <article class="d-flex flex-column h-100">
+                                    <div class="d-flex flex-grow-1 flex-column">
+                                        <a href="diary.php?username=${post.author}" class="text-decoration-none text-dark"><h3 class="fs-5">@${post.author}</h3></a>
+                                        <a href="post.php?id=${post.id}" class="text-decoration-none text-dark">
+                                            <header>
+                                                <h4 class="fs-4">${post.title}</h4>
+                                            </header>
+                                            <p class="text-truncate">${post.description}</p>
+                                        </a>
+                                    </div>
+                                    <footer class="d-flex">
                                         <div class="col-9 d-inline-flex align-items-center fs-5">
-                                            <div>
-                                                <span class="me-1">${post.starsCount}</span>
-                                                <button name="starButton" type="button" class="border-0 bg-light">
-                                                    <input type="hidden" value="${post.id}"/>
-                                                    <i class="fa-${post.starred ? "solid text-secondary" : "regular"} fa-star"></i>
-                                                </button>
-                                            </div>
-                                            <div class="ms-5">
-                                                <span class="me-1">${post.commentsCount}</span>
-                                                <i class="fa-regular fa-comment"></i>
-                                            </div>
+                                            <span class="me-1">${post.starsCount}</span>
+                                            <button name="starButton" type="button" class="border-0 bg-light">
+                                                <input type="hidden" value="${post.id}"/>
+                                                <i class="fa-${post.starred ? "solid text-secondary" : "regular"} fa-star"></i>
+                                            </button>
+                                            <span class="ms-5 me-1">${post.commentsCount}</span>
+                                            <i class="fa-regular fa-comment"></i>
                                         </div>
                                         <div class="col d-inline-flex align-items-center justify-content-end fs-5">
                                             ${post.tag.length != 0 ? "<i class=\"fa-solid fa-tags me-1\"></i>" : ""}

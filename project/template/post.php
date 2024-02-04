@@ -65,9 +65,31 @@
                                 </button>
                             </div>
                             <a class="ms-5 me-1 text-decoration-none text-dark" href="comments.php?id=<?php echo $templateParams["post"]["id"] ?>">
-                                <span><?php echo $templateParams["post"]["commentsCount"] ?></span>
+                                <span id="commentsCount"><?php echo $templateParams["post"]["commentsCount"] ?></span>
                                 <i class="fa-regular fa-comment"></i>
                             </a>
+                        </div>
+                    </div>
+                    <div id="comment">
+                        <?php if(isset($templateParams["lastComment"])): ?>
+                        <div class="d-flex align-items-center ms-3">
+                            <img class="propic-small" src="upload/<?php echo $templateParams["lastComment"]["profilePic"] ?>" alt="Your profile picture" aria-hidden="true"/>
+                            <div class="d-inline-block text-dark ms-2 w-100 mt-3">
+                                <span class="fw-bold d-block">
+                                    <?php echo $templateParams["lastComment"]["username"]?>
+                                </span>
+                                <p class="text-break">
+                                <?php echo $templateParams["lastComment"]["text"]?>
+                                </p>
+                            </div>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="input-group">
+                        <label for="commentArea" hidden>Comment</label>
+                        <textarea id="commentArea" class="form-control" placeholder="Leave a comment"></textarea>
+                        <div class="input-group-append">
+                            <button id="sendButton" class="h-100 btn btn-outline-secondary text-dark bg-secondary" type="button">Send</button>
                         </div>
                     </div>
                 </div>

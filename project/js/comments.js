@@ -17,8 +17,8 @@ function sendComment(comment, postId) {
         type: "POST",
         data: { "comment": comment, "postId": postId },
         success: function(data) {
-            let user = JSON.parse(data);
-            addComment(user.username, user.profilePic, comment);
+            let response = JSON.parse(data);
+            addComment(response.user.username, response.user.profilePic, comment);
         }
     });
 }

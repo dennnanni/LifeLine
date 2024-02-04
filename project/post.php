@@ -26,6 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $templateParams["post"]["tagged"] = $dbh->getPostTaggedUsers($_GET["id"]) ?? [];
         $templateParams["post"]["starred"] = $dbh->isPostStarredByUser($_GET["id"], $_SESSION["username"]);
         $templateParams["author"] = $dbh->getUser($templateParams["post"]["author"]);
+        $templateParams["lastComment"] = $dbh->getLastCommentInPost($_GET["id"]);
+        if (isset($templateParams["lastComment"])) {
+            $templateParams["lastComment"]["profilePic"] = $dbh->getUser($templateParams["lastComment"]["username"])["profilePic"];
+        }
     }
 }
 
