@@ -19,6 +19,7 @@ $templateParams["footerActive"] = $_SESSION["footerActivePage"]; // home | creat
 
 $templateParams["categories"] = $dbh->getAllCategories();
 $templateParams["selectedCategories"] = $_SESSION["selectedCategories"];
+$templateParams["currentUser"] = $_SESSION["username"];
 
 require("template/base.php");
 ?>

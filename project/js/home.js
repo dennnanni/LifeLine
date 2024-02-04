@@ -33,6 +33,7 @@ function sendAction(action, category = "") {
         data: { "category": category, "action": action },
         success: function(response) {
             showPosts(response);
+            document.querySelectorAll('[name="starButton"]').forEach(button => likeHandler(button));
         }
     });
 }
@@ -50,9 +51,11 @@ function showPosts(data) {
 
                 let imageIHTML = imagePresent ? `
                 <div class="col d-flex align-items-center justify-content-end">
-                    <div class="rounded-4 thumbnail-wrapper">
-                        <img class="rounded-4 w-100" src="upload/${post.image}" alt="post image"/>
-                    </div>
+                    <a href="post.php?id=${post.id}" class="text-decoration-none text-dark">
+                        <div class="rounded-4 thumbnail-wrapper">
+                            <img class="rounded-4 w-100" src="upload/${post.image}" alt="post image"/>
+                        </div>
+                    </a>
                 </div>
                 ` : "";
 
@@ -61,24 +64,29 @@ function showPosts(data) {
                     <div class="border border-3 border-tertiary-light rounded-4 position-relative">
                         <div class="lifeline-small position-absolute h-100 ms-1 ms-md-7"> 
                         </div>
-                        <a href="post.php?id=${post.id}" class="text-decoration-none text-dark row py-2 position-relative">
+                        <div class="row py-2 position-relative">
                             <div class="col-1 ps-2 ps-md-8">
                                 <div class="icon-medium bg-secondary rounded-4 d-flex align-items-center justify-content-center">
                                     <i class="fs-5 fa-solid ${getCategoryIconClass(post.category)}"></i>
                                 </div>
                             </div>
                             <div class="${imagePresent ? "col-6 col-md-8 pe-1" : "col-11"} ps-1 ps-md-0">
-                                <h3 class="fs-5">@${post.author}</h3>
-                                <section>
-                                    <header>
-                                        <h4 class="fs-4">${post.title}</h4>
-                                    </header>
-                                    <p class="text-truncate">${post.description}</p>
+                                <a href="diary.php?username=${post.author}" class="text-decoration-none text-dark"><h3 class="fs-5">@${post.author}</h3></a>
+                                <article>
+                                    <a href="post.php?id=${post.id}" class="text-decoration-none text-dark">
+                                        <header>
+                                            <h4 class="fs-4">${post.title}</h4>
+                                        </header>
+                                        <p class="text-truncate">${post.description}</p>
+                                    </a>
                                     <footer class="d-flex h-100">
                                         <div class="col-9 d-inline-flex align-items-center fs-5">
                                             <div>
                                                 <span class="me-1">${post.starsCount}</span>
-                                                <i class="fa-${post.starred ? "solid text-secondary" : "regular"} fa-star"></i>
+                                                <button name="starButton" type="button" class="border-0 bg-light">
+                                                    <input type="hidden" value="${post.id}"/>
+                                                    <i class="fa-${post.starred ? "solid text-secondary" : "regular"} fa-star"></i>
+                                                </button>
                                             </div>
                                             <div class="ms-5">
                                                 <span class="me-1">${post.commentsCount}</span>
@@ -90,10 +98,10 @@ function showPosts(data) {
                                             ${post.location != null ? "<i class=\"fa-solid fa-location-dot\"></i>" : ""}
                                         </div>
                                     </footer>
-                                </section>
+                                </article>
                             </div>
                             ${imageIHTML}
-                        </a>
+                        </div>
                     </div>
                 </div>
                 `;
@@ -128,4 +136,37 @@ function getCategoryIconClass(category) {
         default:
             return "";
     }
+}
+
+function likeHandler(button) {
+    button.addEventListener('click', function() {
+        let username = document.getElementById("currentUser").value;
+        let postId = button.children[0].value;
+        let starIcon = button.children[1];
+        let action = "";
+        if(starIcon.classList.contains("fa-solid")) {
+            action = "REMOVE";
+        } else {
+            action = "ADD";
+        }
+
+        $.ajax({
+            url: "ajax/star.php",
+            type: "POST", 
+            data: {"action" : action, "username": username, "postId": postId },
+            success: function(response) {
+                let data = JSON.parse(response);
+                let starsCount = button.parentElement.children[0];
+                starsCount.innerHTML = data.starsCount;
+
+                if(action == "ADD") {
+                    starIcon.classList.add("fa-solid", "text-secondary");
+                    starIcon.classList.remove("fa-regular");
+                } else {
+                    starIcon.classList.remove("fa-solid", "text-secondary");
+                    starIcon.classList.add("fa-regular");
+                }
+            }
+        });
+    });
 }
