@@ -1,6 +1,6 @@
 <?php require("header.php"); ?>
 <div class="w-100 flex-grow-1 d-flex justify-content-center mb-9">
-    <div class="col-10 position-relative">
+    <div class="col-10 col-md-7 col-lg-5 col-xl-4 position-relative">
         <div class="lifeline ms-7 pt-4 h-100 position-absolute">
         </div>
         <div class="col-6 w-100 pt-4 justify-content-center position-relative">
