@@ -1,10 +1,10 @@
 <?php require("header.php"); ?>
 <div class="d-flex flex-grow-1 justify-content-center mb-9">
-    <div class="col-11 position-relative">
+    <div class="col-11 col-md-8 col-lg-6 col-xl-4 position-relative">
         <div class="lifeline ms-9 pt-4 h-100 position-absolute">
         </div>
         <div class="w-100 pt-4 position-relative justify-content-center">
-            <div class="ms-7">
+            <div class="ms-7 pe-4">
                 <div class="ms-3">
                     <div class="bg-secondary rounded-3 d-inline-flex justify-content-center icon-medium">
                         <i class="fa-solid fa-tags h5 mt-1"></i>
