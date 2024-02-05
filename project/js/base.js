@@ -1,6 +1,13 @@
 window.addEventListener('load', function() {
+    let title = document.getElementById("title");
     let backArrow = document.getElementById("backArrow");
     let done = document.getElementById("done");
+
+    if (title) {
+        title.addEventListener("click", function() {
+            changeFooterActivePage("home");
+        });
+    }
 
     if (backArrow) {
         backArrow.addEventListener("click", function() {
