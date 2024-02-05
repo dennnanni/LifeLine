@@ -18,6 +18,10 @@ window.onload = function load() {
         if (imageFile) {
             reader.readAsDataURL(imageFile);
         }
+
+        const formData = new FormData();
+        formData.append('image', imageFile);
+        saveImage(formData);
     });
 
     let toast = document.querySelector(".toast");
@@ -61,5 +65,19 @@ function saveField(field, value) {
         url: "ajax/create.php",
         type: "POST",
         data: { "field": field, "value": value }
+    });
+}
+
+function saveImage(formData) {
+    request = $.ajax({
+        url: "ajax/create.php",
+        type: "POST",
+        data: formData,
+        processData: false,  // tell jQuery not to process the data
+        contentType: false,  // tell jQuery not to set contentType
+        success: function(response) {
+            // let data = JSON.parse(response);
+            console.log(response);
+        }
     });
 }
