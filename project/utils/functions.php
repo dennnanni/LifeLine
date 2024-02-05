@@ -28,6 +28,7 @@ function getPreviousPage() {
 }
 
 function clearPostData() {
+    $_SESSION["imageName"] = "";
     $_SESSION["title"] = "";
     $_SESSION["description"] = "";
     $_SESSION["location"] = "";

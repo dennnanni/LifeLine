@@ -17,27 +17,27 @@
                 <div class="mt-4 w-50 h-50 mb-2">
                     <label class="text-dark fs-5" for="immaginePost">Image</label>
                     <input class="square" type="file" id="immaginePost" name="immaginePost" accept="image/jpg, image/jpeg, image/png, image/gif" hidden>
-                        <img id="post-image" src="images/empty-post-photo.jpg" class="w-100 h-100 border border-1 border-tertiary-light border-solid rounded-3" alt="post image">
+                        <img id="post-image" src="<?php echo ($templateParams["imageName"] != "" ? "upload/".$templateParams["imageName"] : "images/empty-post-photo.jpg")?>" class="w-100 h-100 border border-1 border-tertiary-light border-solid rounded-3" alt="post image">
                 </div>
             </li>
             <li>
                 <label for="title" hidden>Title</label>
-                <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="title" name="title" placeholder="Title" maxlength="20"><?php echo $_SESSION["title"]?></textarea>
+                <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="title" name="title" placeholder="Title" maxlength="20"><?php echo $templateParams["title"]?></textarea>
             </li>
             <li>
                 <label for="description" hidden>Description</label>
-                <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="description" name="description" placeholder="Description" maxlength="180"><?php echo $_SESSION["description"]?></textarea>
+                <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="description" name="description" placeholder="Description" maxlength="180"><?php echo $templateParams["description"]?></textarea>
             </li>
             <li>
                 <label for="location" hidden>Location</label>
-                <input class="w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" type="text" id="location" name="location" maxlength="32" placeholder="Location" value="<?php echo $_SESSION["location"]?>"/>
+                <input class="w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" type="text" id="location" name="location" maxlength="32" placeholder="Location" value="<?php echo $templateParams["location"]?>"/>
             </li>
             <li>
                 <label for="category" hidden>Category</label>
                 <select class="form-select w-100 mb-2 border border-1 border-tertiary-light border-solid btn-lg bg-light text-dark" id="category" name="category">
-                    <option value="0" <?php if($_SESSION["category"] == ""): { echo "selected";} endif;?>>Category</option>
+                    <option value="0" <?php if($templateParams["category"] == ""): { echo "selected";} endif;?>>Category</option>
                     <?php foreach($templateParams["categories"] as $category): ?>
-                        <option value="<?php echo $category["name"]; ?>" <?php if($_SESSION["category"] == $category["name"]): { echo "selected";} endif;?>><?php echo $category["name"]; ?></option>
+                        <option value="<?php echo $category["name"]; ?>" <?php if($templateParams["category"] == $category["name"]): { echo "selected";} endif;?>><?php echo $category["name"]; ?></option>
                     <?php endforeach; ?>
                 </select>
             </li>
