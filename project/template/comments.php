@@ -8,7 +8,7 @@
             <div class="ms-5">
                 <div class="ms-5">
                     <div class="bg-secondary rounded-3 d-inline-flex justify-content-center icon-medium">
-                        <i class="fa-solid fa-comment h5 mt-1"></i>
+                        <span class="fa-solid fa-comment h5 mt-1"></span>
                     </div>
                     <h2 class="form-label ms-4 text-dark bg-light fs-5 d-inline-block"><?php echo $templateParams["post"]["title"]?> comments</h2>
                 </div>

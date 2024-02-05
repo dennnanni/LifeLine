@@ -84,13 +84,15 @@ function showPosts(data) {
                                         </div>
                                         <footer class="d-flex">
                                             <div class="col-9 d-inline-flex align-items-center fs-5">
-                                                <span class="me-1">${post.starsCount}</span>
+                                                <a class="me-1 text-decoration-none text-dark" title="Stars count" ${post.starsCount > 0 ? 'href="stars.php?id='+ post.id + '"' : ""}>${post.starsCount}</a>
                                                 <button name="starButton" type="button" class="border-0 bg-light">
                                                     <input type="hidden" value="${post.id}"/>
                                                     <span class="fa-${post.starred ? "solid text-secondary" : "regular"} fa-star"></span>
                                                 </button>
-                                                <span class="ms-5 me-1">${post.commentsCount}</span>
-                                                <span class="fa-regular fa-comment"></span>
+                                                <a class="text-decoration-none text-dark ms-5" href="comments.php?id=${post.id}">
+                                                    <span class="me-1">${post.commentsCount}</span>
+                                                    <span class="fa-regular fa-comment"></span>
+                                                </a>
                                             </div>
                                             <div class="col d-inline-flex align-items-center justify-content-end fs-5">
                                                 ${post.tag.length != 0 ? "<span class=\"fa-solid fa-tags me-1\"></span>" : ""}
@@ -157,7 +159,13 @@ function likeHandler(button) {
             success: function(response) {
                 let data = JSON.parse(response);
                 let starsCount = button.parentElement.children[0];
-                starsCount.innerHTML = data.starsCount;
+                starsCount.innerHTML = data.starsCount; 
+                
+                if(data.starsCount > 0) {
+                    starsCount.setAttribute("href", "stars.php?id=" + postId);
+                } else {
+                    starsCount.removeAttribute("href");
+                }
 
                 if(action == "ADD") {
                     starIcon.classList.add("fa-solid", "text-secondary");

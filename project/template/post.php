@@ -44,7 +44,7 @@
                 <div class="row mt-4">
                     <div class="ps-6 col-1">
                         <div class="icon-big d-inline-flex justify-content-center align-items-center bg-secondary rounded-3">
-                            <i class="fa-solid <?php echo getCategoryIconClass($templateParams["post"]["category"]) ?> fs-4"></i>
+                            <span class="fa-solid <?php echo getCategoryIconClass($templateParams["post"]["category"]) ?> fs-4"></span>
                         </div>
                     </div>
                     <div class="col ps-6">
@@ -52,7 +52,7 @@
                         <h3 class="h4 ps-2"><?php echo $templateParams["post"]["title"] ?></h3>
                         <?php if(count($templateParams["post"]["tagged"]) > 0): ?>
                             <div class="small">
-                                <i class="fa-solid fa-tags"></i>
+                                <span class="fa-solid fa-tags"></span>
                                 <span class="text-break"><?php echo implode(" ", $templateParams["post"]["tagged"]) ?></span>
                             </div>
                         <?php endif; ?>
@@ -62,12 +62,12 @@
                                 <input id="currentUser" type="hidden" value="<?php echo $templateParams["currentUser"] ?>"/>
                                 <a id="starsCount" class="me-1 text-decoration-none text-dark" <?php $templateParams["post"]["starsCount"] > 0 ? 'href="stars.php?id='.$templateParams["post"]["id"] : "" ?>><?php echo $templateParams["post"]["starsCount"] ?></a>
                                 <button id="star" class="border-0 p-0 bg-light">
-                                    <i class="fa-<?php echo $templateParams["post"]["starred"] ? "solid text-secondary" : "regular" ?> fa-star"></i>
+                                    <span class="fa-<?php echo $templateParams["post"]["starred"] ? "solid text-secondary" : "regular" ?> fa-star"></span>
                                 </button>
                             </div>
                             <a class="ms-5 me-1 text-decoration-none text-dark" href="comments.php?id=<?php echo $templateParams["post"]["id"] ?>" title="Go to comments page">
                                 <span id="commentsCount"><?php echo $templateParams["post"]["commentsCount"] ?></span>
-                                <i class="fa-regular fa-comment"></i>
+                                <span class="fa-regular fa-comment"></span>
                             </a>
                         </div>
                     </div>
