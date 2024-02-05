@@ -7,7 +7,7 @@
             <div class="ms-5">
                 <div class="ms-5">
                     <div class="bg-secondary rounded-3 d-inline-flex justify-content-center icon-medium">
-                        <i class="fa-solid fa-tags h5 mt-1"></i>
+                        <span class="fa-solid fa-tags h5 mt-1"></span>
                     </div>
                     <h2 class="form-label ms-4 text-dark fs-5 d-inline-block">Your notifications</h2>
                 </div>
@@ -15,7 +15,7 @@
                     <div class="d-flex align-items-center ms-5 my-4">
                         <div class="d-flex pe-4">
                             <div class="icon-medium d-flex justify-content-center align-items-center bg-secondary rounded-3">
-                                <i class="fa-solid <?php echo getNotificationIconClass($notification["type"]); ?>"></i>
+                                <span class="fa-solid <?php echo getNotificationIconClass($notification["type"]); ?>"></span>
                             </div>
                         </div>
                         <div class="d-flex align-items-center">
