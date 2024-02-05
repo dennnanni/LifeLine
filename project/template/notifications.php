@@ -9,7 +9,7 @@
                     <div class="bg-secondary rounded-3 d-inline-flex justify-content-center icon-medium">
                         <i class="fa-solid fa-tags h5 mt-1"></i>
                     </div>
-                    <h2 class="form-label ms-4 text-dark bg-light fs-5 d-inline-block">Your notifications</h2>
+                    <h2 class="form-label ms-4 text-dark fs-5 d-inline-block">Your notifications</h2>
                 </div>
                 <?php foreach($templateParams["notifications"] as $notification):?>
                     <div class="d-flex align-items-center ms-5 my-4">
@@ -20,7 +20,7 @@
                         </div>
                         <div class="d-flex align-items-center">
                             <span class="d-inline-block text-dark"><?php echo $notification["text"]?></span>
-                </div>
+                        </div>
                     </div>
                 <?php endforeach;?>
             </div>

@@ -7,7 +7,7 @@
             <div class="ms-7 pe-4">
                 <div class="ms-3">
                     <div class="bg-secondary rounded-3 d-inline-flex justify-content-center icon-medium">
-                        <i class="fa-solid fa-tags h5 mt-1"></i>
+                        <span class="fa-solid fa-tags h5 mt-1"></span>
                     </div>
                     <h2 class="form-label ms-4 text-dark bg-light fs-5 d-inline-block">Tag a friend</h2>
                 </div>
@@ -18,7 +18,7 @@
                             <span id = "<?php echo $friend["username"]?>" class="d-inline-block text-dark ms-1"><?php echo $friend["name"]?> (@<?php echo $friend["username"]?>)</span>
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
-                            <i class="bi bi-check-circle-fill h3 <?php echo (in_array($friend["username"], $_SESSION["taggedUsers"]) ? "text-secondary" : "text-tertiary") ?> mt-2"></i>
+                            <span class="bi bi-check-circle-fill h3 <?php echo (in_array($friend["username"], $_SESSION["taggedUsers"]) ? "text-secondary" : "text-tertiary") ?> mt-2"></span>
                         </div>
                 </div>
                 <?php endforeach;?>
