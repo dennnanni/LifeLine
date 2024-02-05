@@ -42,7 +42,7 @@
                             <div class="d-flex align-items-center ms-6 my-2">
                                 <div class="d-flex pe-6">
                                     <div class="icon-medium d-flex justify-content-center align-items-center bg-secondary rounded-3">
-                                        <span class="fa-solid <?php echo getCategoryIconClass($post["category"]); ?> fs-5"></span>
+                                        <span class="fa-solid <?php echo getCategoryIconClass($post["category"]); ?> fs-6"></span>
                                     </div>
                                 </div>
                                 <a href="post.php?id=<?php echo $post["id"]?>" class="text-decoration-none text-dark">
