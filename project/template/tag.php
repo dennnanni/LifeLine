@@ -19,11 +19,11 @@
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
                             <?php if (in_array($friend["username"], $_SESSION["taggedUsers"])): ?>
-                                <label for="userSelector" hidden>Deselect <?php echo $friend["name"] ?></label>
+                                <label for="<?php echo $friend["username"] ?>Button" hidden>Deselect <?php echo $friend["name"] ?></label>
                             <?php else: ?>                                
-                                <label for="userSelector" hidden>Select <?php echo $friend["name"] ?></label>
+                                <label for="<?php echo $friend["username"] ?>Button" hidden>Select <?php echo $friend["name"] ?></label>
                             <?php endif; ?>
-                            <button class="btn border-0 bg-light shadow-none" name="userSelector">
+                            <button id="<?php echo $friend["username"] ?>Button" class="btn border-0 bg-light shadow-none" name="userSelector">
                                 <span class="bi bi-check-circle-fill h3 <?php echo (in_array($friend["username"], $_SESSION["taggedUsers"]) ? "text-secondary" : "text-tertiary") ?> mt-2"></span>
                             </button>
                         </div>
