@@ -23,12 +23,17 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     else {
         $templateParams["currentUser"] = $_SESSION["username"];
         $templateParams["post"] = $dbh->getPost($_GET["id"]);
-        $templateParams["post"]["tagged"] = $dbh->getPostTaggedUsers($_GET["id"]) ?? [];
+        $taggedUsers = $dbh->getPostTaggedUsers($_GET["id"]) ?? [];
         $templateParams["post"]["starred"] = $dbh->isPostStarredByUser($_GET["id"], $_SESSION["username"]);
         $templateParams["author"] = $dbh->getUser($templateParams["post"]["author"]);
         $templateParams["lastComment"] = $dbh->getLastCommentInPost($_GET["id"]);
         if (isset($templateParams["lastComment"])) {
             $templateParams["lastComment"]["profilePic"] = $dbh->getUser($templateParams["lastComment"]["username"])["profilePic"];
+        }
+
+        $templateParams["post"]["tagged"] = [];
+        foreach($taggedUsers as $taggedUser) {
+            $templateParams["post"]["tagged"][] = $taggedUser["username"];
         }
     }
 }

@@ -48,7 +48,7 @@
                         <?php if(count($templateParams["post"]["tagged"]) > 0): ?>
                             <div class="small">
                                 <i class="fa-solid fa-tags"></i>
-                                <span><?php echo implode(" ", $templateParams["post"]["tagged"][0]) ?></span>
+                                <span class="text-break"><?php echo implode(" ", $templateParams["post"]["tagged"]) ?></span>
                             </div>
                         <?php endif; ?>
                         <p><?php echo $templateParams["post"]["description"] ?></p>
@@ -64,31 +64,32 @@
                                     <i class="fa-<?php echo $templateParams["post"]["starred"] ? "solid text-secondary" : "regular" ?> fa-star"></i>
                                 </button>
                             </div>
-                            <a class="ms-5 me-1 text-decoration-none text-dark" href="comments.php?id=<?php echo $templateParams["post"]["id"] ?>">
+                            <a class="ms-5 me-1 text-decoration-none text-dark" href="comments.php?id=<?php echo $templateParams["post"]["id"] ?>" title="Go to comments page">
                                 <span id="commentsCount"><?php echo $templateParams["post"]["commentsCount"] ?></span>
                                 <i class="fa-regular fa-comment"></i>
                             </a>
                         </div>
                     </div>
-                    <div id="comment">
+                    <div id="comment" class="mt-3">
                         <?php if(isset($templateParams["lastComment"])): ?>
                         <div class="d-flex align-items-center ms-3">
                             <img class="propic-small" src="upload/<?php echo $templateParams["lastComment"]["profilePic"] ?>" alt="Your profile picture" aria-hidden="true"/>
-                            <div class="d-inline-block text-dark ms-2 w-100 mt-3">
+                            <a class="d-inline-block text-dark ms-2 w-100 mt-3 text-decoration-none" href="comments.php?id=<?php echo $templateParams["post"]["id"] ?>" title="See comment in comments page">
                                 <span class="fw-bold d-block">
                                     <?php echo $templateParams["lastComment"]["username"]?>
                                 </span>
                                 <p class="text-break">
                                 <?php echo $templateParams["lastComment"]["text"]?>
                                 </p>
-                            </div>
+                            </a>
                         </div>
                         <?php endif; ?>
                     </div>
-                    <div class="input-group">
+                    <div class="input-group mt-3">
                         <label for="commentArea" hidden>Comment</label>
                         <textarea id="commentArea" class="form-control" placeholder="Leave a comment"></textarea>
                         <div class="input-group-append">
+                            <label for="sendButton" hidden>Send comment</label>
                             <button id="sendButton" class="h-100 btn btn-outline-secondary text-dark bg-secondary" type="button">Send</button>
                         </div>
                     </div>
