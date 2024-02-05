@@ -60,45 +60,47 @@ function showPosts(data) {
                 ` : "";
 
                 postElement += `
-                <div class="row mb-4 px-2">
-                    <div class="border border-3 border-tertiary-light rounded-4 position-relative">
-                        <div class="lifeline-small position-absolute h-100 ms-1 ms-md-7"> 
-                        </div>
-                        <div class="row py-2 position-relative">
-                            <div class="col-1 ps-2 ps-md-8">
-                                <div class="icon-medium bg-secondary rounded-4 d-flex align-items-center justify-content-center">
-                                    <i class="fs-5 fa-solid ${getCategoryIconClass(post.category)}"></i>
-                                </div>
+                <div class="container-fluid">
+                    <div class="row mb-4">
+                        <div class="border border-3 border-tertiary-light rounded-4 position-relative">
+                            <div class="lifeline-small position-absolute h-100 ms-1 ms-md-7">
                             </div>
-                            <div class="${imagePresent ? "col-6 col-md-7 col-lg-8 col-xl-8 pe-1" : "col-11"} ps-2 ps-lg-0">
-                                <article class="d-flex flex-column h-100">
-                                    <div class="d-flex flex-grow-1 flex-column">
-                                        <a href="diary.php?username=${post.author}" class="text-decoration-none text-dark"><h3 class="fs-5">@${post.author}</h3></a>
-                                        <a href="post.php?id=${post.id}" class="text-decoration-none text-dark">
-                                            <header>
-                                                <h4 class="fs-4">${post.title}</h4>
-                                            </header>
-                                            <p class="text-truncate">${post.description}</p>
-                                        </a>
+                            <div class="row py-2 position-relative">
+                                <div class="col-1 ps-2 ps-md-8">
+                                    <div class="icon-medium bg-secondary rounded-4 d-flex align-items-center justify-content-center">
+                                        <i class="fs-5 fa-solid ${getCategoryIconClass(post.category)}"></i>
                                     </div>
-                                    <footer class="d-flex">
-                                        <div class="col-9 d-inline-flex align-items-center fs-5">
-                                            <span class="me-1">${post.starsCount}</span>
-                                            <button name="starButton" type="button" class="border-0 bg-light">
-                                                <input type="hidden" value="${post.id}"/>
-                                                <span class="fa-${post.starred ? "solid text-secondary" : "regular"} fa-star"></span>
-                                            </button>
-                                            <span class="ms-5 me-1">${post.commentsCount}</span>
-                                            <span class="fa-regular fa-comment"></span>
+                                </div>
+                                <div class="${imagePresent ? "col-6 col-md-7 col-lg-8 col-xl-8 pe-1" : "col-11"} ps-2 ps-lg-0">
+                                    <article class="d-flex flex-column h-100">
+                                        <div class="d-flex flex-grow-1 flex-column">
+                                            <a href="diary.php?username=${post.author}" class="text-decoration-none text-dark"><h3 class="fs-5">@${post.author}</h3></a>
+                                            <a href="post.php?id=${post.id}" class="text-decoration-none text-dark">
+                                                <header>
+                                                    <h4 class="fs-4">${post.title}</h4>
+                                                </header>
+                                                <p class="text-truncate">${post.description}</p>
+                                            </a>
                                         </div>
-                                        <div class="col d-inline-flex align-items-center justify-content-end fs-5">
-                                            ${post.tag.length != 0 ? "<span class=\"fa-solid fa-tags me-1\"></span>" : ""}
-                                            ${post.location != null ? "<span class=\"fa-solid fa-location-dot\"></span>" : ""}
-                                        </div>
-                                    </footer>
-                                </article>
+                                        <footer class="d-flex">
+                                            <div class="col-9 d-inline-flex align-items-center fs-5">
+                                                <span class="me-1">${post.starsCount}</span>
+                                                <button name="starButton" type="button" class="border-0 bg-light">
+                                                    <input type="hidden" value="${post.id}"/>
+                                                    <span class="fa-${post.starred ? "solid text-secondary" : "regular"} fa-star"></span>
+                                                </button>
+                                                <span class="ms-5 me-1">${post.commentsCount}</span>
+                                                <span class="fa-regular fa-comment"></span>
+                                            </div>
+                                            <div class="col d-inline-flex align-items-center justify-content-end fs-5">
+                                                ${post.tag.length != 0 ? "<span class=\"fa-solid fa-tags me-1\"></span>" : ""}
+                                                ${post.location != null ? "<span class=\"fa-solid fa-location-dot\"></span>" : ""}
+                                            </div>
+                                        </footer>
+                                    </article>
+                                </div>
+                                ${imageIHTML}
                             </div>
-                            ${imageIHTML}
                         </div>
                     </div>
                 </div>
