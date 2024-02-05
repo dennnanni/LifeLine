@@ -1,18 +1,19 @@
 window.onload = function load() {
-    let checks = document.getElementsByClassName("bi-check-circle-fill");
+    let checks = document.getElementsByName("userSelector");
 
     for (let i = 0; i < checks.length; i++) {
         checks[i].addEventListener('click', function() {
             let username = checks[i].closest('div').previousElementSibling.querySelector('span').id;
+            let icon = checks[i].children[0];
 
-            if (checks[i].classList.contains("text-tertiary")) {
-                checks[i].classList.add("text-secondary");
-                checks[i].classList.remove("text-tertiary");
+            if (icon.classList.contains("text-tertiary")) {
+                icon.classList.add("text-secondary");
+                icon.classList.remove("text-tertiary");
 
                 sendAction(username, "ADD");
             } else {
-                checks[i].classList.remove("text-secondary");
-                checks[i].classList.add("text-tertiary");
+                icon.classList.remove("text-secondary");
+                icon.classList.add("text-tertiary");
 
                 sendAction(username, "REMOVE");
             }
