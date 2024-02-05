@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = validate($_POST["title"]);
     $description = validate($_POST["description"]);
     $location = validate($_POST["location"]);
+    $location = $location == "" ? null : $location;
     $category = validate($_POST["category"]);
     $nomeFile = validate($_FILES["immaginePost"]["name"]);
     

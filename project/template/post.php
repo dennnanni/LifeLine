@@ -22,7 +22,12 @@
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span><?php echo date("d/m/Y h:m", strtotime($templateParams["post"]["timestamp"]))?></span>
-                                <span><?php echo $templateParams["post"]["location"] ?? ""?></span>
+                                <?php if(isset($templateParams["post"]["location"])): ?>
+                                    <div>
+                                        <span class="fa-solid fa-location-dot"></span>
+                                        <span><?php echo $templateParams["post"]["location"] ?></span>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -85,7 +90,7 @@
                         </div>
                         <?php endif; ?>
                     </div>
-                    <div class="input-group mt-3">
+                    <div class="input-group mt-3 position-relative">
                         <label for="commentArea" hidden>Comment</label>
                         <textarea id="commentArea" class="form-control" placeholder="Leave a comment"></textarea>
                         <div class="input-group-append">

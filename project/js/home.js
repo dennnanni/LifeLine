@@ -70,7 +70,7 @@ function showPosts(data) {
                                     <i class="fs-5 fa-solid ${getCategoryIconClass(post.category)}"></i>
                                 </div>
                             </div>
-                            <div class="${imagePresent ? "col-6 col-md-8 pe-1" : "col-11"} ps-2 ps-lg-0">
+                            <div class="${imagePresent ? "col-6 col-md-7 col-lg-8 col-xl-8 pe-1" : "col-11"} ps-2 ps-lg-0">
                                 <article class="d-flex flex-column h-100">
                                     <div class="d-flex flex-grow-1 flex-column">
                                         <a href="diary.php?username=${post.author}" class="text-decoration-none text-dark"><h3 class="fs-5">@${post.author}</h3></a>
