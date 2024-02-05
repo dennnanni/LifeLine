@@ -52,8 +52,8 @@ function showPosts(data) {
                 let imageIHTML = imagePresent ? `
                 <div class="col d-flex align-items-center justify-content-end">
                     <a href="post.php?id=${post.id}" class="text-decoration-none text-dark">
-                        <div>
-                            <img class="rounded-4 thumbnail" src="upload/${post.image}" alt="post image"/>
+                        <div class="thumbnail-wrapper rounded-4">
+                            <img class="thumbnail" src="upload/${post.image}" alt="post image"/>
                         </div>
                     </a>
                 </div>
@@ -86,14 +86,14 @@ function showPosts(data) {
                                             <span class="me-1">${post.starsCount}</span>
                                             <button name="starButton" type="button" class="border-0 bg-light">
                                                 <input type="hidden" value="${post.id}"/>
-                                                <i class="fa-${post.starred ? "solid text-secondary" : "regular"} fa-star"></i>
+                                                <span class="fa-${post.starred ? "solid text-secondary" : "regular"} fa-star"></span>
                                             </button>
                                             <span class="ms-5 me-1">${post.commentsCount}</span>
-                                            <i class="fa-regular fa-comment"></i>
+                                            <span class="fa-regular fa-comment"></span>
                                         </div>
                                         <div class="col d-inline-flex align-items-center justify-content-end fs-5">
-                                            ${post.tag.length != 0 ? "<i class=\"fa-solid fa-tags me-1\"></i>" : ""}
-                                            ${post.location != null ? "<i class=\"fa-solid fa-location-dot\"></i>" : ""}
+                                            ${post.tag.length != 0 ? "<span class=\"fa-solid fa-tags me-1\"></span>" : ""}
+                                            ${post.location != null ? "<span class=\"fa-solid fa-location-dot\"></span>" : ""}
                                         </div>
                                     </footer>
                                 </article>

@@ -16,7 +16,9 @@
                     <?php foreach($templateParams["comments"] as $comment):?>
                         <div class="ms-4">
                             <a href="diary.php?username=<?php echo $comment["username"]?>" class="text-decoration-none d-flex align-items-center">
-                                <img class="propic-small" src="upload/<?php echo $comment["author"]["profilePic"]?>" alt="friend profile picture"/>
+                                <div class="rounded-circle propic-wrapper-sm">
+                                    <img class="propic" src="upload/<?php echo $comment["author"]["profilePic"]?>" alt="friend profile picture"/>
+                                </div>
                                 <div class="d-inline-block text-dark ms-2 w-100 mt-3">
                                     <span class="fw-bold d-block">
                                         <?php echo $comment["username"]?>

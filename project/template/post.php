@@ -11,8 +11,8 @@
         <div class="position-relative">
             <!-- Header with username, location and date -->
             <div class="d-flex ps-1">
-                <div class="d-inline-block">
-                    <img class="propic-big" src="upload/<?php echo $templateParams["author"]["profilePic"] ?>" alt="<?php $templateParams["author"]["name"]?>'s profile picture"/>
+                <div class="d-inline-block rounded-circle propic-wrapper-lg">
+                    <img class="propic" src="upload/<?php echo $templateParams["author"]["profilePic"] ?>" alt="<?php $templateParams["author"]["name"]?>'s profile picture"/>
                 </div>
                 <div class="d-inline-flex align-items-center">
                     <div class="container">
@@ -78,8 +78,10 @@
                     <div id="comment" class="mt-3">
                         <?php if(isset($templateParams["lastComment"])): ?>
                         <div class="d-flex align-items-center ms-3">
-                            <img class="propic-small" src="upload/<?php echo $templateParams["lastComment"]["profilePic"] ?>" alt="Your profile picture" aria-hidden="true"/>
-                            <a class="d-inline-block text-dark ms-2 w-100 mt-3 text-decoration-none" href="comments.php?id=<?php echo $templateParams["post"]["id"] ?>" title="See comment in comments page">
+                            <div class="rounded-circle propic-wrapper-sm">
+                                <img class="propic" src="upload/<?php echo $templateParams["lastComment"]["profilePic"] ?>" alt="Your profile picture" aria-hidden="true"/>
+                            </div>
+                            <a class="d-flexbox flex-grow-1 text-dark ms-2 mt-3 text-decoration-none" href="comments.php?id=<?php echo $templateParams["post"]["id"] ?>" title="See comment in comments page">
                                 <span class="fw-bold d-block">
                                     <?php echo $templateParams["lastComment"]["username"]?>
                                 </span>

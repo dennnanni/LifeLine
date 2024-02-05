@@ -27,7 +27,9 @@ function addComment(username, profilePic, text) {
     let newComment = `
     <div class="ms-4">
         <a href="diary.php?username=${username}" class="text-decoration-none d-flex align-items-center">
-            <img class="propic-small" src="upload/${profilePic}" alt="friend profile picture"/>
+            <div class="rounded-circle propic-wrapper-sm">
+                <img class="propic" src="upload/${profilePic}" alt="friend profile picture"/>
+            </div>
             <div class="d-inline-block text-dark ms-2 w-100 mt-3">
                 <span class="fw-bold d-block">${username}</span>
                 <p class="text-break">${text}</p>

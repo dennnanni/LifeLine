@@ -53,19 +53,21 @@ function sendComment(comment, postId) {
         data: { "comment": comment, "postId": postId },
         success: function(data) {
             let response = JSON.parse(data);
-            addComment(response.user.username, response.user.profilePic, comment, response.commentsCount);
+            addComment(response.user.username, response.user.profilePic, comment, response.commentsCount, postId);
         }
     });
 }
 
-function addComment(username, profilePic, text, commentsCount) {
+function addComment(username, profilePic, text, commentsCount, postId) {
     let newComment = `
     <div class="d-flex align-items-center ms-3">
-        <img class="propic-small" src="upload/${profilePic}" alt="Your profile picture" aria-hidden="true"/>
-        <div class="d-inline-block text-dark ms-2 w-100 mt-3">
+        <div class="rounded-circle propic-wrapper-sm">
+            <img class="propic" src="upload/${profilePic}" alt="Your profile picture" aria-hidden="true"/>
+        </div>    
+        <a class="d-flexbox flex-grow-1 text-decoration-none text-dark ms-2 mt-3" href="comments.php?id=${postId}" title="See comment in comments page">
             <span class="fw-bold d-block">${username}</span>
             <p class="text-break">${text}</p>
-        </div>
+        </a>
     </div>
     `;
 

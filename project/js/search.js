@@ -22,9 +22,11 @@ $(document).ready(function() {
 
         data.forEach(user => {
             result += `
-            <a href="diary.php?username=${user["username"]}" class="text-decoration-none pt-2 d-block">
-                <img class="propic-medium" src="upload/${user["profilePic"]}" alt="${user.username}'s profile picture"/>
-                <span class="d-inline-block text-dark">${user.username}</span>
+            <a href="diary.php?username=${user["username"]}" class="text-decoration-none pt-2 d-flex align-items-center">
+                <div class="rounded-circle propic-wrapper-md d-inline-block"> 
+                    <img class="propic" src="upload/${user["profilePic"]}" alt="${user.username}'s profile picture"/>
+                </div>    
+                <span class="d-inline-block text-dark ms-3">${user.username}</span>
             </a>
             `;
         })

@@ -8,8 +8,10 @@
             <!-- heading with propic, username, name, friends/button -->
             <div class="ms-n1">
                 <div class="d-flex align-items-center">
-                    <img class="propic-big" src="<?php echo "upload/".$templateParams["username"]["profilePic"]?>" alt="<?php echo $templateParams["username"]["name"] ?>'s profile picture"/>
-                    <div class="ms-sm-6 ms-4 w-100 d-flex justify-content-between align-items-center">
+                    <div class="rounded-circle propic-wrapper-lg">
+                        <img class="propic" src="<?php echo "upload/".$templateParams["username"]["profilePic"]?>" alt="<?php echo $templateParams["username"]["name"] ?>'s profile picture"/>
+                    </div>    
+                    <div class="ms-sm-6 ms-4 d-flex flex-grow-1 justify-content-between align-items-center">
                         <div>
                             <span class="fw-bold fs-5 d-block"><?php echo $templateParams["username"]["name"]; ?></span>
                             <span id="username" class="d-block"><?php echo $templateParams["username"]["username"]; ?></span>
@@ -46,8 +48,8 @@
                                 <a href="post.php?id=<?php echo $post["id"]?>" class="text-decoration-none text-dark">
                                     <div class="d-flex align-items-center">
                                         <?php if (isset($post["image"])): ?>
-                                            <div class="">
-                                                <img src="upload/<?php echo $post["image"]; ?>" class="thumbnail-sm rounded-4" alt="post image"/>
+                                            <div class="thumbnail-wrapper-sm rounded-4">
+                                                <img src="upload/<?php echo $post["image"]; ?>" class="thumbnail" alt="post image"/>
                                             </div>
                                         <?php endif;?>
                                         <div class="ms-2">
