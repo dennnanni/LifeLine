@@ -195,4 +195,21 @@ function convertiData($data) {
     return $numeroGiorno . ' ' . $nomeMese;
 }
 
+function sendEmail($to, $subject, $message) {
+    $apiKey = '8d81572b795da4b803e40667c366b906';
+    $secretKey = '5c04153e7e95e0fa5c6ed8a75e3112be';
+
+    $mj = new Mailjet($apiKey, $secretKey);
+    $params = array(
+        "method" => "POST",
+        "from" => "nicolas.amadori02@gmail.com",
+        "to" => "{$to}",
+        "subject" => "{$subject}",
+        "text" => "{$message}"
+    );
+    $result = $mj->sendEmail($params);
+
+    return $result;
+}
+
 ?>
