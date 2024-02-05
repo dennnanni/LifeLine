@@ -5,7 +5,7 @@ class DatabaseHelper {
     public function __construct($servername, $username, $password, $dbname, $port) {
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
         if ($this->db->connect_error) {
-            die("Connection failed: ".$db->connect_error);
+            die("Connection failed: ".$this->db->connect_error);
         }
     }
 
@@ -90,7 +90,6 @@ class DatabaseHelper {
 
             $this->createNotification(4, $username, $taggedUsername, $postId);
         }
-        return true;//TODO: modifica
     }
 
     public function loadHomePage($username, $categoryFilter = null) {
@@ -116,19 +115,6 @@ class DatabaseHelper {
         $stmt->execute();
         $result = $stmt->get_result();
     
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-    
-
-    /**
-     * Get all the post of a user.
-     */
-    public function getUserPosts($username) {
-        $stmt = $this->db->prepare("SELECT * FROM post WHERE post.author = ?");
-        $stmt->bind_param('s', $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -166,18 +152,6 @@ class DatabaseHelper {
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC)[0];
-    }
-
-    /**
-     * Return true if the users are friends, false otherwise
-     */
-    public function areFriends($username1, $username2) {
-        $stmt = $this->db->prepare("SELECT accepted FROM friendship WHERE friendship.accepted = 1 AND ((friendship.sender = ? AND friendship.receiver = ?) OR (friendship.sender = ? AND friendship.receiver = ?))");
-        $stmt->bind_param('ssss', $username1, $username2, $username2, $username1);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return mysqli_num_rows($result) >= 1;
     }
 
     /**
@@ -228,7 +202,6 @@ class DatabaseHelper {
         $this->updateFriendsCount($senderUsername);
         $this->updateFriendsCount($receiverUsername);
     }
-    
 
     /**
      * Get a post.
