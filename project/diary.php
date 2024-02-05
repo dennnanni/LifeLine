@@ -18,7 +18,7 @@ if ($requestedUser == $_SESSION["username"]) {
     if($_SESSION["footerActivePage"] == "home") {
         $templateParams["headerLeftIcon"] = "back";
     }
-    elseif($_SESSION["footerActivePage"] == "diary") {
+    else {
         $templateParams["headerLeftIcon"] = "logout";
         $templateParams["headerRightIcon"] = "photo";
     }

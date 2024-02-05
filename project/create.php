@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else {
             $registration_result = $dbh->createPost($_SESSION["username"], $title, $description, $location, $category, $_SESSION["taggedUsers"]);
         }
+        $_SESSION["footerActivePage"] = "diary";
         header("Location: diary.php");
     }
 }
