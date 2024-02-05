@@ -118,38 +118,34 @@ nav h1 {
 }
 
 .background {
-    background-image: url("../images/mobile-wallpaper.jpeg");
+    background-image: url("../images/background-fullhd.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
 @media only screen and (max-device-width: 1400px) {
-    .background {
-        background-image: url("../images/mobile-wallpaper.jpeg");
-    }
+
 }
 
 @media only screen and (max-device-width: 1200px) {
-    .background {
-        background-image: url("../images/mobile-wallpaper.jpeg");
-    }
+
 }
 
 @media only screen and (max-device-width: 992px) {
     .background {
-        background-image: url("../images/mobile-wallpaper.jpeg");
+        background-image: url("../images/background-medium.jpg");
     }
 }
 
 @media only screen and (max-device-width: 768px) {
     .background {
-        background-image: url("../images/mobile-wallpaper.jpeg");
+        background-image: url("../images/background-mobile.jpg");
     }
 }
 
 @media only screen and (max-device-width: 576px) {
     .background {
-        background-image: url("../images/mobile-wallpaper.jpeg");
+        background-image: url("../images/background-mobile.jpg");
     }
     h1 {
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
