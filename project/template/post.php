@@ -40,7 +40,7 @@
                 </div>
             <?php endif; ?>
             <!-- Content with category, title, tags, description, likes and comments -->
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row mt-4">
                     <div class="ps-6 col-1">
                         <div class="icon-big d-inline-flex justify-content-center align-items-center bg-secondary rounded-3">
@@ -60,11 +60,7 @@
                         <div class="col d-inline-flex align-items-center fs-5">
                             <div>
                                 <input id="currentUser" type="hidden" value="<?php echo $templateParams["currentUser"] ?>"/>
-                                <?php if($templateParams["post"]["starsCount"] > 0): ?>
-                                <a id="starsCount" class="me-1 text-decoration-none text-dark" href="stars.php?id=<?php echo $templateParams["post"]["id"] ?>"><?php echo $templateParams["post"]["starsCount"] ?></a>
-                                <?php else: ?>
-                                <span id="starsCount" class="me-1"><?php echo $templateParams["post"]["starsCount"] ?></span>
-                                <?php endif; ?>
+                                <a id="starsCount" class="me-1 text-decoration-none text-dark" <?php $templateParams["post"]["starsCount"] > 0 ? 'href="stars.php?id='.$templateParams["post"]["id"] : "" ?>><?php echo $templateParams["post"]["starsCount"] ?></a>
                                 <button id="star" class="border-0 p-0 bg-light">
                                     <i class="fa-<?php echo $templateParams["post"]["starred"] ? "solid text-secondary" : "regular" ?> fa-star"></i>
                                 </button>

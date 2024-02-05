@@ -24,6 +24,12 @@ $(document).ready(function() {
                 let starsCount = document.getElementById("starsCount");
                 starsCount.innerHTML = data.starsCount;
 
+                if(data.starsCount > 0) {
+                    starsCount.setAttribute("href", "stars.php?id=" + postId);
+                } else {
+                    starsCount.removeAttribute("href");
+                }
+
                 if(action == "ADD") {
                     starIcon.classList.add("fa-solid", "text-secondary");
                     starIcon.classList.remove("fa-regular");
