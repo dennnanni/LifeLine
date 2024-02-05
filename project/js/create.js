@@ -53,7 +53,6 @@ window.onload = function load() {
 
     categorySelect.addEventListener('change', function() {
         saveField("category", categorySelect.value);
-        console.log(categorySelect.value);
     });
 }
 

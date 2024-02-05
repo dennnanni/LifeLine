@@ -2,9 +2,7 @@ window.onload = function load() {
     let checks = document.getElementsByClassName("bi-check-circle-fill");
 
     for (let i = 0; i < checks.length; i++) {
-        // console.log(checks[i]);
         checks[i].addEventListener('click', function() {
-            console.log(checks[i]);
             let username = checks[i].closest('div').previousElementSibling.querySelector('span').id;
 
             if (checks[i].classList.contains("text-tertiary")) {
