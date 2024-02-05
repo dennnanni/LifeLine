@@ -37,15 +37,15 @@
         <div class="row justify-content-center">
             <form class="col-xl-5 col-md-6 col-10" action="#" id="signinForm">
                 <ul class="list-unstyled">
-                    <li>
+                    <li class="mt-1">
                         <label for="email" hidden>Email</label>
                         <input class="w-100 mb-1 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" type="text" id="email" name="email" placeholder="Email" required/>
                     </li>
-                    <li>
+                    <li class="mt-1">
                         <label for="password" hidden>Password</label>
                         <input class="w-100 mb-1 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" type="password" id="password" name="password" placeholder="Password" required/>
                     </li>
-                    <li>
+                    <li class="mt-1">
                         <label for="submit" hidden>Login</label>
                         <input class="w-100 rounded-3 border-0 bg-secondary btn-lg text-dark" type="button" name="submit" id="submit" value="Submit" />
                     </li>
