@@ -173,7 +173,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare("DELETE FROM friendship WHERE (friendship.sender = ? AND friendship.receiver = ?) OR (friendship.sender = ? AND friendship.receiver = ?)");
         $stmt->bind_param('ssss', $username1, $username2, $username2, $username1);
         $stmt->execute();
-        $result = $stmt->get_result();
+        $stmt->get_result();
 
         $this->updateFriendsCount($username1, -1);
         $this->updateFriendsCount($username2, -1);
@@ -197,7 +197,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare('UPDATE friendship SET accepted = 1 WHERE sender = ? AND receiver = ?');
         $stmt->bind_param('ss', $senderUsername, $receiverUsername);
         $stmt->execute();
-        $result = $stmt->get_result();
+        $stmt->get_result();
 
         $this->updateFriendsCount($senderUsername);
         $this->updateFriendsCount($receiverUsername);
