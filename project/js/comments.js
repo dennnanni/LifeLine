@@ -16,7 +16,7 @@ window.onload = function load() {
         $.ajax({
             url: "ajax/delete.php", 
             type: "POST", 
-            data: {"commentId": commentId}, 
+            data: {"commentId": commentId, "postId": postId}, 
             success: function() {
                 window.location.reload();
             }

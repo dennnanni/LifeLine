@@ -107,9 +107,14 @@ class DatabaseHelper {
     /**
      * Deletes the comment from database
      */
-    public function deleteComment($id) {
+    public function deleteComment($id, $postId) {
         $stmt = $this->db->prepare("DELETE FROM comment WHERE id = ?");
         $stmt->bind_param("i", $id);
+        $stmt->execute();
+
+        // Updates redundancy
+        $stmt = $this->db->prepare("UPDATE post SET commentsCount = commentsCount - 1 WHERE id = ?");
+        $stmt->bind_param("i", $postId);
         $stmt->execute();
 
         return;

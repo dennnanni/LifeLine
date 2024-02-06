@@ -21,10 +21,12 @@ $(document).ready(function() {
         })
     })
 
-    deleteButton.addEventListener('click', function() {
-        toast.classList.add("show");
-        toast.parentElement.classList.add("display-overlapped");
-    });
+    if (deleteButton != null){
+        deleteButton.addEventListener('click', function() {
+            toast.classList.add("show");
+            toast.parentElement.classList.add("display-overlapped");
+        });
+    }
 
     dismiss.addEventListener("click", function() {
         var toastElement = dismiss.closest('.toast');
