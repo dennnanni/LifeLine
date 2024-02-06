@@ -15,8 +15,9 @@
             <ul class="list-unstyled">
                 <li>
                     <div class="mt-4 w-100 h-100 mb-2">
-                        <h5 class="text-dark">Image</h5>
-                        <input class="square" type="file" id="immaginePost" name="immaginePost" accept="image/jpg, image/jpeg, image/png, image/gif" hidden>
+                        <span class="text-dark fs-5">Image</span>
+                        <label for="profilePicture" hidden>Profile pictore</label>
+                        <input class="square" type="file" id="profilePicture" name="profilePicture" accept="image/jpg, image/jpeg, image/png, image/gif" hidden>
                         <img id="post-image" src="images/empty-post-photo.jpg" class=" border border-1 border-tertiary-light border-solid rounded-3 w-100 h-100" alt="next profile picture">
                     </div>
                 </li>

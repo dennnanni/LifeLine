@@ -1,9 +1,39 @@
 $(document).ready(function() {
+    
     let star = document.getElementById("star");
     let username = document.getElementById("currentUser").value;
     let postId = document.getElementById("postId").value;
     let sendButton = document.getElementById("sendButton");
     let commentArea = document.getElementById("commentArea");
+    let confirmDelete = document.getElementById("confirmDelete");
+    let deleteButton = document.getElementById("deleteButton");
+    let toast = document.getElementById("toast");
+    let dismiss = document.getElementById("toastDismiss")
+
+    confirmDelete.addEventListener("click", function() {
+        $.ajax({
+            url: "ajax/delete.php", 
+            type: "POST", 
+            data: {"postId": postId}, 
+            success: function() {
+                window.location.href = "diary.php";
+            }
+        })
+    })
+
+    deleteButton.addEventListener('click', function() {
+        toast.classList.add("show");
+        toast.parentElement.classList.add("display-overlapped");
+    });
+
+    dismiss.addEventListener("click", function() {
+        var toastElement = dismiss.closest('.toast');
+
+        if (toastElement) {
+            toastElement.classList.remove("show");
+            toastElement.parentElement.classList.remove("display-overlapped");
+        }
+    });
 
     star.addEventListener("click", function() {
 

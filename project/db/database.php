@@ -92,6 +92,29 @@ class DatabaseHelper {
         }
     }
 
+
+    /**
+     * Deletes the given post from database
+     */
+    public function deletePost($postId) {
+        $stmt = $this->db->prepare("DELETE FROM post WHERE id = ?");
+        $stmt->bind_param("i", $postId);
+        $stmt->execute();
+
+        return;
+    }
+
+    /**
+     * Deletes the comment from database
+     */
+    public function deleteComment($postId, $username, $timestamp) {
+        $stmt = $this->db->prepare("DELETE FROM comment WHERE postId = ? AND username = ? AND timestamp = ?");
+        $stmt->bind_param("iss", $postId, $username, $timestamp);
+        $stmt->execute();
+
+        return;
+    }
+
     public function loadHomePage($username, $categoryFilter = null) {
         $query =    "SELECT * ".
                     "FROM post ".

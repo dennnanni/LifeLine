@@ -1,9 +1,18 @@
 <?php require("header.php"); ?>
-<!-- <p>post: <?php echo implode(" ", $templateParams["post"])?></p>
-<p>author: <?php echo implode(" ", $templateParams["author"])?></p> -->
-<!-- 
-<a href="comments.php?id=<?php echo $templateParams["post"]["id"]?>">Commenti</a>
-<a href="stars.php?id=<?php echo $templateParams["post"]["id"]?>">Stelle</a> -->
+
+
+<div class="toast-container position-absolute top-5 start-50 translate-middle-x">
+    <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto text-secondary">Lifeline</strong>
+            <button id="toastDismiss" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body bg-light">
+            <label for="confirmDelete">Questo post verrà eliminato dal tuo diario, vuoi continuare?</label>
+            <button id="confirmDelete" class="btn btn-danger btn-sm mt-2">Elimina</button>
+        </div>
+    </div>
+</div>
 
 <div class="d-flex flex-grow-1 mb-10 justify-content-center">
     <div class="col-12 col-md-8 col-lg-6 col-xl-4 position-relative mt-3">
@@ -14,11 +23,16 @@
                 <div class="d-inline-block rounded-circle propic-wrapper-lg">
                     <img class="propic" src="upload/<?php echo $templateParams["author"]["profilePic"] ?>" alt="<?php $templateParams["author"]["name"]?>'s profile picture"/>
                 </div>
-                <div class="d-inline-flex align-items-center">
+                <div class="d-inline-flex flex-grow-1 align-items-center">
                     <div class="container">
                         <div class="row">
-                            <div>
-                                <h2 class="fs-5"><a id="username" class="text-decoration-none text-dark" href="diary.php?username=<?php echo $templateParams["author"]["username"] ?>">@<?php echo $templateParams["author"]["username"] ?></a></h2>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a id="username" class="text-decoration-none text-dark" href="diary.php?username=<?php echo $templateParams["author"]["username"] ?>"><h2 class="fs-5 mb-0">@<?php echo $templateParams["author"]["username"] ?></h2></a>
+                                <?php if($templateParams["post"]["author"] == $templateParams["currentUser"]): ?>
+                                    <button id="deleteButton" class="btn btn-outline-none bg-light border-0">
+                                        <span class="fa-solid fa-trash"></span>
+                                    </button>
+                                <?php endif; ?>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span><?php echo date("d/m/Y h:m", strtotime($templateParams["post"]["timestamp"]))?></span>
@@ -60,7 +74,7 @@
                         <div class="col d-inline-flex align-items-center fs-5">
                             <div>
                                 <input id="currentUser" type="hidden" value="<?php echo $templateParams["currentUser"] ?>"/>
-                                <a id="starsCount" class="me-1 text-decoration-none text-dark" <?php $templateParams["post"]["starsCount"] > 0 ? 'href="stars.php?id='.$templateParams["post"]["id"] : "" ?>><?php echo $templateParams["post"]["starsCount"] ?></a>
+                                <a id="starsCount" class="me-1 text-decoration-none text-dark" <?php echo $templateParams["post"]["starsCount"] > 0 ? 'href="stars.php?id='.$templateParams["post"]["id"].'"' : "" ?>><?php echo $templateParams["post"]["starsCount"] ?></a>
                                 <button id="star" class="border-0 p-0 bg-light">
                                     <span class="fa-<?php echo $templateParams["post"]["starred"] ? "solid text-secondary" : "regular" ?> fa-star"></span>
                                 </button>

@@ -5,10 +5,10 @@ include("auth_session.php");
 updateHistory(basename($_SERVER["REQUEST_URI"]));
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nomeFile = validate($_FILES["immaginePost"]["name"]);
+    $nomeFile = validate($_FILES["profilePicture"]["name"]);
     
     if (!empty($nomeFile)) {
-        list($result, $nuovoNomeFile) = uploadImage(UPLOAD_DIR, $_FILES["immaginePost"]);
+        list($result, $nuovoNomeFile) = uploadImage(UPLOAD_DIR, $_FILES["profilePicture"]);
         $dbh->changeUserPhoto($_SESSION["username"], $nuovoNomeFile);
     }
 

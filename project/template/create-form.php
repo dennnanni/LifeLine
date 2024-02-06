@@ -15,8 +15,8 @@
         <ul class="list-unstyled">
             <li>
                 <div class="mt-4 w-50 h-50 mb-2">
-                    <label class="text-dark fs-5" for="immaginePost">Image</label>
-                    <input class="square" type="file" id="immaginePost" name="immaginePost" accept="image/jpg, image/jpeg, image/png, image/gif" hidden>
+                    <label class="text-dark fs-5" for="postImage">Image</label>
+                    <input class="square" type="file" id="postImage" name="postImage" accept="image/jpg, image/jpeg, image/png, image/gif" hidden>
                         <img id="post-image" src="<?php echo ($templateParams["imageName"] != "" ? "upload/".$templateParams["imageName"] : "images/empty-post-photo.jpg")?>" class="w-100 h-100 border border-1 border-tertiary-light border-solid rounded-3" alt="post image">
                 </div>
             </li>

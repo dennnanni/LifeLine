@@ -97,6 +97,10 @@ button#sendButton {
     z-index: 0;
 }
 
+.display-overlapped {
+    z-index: 100;
+}
+
 input::placeholder,
 textarea::placeholder {
     color: var(--dark);

@@ -19,9 +19,9 @@
                             <span class="fa-solid fa-star" aria-hidden="true"></span>
                         </div>
                     </div>
-                    <section class="d-flex align-items-center">
-                        <span class="d-inline-block text-dark"><a class="text-decoration-none text-dark" href="diary.php?username=<?php echo $star["username"]?>" class="fw-bold">@<?php echo $star["username"]?></a></span>
-                    </section>
+                    <div class="d-flex align-items-center">
+                            <a class="text-decoration-none text-dark fw-bold" href="diary.php?username=<?php echo $star["username"]?>">@<?php echo $star["username"]?></a>
+                    </div>
                 </div>
                 <?php endforeach;?>
             </div>

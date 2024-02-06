@@ -1,6 +1,6 @@
 window.onload = function load() {
     let imageElement = document.querySelector("#post-image");
-    let inputFile = document.querySelector('#immaginePost');
+    let inputFile = document.querySelector('#postImage');
 
     imageElement.addEventListener('click', function() {
         inputFile.click();
