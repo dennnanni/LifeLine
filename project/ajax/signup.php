@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else{
             registerUserSession($username, $fullname);
+            sendEmail($email, "Registration Confirmation", "Dear ".$fullname.",\r\n\r\nWe are delighted to inform you that your registration to LifeLine was successful.\r\nWelcome aboard! You can now share all your life experiences and create memories.\r\n\r\nThank you,\r\nThe LifeLine Team.");
         }
         $_SESSION["footerActivePage"] = "diary";
     }

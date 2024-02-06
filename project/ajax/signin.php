@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else{
             registerUserSession($login_result["username"], $login_result["name"]);
+            sendEmail($email, "New login!", "Dear ".$login_result['name'].",\r\n\r\nWe wanted to inform you that a new login has been made to your account on LifeLine.\r\n\r\nThank you,\r\nThe LifeLine Team.");
         }
         $_SESSION["footerActivePage"] = "home";
     }
