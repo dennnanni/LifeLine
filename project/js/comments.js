@@ -1,10 +1,48 @@
 window.onload = function load() {
-    let commentArea = document.getElementById('commentArea');
-    let sendButton = document.getElementById('sendButton');
+    let commentArea = document.getElementById("commentArea");
+    let sendButton = document.getElementById("sendButton");
+    let confirmDelete = document.getElementById("confirmDelete");
+    let deleteButton = document.getElementById("deleteButton");
+    let toast = document.getElementById("toast");
+    let dismiss = document.getElementById("toastDismiss")
+    let postId = document.getElementById("postId").value;
+    let commentId = null;
+
+    confirmDelete.addEventListener("click", function() {
+        if (commentId == null) {
+            dismiss.click();
+        }
+
+        $.ajax({
+            url: "ajax/delete.php", 
+            type: "POST", 
+            data: {"commentId": commentId}, 
+            success: function() {
+                window.location.reload();
+            }
+        })
+    })
+
+    document.querySelectorAll('[name="deleteButton"]').forEach(function(button) {
+        button.addEventListener('click', function() {
+            toast.classList.add("show");
+            toast.parentElement.classList.add("display-overlapped");
+            commentId = button.parentElement.children[0].value;
+        });
+    })
+
+    dismiss.addEventListener("click", function() {
+        var toastElement = dismiss.closest('.toast');
+
+        if (toastElement) {
+            toastElement.classList.remove("show");
+            toastElement.parentElement.classList.remove("display-overlapped");
+            commentId = null;
+        }
+    });
 
     sendButton.addEventListener('click', function() {
         if (commentArea.value != "") {
-            let postId = document.getElementById("postId").value;
             sendComment(commentArea.value, postId);
             commentArea.value = "";
         }

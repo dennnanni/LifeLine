@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         exit();
     }
     else {
+        $templateParams["currentUser"] = $_SESSION["username"];
         $templateParams["post"] = $dbh->getPost($_GET["id"]);
         $templateParams["comments"] = $dbh->getComments($_GET["id"]);
         foreach ($templateParams["comments"] as &$comment) {

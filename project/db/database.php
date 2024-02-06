@@ -107,9 +107,9 @@ class DatabaseHelper {
     /**
      * Deletes the comment from database
      */
-    public function deleteComment($postId, $username, $timestamp) {
-        $stmt = $this->db->prepare("DELETE FROM comment WHERE postId = ? AND username = ? AND timestamp = ?");
-        $stmt->bind_param("iss", $postId, $username, $timestamp);
+    public function deleteComment($id) {
+        $stmt = $this->db->prepare("DELETE FROM comment WHERE id = ?");
+        $stmt->bind_param("i", $id);
         $stmt->execute();
 
         return;
@@ -251,7 +251,7 @@ class DatabaseHelper {
     }
 
     /**
-     * Get all the post comments
+     * Get all the post stars
      */
     public function getStars($postId) {
         $stmt = $this->db->prepare("SELECT star.username FROM star WHERE star.postId = ?");

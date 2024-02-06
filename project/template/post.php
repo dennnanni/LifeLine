@@ -8,8 +8,8 @@
             <button id="toastDismiss" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body bg-light">
-            <label for="confirmDelete">Questo post verrà eliminato dal tuo diario, vuoi continuare?</label>
-            <button id="confirmDelete" class="btn btn-danger btn-sm mt-2">Elimina</button>
+            <label for="confirmDelete">This memory will be deleted from your diary, will you continue?</label>
+            <button id="confirmDelete" class="btn btn-danger btn-sm mt-2">Delete</button>
         </div>
     </div>
 </div>
@@ -29,7 +29,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <a id="username" class="text-decoration-none text-dark" href="diary.php?username=<?php echo $templateParams["author"]["username"] ?>"><h2 class="fs-5 mb-0">@<?php echo $templateParams["author"]["username"] ?></h2></a>
                                 <?php if($templateParams["post"]["author"] == $templateParams["currentUser"]): ?>
-                                    <button id="deleteButton" class="btn btn-outline-none bg-light border-0">
+                                    <button id="deleteButton" class="btn bg-light border-0">
                                         <span class="fa-solid fa-trash"></span>
                                     </button>
                                 <?php endif; ?>
