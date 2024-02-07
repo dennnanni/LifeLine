@@ -32,7 +32,8 @@
                                 @<?php echo $templateParams["author"]["username"] ?>
                             </h2>
                         </a>
-                        <?php if ($templateParams["post"]["author"] == $templateParams["currentUser"]): ?>
+                        <?php if($templateParams["post"]["author"] == $templateParams["currentUser"]): ?>
+                            <label for="deleteButton" hidden>Delete this post</label>
                             <button id="deleteButton" class="btn bg-light border-0">
                                 <span class="fa-solid fa-trash"></span>
                             </button>
@@ -40,7 +41,7 @@
                     </div>
                     <div class="d-flex w-100 justify-content-between">
                         <span class="small"><?php echo date("d/m/Y h:m", strtotime($templateParams["post"]["timestamp"])) ?></span>
-                        <?php if (isset($templateParams["post"]["location"])): ?>
+                        <?php if(isset($templateParams["post"]["location"])): ?>
                             <div>
                                 <span class="fa-solid fa-location-dot"></span>
                                 <span class="small"><?php echo $templateParams["post"]["location"] ?></span>
