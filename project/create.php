@@ -9,7 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = validate($_POST["description"]) == "" ? null : validate($_POST["description"]);
     $location = validate($_POST["location"]) == "" ? null : validate($_POST["location"]);
     $category = validate($_POST["category"]);
-    $nomeFile = validate($_FILES["postImage"]["name"]);
     
     if (empty($title)) {
         $templateParams["uploadError"] = "Error! You must insert a title for the post!";
@@ -18,10 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $templateParams["uploadError"] = "Error! You must select a category for the post!";
     }
     else {
-        if (!empty($nomeFile)) {
-            list($result, $nuovoNomeFile) = uploadImage(UPLOAD_DIR, $_FILES["postImage"]);
-            $_SESSION["imageName"] = $nuovoNomeFile;
-            $dbh->createPost($_SESSION["username"], $title, $description, $location, $category, $_SESSION["taggedUsers"], $nuovoNomeFile);
+        if (!empty($_SESSION["imageName"]) && $_SESSION["imageName"] != "") {
+            $dbh->createPost($_SESSION["username"], $title, $description, $location, $category, $_SESSION["taggedUsers"], $_SESSION["imageName"]);
         }
         else {
             $dbh->createPost($_SESSION["username"], $title, $description, $location, $category, $_SESSION["taggedUsers"]);
