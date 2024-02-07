@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-    let title = document.getElementById("title");
+    let title = document.getElementById("headerTitle");
     let backArrow = document.getElementById("backArrow");
     let done = document.getElementById("done");
 
@@ -22,7 +22,7 @@ window.addEventListener('load', function() {
     }
 
     let footerLinks = document.getElementsByClassName("footerLink");
-    for(let i = 0; i < footerLinks.length; i++) {
+    for (let i = 0; i < footerLinks.length; i++) {
         footerLinks[i].addEventListener("click", function() {
             changeFooterActivePage(footerLinks[i].id);
         });

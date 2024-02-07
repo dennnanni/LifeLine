@@ -22,7 +22,7 @@
       <?php endif; ?>
     </div>
     <div class="col-10 text-center">
-      <h1 id="title" class="text-light">LifeLine</h1>
+      <h1 id="headerTitle" class="text-light">LifeLine</h1>
     </div>
     <div class="col-1 d-flex justify-content-center align-items-center">
       <?php if(isset($templateParams["headerRightIcon"])): ?>

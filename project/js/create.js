@@ -40,23 +40,23 @@ window.onload = function load() {
     titleArea.addEventListener('input', function() {
         titleArea.style.height = "auto";
         titleArea.style.height = titleArea.scrollHeight + "px";
-        
-        saveField("title", titleArea.value);
+
+        saveField(titleArea.id, titleArea.value);
     });
-    
+
     descriptionArea.addEventListener('input', function() {
         descriptionArea.style.height = "auto";
         descriptionArea.style.height = descriptionArea.scrollHeight + "px";
-        
-        saveField("description", descriptionArea.value);
+
+        saveField(descriptionArea.id, descriptionArea.value);
     });
 
     locationInput.addEventListener('input', function() {
-        saveField("location", locationInput.value);
+        saveField(locationInput.id, locationInput.value);
     });
 
     categorySelect.addEventListener('change', function() {
-        saveField("category", categorySelect.value);
+        saveField(categorySelect.id, categorySelect.value);
     });
 }
 
@@ -73,11 +73,7 @@ function saveImage(formData) {
         url: "ajax/create.php",
         type: "POST",
         data: formData,
-        processData: false,  // tell jQuery not to process the data
-        contentType: false,  // tell jQuery not to set contentType
-        success: function(response) {
-            // let data = JSON.parse(response);
-            console.log(response);
-        }
+        processData: false, // tell jQuery not to process the data
+        contentType: false // tell jQuery not to set contentType
     });
 }
