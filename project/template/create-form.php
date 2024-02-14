@@ -22,7 +22,7 @@
             </li>
             <li>
                 <label for="title" hidden>Title</label>
-                <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="title" name="title" placeholder="Title" maxlength="20"><?php echo $templateParams["title"]?></textarea>
+                <textarea class="d-block w-100 mb-2 rounded-3 border-1 border-tertiary-light border-solid border btn-lg bg-light text-dark" id="title" name="title" placeholder="Title" maxlength="20" required><?php echo $templateParams["title"]?></textarea>
             </li>
             <li>
                 <label for="description" hidden>Description</label>
@@ -34,8 +34,8 @@
             </li>
             <li>
                 <label for="category" hidden>Category</label>
-                <select class="form-select w-100 mb-2 border border-1 border-tertiary-light border-solid btn-lg bg-light text-dark" id="category" name="category">
-                    <option value="0" <?php if($templateParams["category"] == ""): { echo "selected";} endif;?>>Category</option>
+                <select class="form-select w-100 mb-2 border border-1 border-tertiary-light border-solid btn-lg bg-light text-dark" id="category" name="category" required>
+                    <option value="" <?php if($templateParams["category"] == ""): { echo "selected";} endif;?>>Category</option>
                     <?php foreach($templateParams["categories"] as $category): ?>
                         <option value="<?php echo $category["name"]; ?>" <?php if($templateParams["category"] == $category["name"]): { echo "selected";} endif;?>><?php echo $category["name"]; ?></option>
                     <?php endforeach; ?>

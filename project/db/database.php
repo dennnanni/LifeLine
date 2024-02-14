@@ -162,12 +162,18 @@ class DatabaseHelper {
      * Get all posts shown in the diary page
      */
     public function getFriendDiary($username, $friend) {
-        $stmt = $this->db->prepare('SELECT * FROM post LEFT JOIN tag ON post.author = tag.username WHERE post.author = ? OR tag.username = ? AND EXISTS (SELECT * FROM friendship WHERE (sender = ? AND receiver = ?) OR (sender = ? AND receiver = ?)) ORDER BY post.timestamp DESC');
-        $stmt->bind_param('ssssss', $friend, $friend, $friend, $username, $username, $friend);
+        $stmt = $this->db->prepare('SELECT * FROM post WHERE (author = ?) OR (post.id in (SELECT postId FROM tag where username = ?)) ORDER BY post.timestamp DESC;');
+        $stmt->bind_param('ss', $friend, $friend);
         $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        $output = array();
+        foreach($result as $row) {
+            $friendshipStatus = $this->getFriendshipStatus($row["author"], $username);
+            if(isset($friendshipStatus) && $friendshipStatus["accepted"] == 1 || $row["author"] == $username) {
+                $output[] = $row;
+            }
+        }
+        return $output;
     }
 
     /**
