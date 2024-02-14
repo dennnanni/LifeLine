@@ -13,9 +13,9 @@ INSERT INTO CATEGORY (name) VALUES
 
 -- Inserimento utenti
 INSERT INTO USER (username, passwordHash, name, email, profilePic, friendsCount) VALUES
-('user1', '$2y$10$gSymACzkVWNOcgfuekbeqebM/faIRCUbsQHpOq9u53IREvZzwftBC', 'User One', 'user1@example.com', 'default.jpg', 4),
+('user1', '$2y$10$gSymACzkVWNOcgfuekbeqebM/faIRCUbsQHpOq9u53IREvZzwftBC', 'User One', 'user1@example.com', '12.jpg', 4),
 ('user2', '$2y$10$JhR19ixeY/gTxhGeQ1R0tOluH97AImOe853fuGrEGcX8DaKa7vod6', 'User Two', 'user2@example.com', '1.jpg', 2),
-('user3', '$2y$10$5uY9azSo4eTycQYJrwmMO./TQu6F4n7rqOUMci33dqENwRV7piFzu', 'User Three', 'user3@example.com', 'default.jpg', 3),
+('user3', '$2y$10$5uY9azSo4eTycQYJrwmMO./TQu6F4n7rqOUMci33dqENwRV7piFzu', 'User Three', 'user3@example.com', '13.jpg', 3),
 ('user4', '$2y$10$oZzthyhxGGnf4/fU2Qf/rez4t4IkNEMccdxoZHUASK8a7v7g75R3i', 'User Four', 'user4@example.com', '2.jpg', 2),
 ('user5', '$2y$10$rYX/5TXUOtWNHu4YRqz0XOkcWtfWKJ2qF54dQTnUwJvOJ4P2P9TN.', 'User Five', 'user5@example.com', '3.jpg', 1);
 
